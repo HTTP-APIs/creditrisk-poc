@@ -26,33 +26,6 @@
       "rdf:label": "CounterParty"
     },
     {
-      "@id": "https://www.openriskmanual.org/ns/nplo.owl#Borrower",
-      "@type": "rdfs:class",
-      "rdfs:subClassOf": {
-        "@id": "https://www.openriskmanual.org/ns/nplo.owl#Counterparty"
-      },
-      "rdf:comment": "",
-      "rdf:label": "Borrower"
-    },
-    {
-      "@id": "https://www.openriskmanual.org/ns/nplo.owl#CorporateBorrower",
-      "@type": "rdfs:Class",
-      "rdfs:subClassOf": {
-        "@id": "https://www.openriskmanual.org/ns/nplo.owl#Borrower"
-      },
-      "rdf:comment": "",
-      "rdf:label": "CorporateBorrower"
-    },
-    {
-      "@id": "https://www.openriskmanual.org/ns/nplo.owl#IndividualBorrower",
-      "@type": "rdfs:Class",
-      "rdfs:subClassOf": {
-        "@id": "https://www.openriskmanual.org/ns/nplo.owl#Borrower"
-      },
-      "rdf:comment": "",
-      "rdf:label": "IndividualBorrower"
-    },
-    {
       "@id": "https://www.openriskmanual.org/ns/nplo/index-en.html#Loan",
       "@type": "rdfs:Class",
       "rdfs:comment": "",
