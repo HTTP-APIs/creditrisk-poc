@@ -57,7 +57,7 @@
       "propertyOn": "xsd:dateTime"
     },
     {
-      "@id": "https://www.openriskmanual.org/ns/nplo/index-en.html#Loan",
+      "@id": "https://www.openriskmanual.org/ns/nplo.owl#Loan",
       "@type": "rdfs:Class",
       "rdfs:comment": "",
       "rdf:label": "Loan"
@@ -66,7 +66,7 @@
       "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_total_balance",
       "@type": "owl:DataProperty",
       "propertyOf": {
-        "@id":  "https://www.openriskmanual.org/ns/nplo/index-en.html#Loan"
+        "@id":  "https://www.openriskmanual.org/ns/nplo.owl#Loan"
       },
       "rdfs:label": "TotalBalance",
       "propertyOn": "xsd:decimal"
@@ -75,7 +75,7 @@
       "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_channel_of_origination",
       "@type": "owl:DataProperty",
       "propertyOf": {
-        "@id":  "https://www.openriskmanual.org/ns/nplo/index-en.html#Loan"
+        "@id":  "https://www.openriskmanual.org/ns/nplo.owl#Loan"
       },
       "rdfs:label": "ChannelOfOrigination"
     }
