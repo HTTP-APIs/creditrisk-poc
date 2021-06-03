@@ -2,6 +2,7 @@
   "@context": {
    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "https://www.w3.org/TR/xmlschema-2/#",
     "defines"  : {
           "@reverse": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
         },
@@ -24,6 +25,27 @@
       "@type" : "rdfs:class",
       "rdf:comment": "",
       "rdf:label": "CounterParty"
+    },
+    {
+      "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_legal_entity_identifier",
+      "@type": "owl:DataProperty",
+      "rdfs:comment": "",
+      "rdfs:label": "LegalEntityIdentifier",
+      "propertyOn": "xsd:string"
+    },
+    {
+      "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_total_assets",
+      "@type":"owl:DataProperty",
+      "rdfs:comment": "",
+      "rdfs:label": "TotalAssets",
+      "propertyOn": "xsd:decimal"
+    },
+    {
+      "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_date_of_incorporation",
+      "@type":"owl:DataProperty",
+      "rdfs:comment": "",
+      "rdfs:label": "DateOfIncorporation",
+      "propertyOn": "xsd:dateTime"
     },
     {
       "@id": "https://www.openriskmanual.org/ns/nplo/index-en.html#Loan",
