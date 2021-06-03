@@ -31,6 +31,9 @@
       "@type": "owl:DataProperty",
       "rdfs:comment": "",
       "rdfs:label": "LegalEntityIdentifier",
+      "propertyOf": {
+        "@id":  "https://www.openriskmanual.org/ns/nplo.owl#Counterparty"
+      },
       "propertyOn": "xsd:string"
     },
     {
@@ -38,6 +41,9 @@
       "@type":"owl:DataProperty",
       "rdfs:comment": "",
       "rdfs:label": "TotalAssets",
+      "propertyOf": {
+        "@id":  "https://www.openriskmanual.org/ns/nplo.owl#Counterparty"
+      },
       "propertyOn": "xsd:decimal"
     },
     {
@@ -45,6 +51,9 @@
       "@type":"owl:DataProperty",
       "rdfs:comment": "",
       "rdfs:label": "DateOfIncorporation",
+      "propertyOf": {
+        "@id":  "https://www.openriskmanual.org/ns/nplo.owl#Counterparty"
+      },
       "propertyOn": "xsd:dateTime"
     },
     {
@@ -54,11 +63,21 @@
       "rdf:label": "Loan"
     },
     {
-      "@id": "https://www.openriskmanual.org/ns/nplo/index-en.html#has_principal_balance",
+      "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_total_balance",
       "@type": "owl:DataProperty",
-      "propertyOf": { "@id":  "https://www.openriskmanual.org/ns/nplo/index-en.html#Loan"},
-      "rdfs:label": "Amount"
+      "propertyOf": {
+        "@id":  "https://www.openriskmanual.org/ns/nplo/index-en.html#Loan"
+      },
+      "rdfs:label": "TotalBalance",
+      "propertyOn": "xsd:decimal"
+    },
+    {
+      "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_channel_of_origination",
+      "@type": "owl:DataProperty",
+      "propertyOf": {
+        "@id":  "https://www.openriskmanual.org/ns/nplo/index-en.html#Loan"
+      },
+      "rdfs:label": "ChannelOfOrigination"
     }
-
   ]
 }
