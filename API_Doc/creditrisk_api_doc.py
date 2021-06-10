@@ -3,7 +3,7 @@
 doc = {
     "@context": {
         "ApiDocumentation": "hydra:ApiDocumentation",
-        "NPL": "https://raw.githubusercontent.com/Purvanshsingh/creditrisk-poc/main/NonPerformingLoan.json",
+        "NPL": "https://raw.githubusercontent.com/Purvanshsingh/creditrisk-poc/main/NonPerformingLoan.jsonld#",
         "description": "hydra:description",
         "domain": {
             "@id": "rdfs:domain",
@@ -101,7 +101,7 @@ doc = {
                         {
                             "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
                             "@type": "Status",
-                            "description": "Movie class returned.",
+                            "description": "Loan class returned.",
                             "statusCode": 200,
                             "title": ""
                         }
@@ -128,10 +128,7 @@ doc = {
                         }
                     ],
                     "returns": "null",
-                    "returnsHeader": [
-                        "Content-Type",
-                        "Content-Length"
-                    ],
+                    "returnsHeader": [],
                     "title": "AddLoan"
                 }
             ],
@@ -230,7 +227,107 @@ doc = {
                     "returnsHeader": []
                 }
             ],
-            "supportedProperty": [],
+            "supportedProperty": [
+                {
+                    "hydra:description": "The Loan Class",
+                    "hydra:title": "loan",
+                    "property": {
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/Loan",
+                        "@type": "hydra:Link",
+                        "description": "This class contains the information regarding Loan",
+                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
+                        "label": "Loan",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
+                        "supportedOperation": [
+                            {
+                                "@id": "updateloan",
+                                "@type": "http://schema.org/UpdateAction",
+                                "description": "null",
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
+                                "expectsHeader": [],
+                                "label": "UpdateLoan",
+                                "method": "POST",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                                        "@type": "Status",
+                                        "description": "Loan class updated.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": "null",
+                                "returnsHeader": [
+                                    "Content-Type",
+                                    "Content-Length"
+                                ]
+                            },
+                            {
+                                "@id": "getloan",
+                                "@type": "http://schema.org/FindAction",
+                                "description": "null",
+                                "expects": "null",
+                                "expectsHeader": [],
+                                "label": "GetLoan",
+                                "method": "GET",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                                        "@type": "Status",
+                                        "description": "Loan class returned.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
+                                "returnsHeader": [
+                                    "Content-Type",
+                                    "Content-Length"
+                                ]
+                            },
+                            {
+                                "@id": "addloan",
+                                "@type": "http://schema.org/AddAction",
+                                "description": "null",
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
+                                "expectsHeader": [],
+                                "label": "AddLoan",
+                                "method": "PUT",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                                        "@type": "Status",
+                                        "description": "Loan class updated.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": "null",
+                                "returnsHeader": []
+                            }
+                        ]
+                    },
+                    "readable": "true",
+                    "required": "null",
+                    "writeable": "false"
+                },
+                {
+                    "hydra:description": "The Borrower Class",
+                    "hydra:title": "borrower",
+                    "property": {
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/Borrower",
+                        "@type": "hydra:Link",
+                        "description": "This class contains the information regarding Loan",
+                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
+                        "label": "Borrower",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=Borrower",
+                        "supportedOperation": []
+                    },
+                    "readable": "true",
+                    "required": "null",
+                    "writeable": "false"
+                }
+            ],
             "title": "EntryPoint"
         }
     ],

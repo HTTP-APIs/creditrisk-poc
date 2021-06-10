@@ -15,12 +15,12 @@ api_doc = HydraDoc(API_NAME,
 
 # Adding NPL jsonld vocabulary to API_Doc context
 api_doc.add_to_context("NPL",
-                       "https://raw.githubusercontent.com/Purvanshsingh/creditrisk-poc/main/NonPerformingLoan.json")
+                       "https://raw.githubusercontent.com/Purvanshsingh/creditrisk-poc/main/NonPerformingLoan.jsonld#")
 
 # Creating Loan & Borrower classes
 loan_class_title = "Loan"
 loan_class_description = "This class contains the information regarding Loan"
-loan_class = HydraClass(loan_class_title, loan_class_description)
+loan_class = HydraClass(loan_class_title, loan_class_description, endpoint=True)
 # Adding properties to load class
 loan_property1_uri = "NPL:TotalBalance"
 loan_property1_title = "TotalBalance"
@@ -33,7 +33,7 @@ Origination_prop = HydraClassProp(loan_property2_uri, loan_property2_title,
 # Adding borrower class
 borrower_class_title = "Borrower"
 borrower_class_description = "This class contains the information regarding Loan"
-borrower_class = HydraClass(borrower_class_title, borrower_class_description)
+borrower_class = HydraClass(borrower_class_title, borrower_class_description, endpoint=True)
 # Adding properties to Borrower class
 borrower_property1_uri = "NPL:LegalEntityIdentifier"
 borrower_property1_title = "LegalEntityIdentifier"
@@ -61,7 +61,7 @@ add_loan_operation = "AddLoan"
 add_loan_operation_method = "PUT"
 add_loan_operation_expects = loan_class.id_
 add_loan_operation_returns = None
-add_loan_operation_returns_header = ["Content-Type", "Content-Length"]
+add_loan_operation_returns_header = []
 add_loan_operation_expects_header = []
 # status code
 add_loan_operation_status = [HydraStatus(code=200, desc="Loan class updated.")]
@@ -73,7 +73,7 @@ get_loan_operation_returns = loan_class.id_
 get_loan_operation_returns_header = ["Content-Type", "Content-Length"]
 get_loan_operation_expects_header = []
 # Status code
-get_loan_operation_status = [HydraStatus(code=200, desc="Movie class returned.")]
+get_loan_operation_status = [HydraStatus(code=200, desc="Loan class returned.")]
 
 post = HydraClassOp(update_loan_operation,
                     update_loan_operation_method,
