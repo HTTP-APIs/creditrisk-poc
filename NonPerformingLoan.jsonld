@@ -1,0 +1,83 @@
+{
+  "@context": {
+   "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "https://www.w3.org/TR/xmlschema-2/#",
+    "defines"  : {
+          "@reverse": "http://www.w3.org/2000/01/rdf-schema#isDefinedBy"
+        },
+    "propertyOf": {
+        "@id": "rdfs:domain",
+        "@type": "@id"
+     },
+    "propertyOn": {
+        "@id": "rdfs:range",
+        "@type": "@id"
+     }
+  },
+  "@id" : "",
+  "@type" : "http://www.w3.org/2002/07/owl#Ontology",
+  "rdf:label": "Non performing loan vocabulary",
+   "rdf:comment" : "",
+  "defines" : [
+    {
+      "@id" : "https://www.openriskmanual.org/ns/nplo.owl#Counterparty",
+      "@type" : "rdfs:class",
+      "rdf:comment": "",
+      "rdf:label": "CounterParty"
+    },
+    {
+      "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_legal_entity_identifier",
+      "@type": "owl:DataProperty",
+      "rdfs:comment": "",
+      "rdfs:label": "LegalEntityIdentifier",
+      "propertyOf": {
+        "@id":  "https://www.openriskmanual.org/ns/nplo.owl#Counterparty"
+      },
+      "propertyOn": "xsd:string"
+    },
+    {
+      "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_total_assets",
+      "@type":"owl:DataProperty",
+      "rdfs:comment": "",
+      "rdfs:label": "TotalAssets",
+      "propertyOf": {
+        "@id":  "https://www.openriskmanual.org/ns/nplo.owl#Counterparty"
+      },
+      "propertyOn": "xsd:decimal"
+    },
+    {
+      "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_date_of_incorporation",
+      "@type":"owl:DataProperty",
+      "rdfs:comment": "",
+      "rdfs:label": "DateOfIncorporation",
+      "propertyOf": {
+        "@id":  "https://www.openriskmanual.org/ns/nplo.owl#Counterparty"
+      },
+      "propertyOn": "xsd:dateTime"
+    },
+    {
+      "@id": "https://www.openriskmanual.org/ns/nplo.owl#Loan",
+      "@type": "rdfs:Class",
+      "rdfs:comment": "",
+      "rdf:label": "Loan"
+    },
+    {
+      "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_total_balance",
+      "@type": "owl:DataProperty",
+      "propertyOf": {
+        "@id":  "https://www.openriskmanual.org/ns/nplo.owl#Loan"
+      },
+      "rdfs:label": "TotalBalance",
+      "propertyOn": "xsd:decimal"
+    },
+    {
+      "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_channel_of_origination",
+      "@type": "owl:DataProperty",
+      "propertyOf": {
+        "@id":  "https://www.openriskmanual.org/ns/nplo.owl#Loan"
+      },
+      "rdfs:label": "ChannelOfOrigination"
+    }
+  ]
+}
