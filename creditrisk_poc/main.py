@@ -1,4 +1,4 @@
-from API_Doc.creditrisk_api_doc import doc
+from API_Doc.APIDoc import doc
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from hydrus.app_factory import app_factory
@@ -6,13 +6,20 @@ from hydrus.utils import set_session, set_doc, set_hydrus_server_url, set_api_na
 from hydra_python_core import doc_maker
 from hydrus.data import doc_parse
 from hydrus.data.db_models import Base, create_database_tables
+import configparser
+# Fetching database_url & API_Doc path from config file
+config = configparser.ConfigParser()
+config.read('config.ini')
+
+DB_URL = config['Database']['database_url']
+API_DOC = config['API_Doc']['API_Doc_path']
 
 HYDRUS_SERVER_URL = "http://localhost:8080/"
 API_NAME = "creditrisk_api"
 
 apidoc = doc_maker.create_doc(doc, HYDRUS_SERVER_URL, API_NAME)
 
-engine = create_engine('sqlite:///database.db')
+engine = create_engine(DB_URL)
 classes = doc_parse.get_classes(apidoc)
 # Drop all existing models and add the new ones.
 Base.metadata.drop_all(engine)
