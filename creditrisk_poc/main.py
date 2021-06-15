@@ -5,19 +5,19 @@ from hydrus.utils import set_session, set_doc, set_hydrus_server_url, set_api_na
 from hydra_python_core import doc_maker
 from hydrus.data import doc_parse
 from hydrus.data.db_models import Base, create_database_tables
-import configparser
 from hydrus.socketio_factory import create_socket
-import pickle
+import configparser
+import json
 
 # Fetching database_url & api_doc path from config file
 config = configparser.ConfigParser()
 config.read('config.ini')
 DB_URL = config['Database']['database_url']
-API_DOC_PATH = config['api_doc']['API_Doc_path']
+API_DOC_PATH = config['API_Doc']['API_Doc_path']
 
 # loading serialized api_doc object
-API_Doc_object = open(API_DOC_PATH, "rb")
-doc = pickle.load(API_Doc_object)
+doc_file = open(API_DOC_PATH, "r")
+doc = json.load(doc_file)
 
 HYDRUS_SERVER_URL = "http://localhost:8080/"
 API_NAME = "creditrisk_api"
@@ -47,5 +47,3 @@ if __name__ == "__main__":
                # Set the Database session
                with set_session(app, session):
                    socketio.run(app=app,debug=True,port=8080)
-                   # Start the hydrus app
-                   #app.run(host='127.0.0.1', debug=True, port=8080)

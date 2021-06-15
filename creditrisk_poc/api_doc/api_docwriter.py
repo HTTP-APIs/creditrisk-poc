@@ -1,5 +1,5 @@
 """Creating API Doc for credit-risk POC"""
-
+import json
 from hydra_python_core.doc_writer import (HydraDoc, HydraClass,
                                           HydraClassProp, HydraClassOp, HydraStatus, HydraCollection)
 
@@ -234,15 +234,16 @@ api_doc.add_baseCollection()
 # creating Entrypoint
 api_doc.gen_EntryPoint()
 # generating api_doc
-doc_generated = api_doc.generate()
+doc = api_doc.generate()
 
 # saving the api_doc
 if __name__ == "__main__":
-    import pickle
-
     try:
-        API_Doc = open("APIDOC", "wb")
-        pickle.dump(doc_generated, API_Doc)
-        API_Doc.close()
+        # Serialized Json object
+        json_doc = json.dumps(doc, indent=4, sort_keys=True)
+        # saving to json file
+        with open("ApiDoc.json","w") as doc_file:
+            doc_file.write(json_doc)
+            print("Your API_Doc has be successfully created.")
     except Exception as error:
-        print(error, "Error Occurred while generated serialized file")
+        print(error, "Occurred while saving API_Doc")
