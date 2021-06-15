@@ -1,6 +1,7 @@
 """Creating API Doc for credit-risk POC"""
+
 from hydra_python_core.doc_writer import (HydraDoc, HydraClass,
-                                          HydraClassProp, HydraClassOp, HydraStatus)
+                                          HydraClassProp, HydraClassOp, HydraStatus, HydraCollection)
 
 API_NAME = "creditrisk_api"
 BASE_URL = "http://localhost:8080/"
@@ -17,7 +18,7 @@ api_doc = HydraDoc(API_NAME,
 api_doc.add_to_context("NPL",
                        "https://raw.githubusercontent.com/Purvanshsingh/creditrisk-poc/main/NonPerformingLoan.jsonld#")
 
-# Creating Loan & Borrower classes
+# Creating Loan class
 loan_class_title = "Loan"
 loan_class_description = "This class contains the information regarding Loan"
 loan_class = HydraClass(loan_class_title, loan_class_description, endpoint=True)
@@ -30,7 +31,11 @@ loan_property2_uri = "NPL:ChannelOfOrigination"
 loan_property2_title = "ChannelOfOrigination"
 Origination_prop = HydraClassProp(loan_property2_uri, loan_property2_title,
                                   required=True, read=True, write=True)
-# Adding borrower class
+loan_property3_uri = "https://schema.org/identifier"
+loan_property3_title = "CounterpartyId"
+CounterpartyId_prop = HydraClassProp(loan_property3_uri, loan_property3_title,
+                                     required=True, read=True, write=True)
+# Creating borrower class
 borrower_class_title = "Borrower"
 borrower_class_description = "This class contains the information regarding Loan"
 borrower_class = HydraClass(borrower_class_title, borrower_class_description, endpoint=True)
@@ -47,6 +52,21 @@ borrower_property3_uri = "NPL:DateOfIncorporation"
 borrower_property3_title = "DateOfIncorporation"
 DateOfIncorporation_prop = HydraClassProp(borrower_property3_uri, borrower_property3_title,
                                           required=True, read=True, write=True)
+# Creating Borrower Collection
+borrower_collection_name = "Borrowers"
+borrower_collection_title = "Borrower class collection"
+borrower_collection_description = "Collection for Borrower class"
+borrower_collection_managed_by = {
+    "property": "rdf:type",
+    "object": borrower_class.id_,
+}
+borrower_collection = HydraCollection(collection_name=borrower_collection_name,
+                                      collection_description=borrower_collection_description,
+                                      manages=borrower_collection_managed_by,
+                                      get=True,
+                                      post=True,
+                                      put=True,
+                                      delete=True)
 # Loan class operations
 update_loan_operation = "UpdateLoan"
 update_loan_operation_method = "POST"
@@ -70,45 +90,142 @@ get_loan_operation = "GetLoan"
 get_loan_operation_method = "GET"
 get_loan_operation_expects = None
 get_loan_operation_returns = loan_class.id_
-get_loan_operation_returns_header = ["Content-Type", "Content-Length"]
+get_loan_operation_returns_header = []
 get_loan_operation_expects_header = []
 # Status code
 get_loan_operation_status = [HydraStatus(code=200, desc="Loan class returned.")]
 
-post = HydraClassOp(update_loan_operation,
-                    update_loan_operation_method,
-                    update_loan_operation_expects,
-                    update_loan_operation_returns,
-                    update_loan_operation_expects_header,
-                    update_loan_operation_returns_header,
-                    update_loan_operation_status)
+delete_loan_operation = "DeleteLoan"
+delete_loan_operation_method = "DELETE"
+delete_loan_operation_expects = None
+delete_loan_operation_returns = None
+delete_loan_operation_returns_header = []
+delete_loan_operation_expects_header = []
+# Status code
+delete_loan_operation_status = [HydraStatus(code=200, desc="Loan class deleted.")]
 
-add = HydraClassOp(add_loan_operation,
-                   add_loan_operation_method,
-                   add_loan_operation_expects,
-                   add_loan_operation_returns,
-                   add_loan_operation_expects_header,
-                   add_loan_operation_returns_header,
-                   add_loan_operation_status)
+loan_post = HydraClassOp(update_loan_operation,
+                         update_loan_operation_method,
+                         update_loan_operation_expects,
+                         update_loan_operation_returns,
+                         update_loan_operation_expects_header,
+                         update_loan_operation_returns_header,
+                         update_loan_operation_status)
 
-get = HydraClassOp(get_loan_operation,
-                   get_loan_operation_method,
-                   get_loan_operation_expects,
-                   get_loan_operation_returns,
-                   get_loan_operation_expects_header,
-                   get_loan_operation_returns_header,
-                   get_loan_operation_status)
+loan_add = HydraClassOp(add_loan_operation,
+                        add_loan_operation_method,
+                        add_loan_operation_expects,
+                        add_loan_operation_returns,
+                        add_loan_operation_expects_header,
+                        add_loan_operation_returns_header,
+                        add_loan_operation_status)
+
+loan_get = HydraClassOp(get_loan_operation,
+                        get_loan_operation_method,
+                        get_loan_operation_expects,
+                        get_loan_operation_returns,
+                        get_loan_operation_expects_header,
+                        get_loan_operation_returns_header,
+                        get_loan_operation_status)
+
+loan_delete = HydraClassOp(delete_loan_operation,
+                           delete_loan_operation_method,
+                           delete_loan_operation_expects,
+                           delete_loan_operation_returns,
+                           delete_loan_operation_expects_header,
+                           delete_loan_operation_returns_header,
+                           delete_loan_operation_status)
+# operations for borrower class
+update_borrower_operation = "UpdateBorrower"
+update_borrower_operation_method = "POST"
+update_borrower_operation_expects = borrower_class.id_
+update_borrower_operation_returns = None
+update_borrower_operation_returns_header = []
+update_borrower_operation_expects_header = []
+# status code
+update_borrower_operation_status = [HydraStatus(code=200, desc="Borrower class updated.")]
+
+add_borrower_operation = "AddBorrower"
+add_borrower_operation_method = "PUT"
+add_borrower_operation_expects = borrower_class.id_
+add_borrower_operation_returns = None
+add_borrower_operation_returns_header = []
+add_borrower_operation_expects_header = []
+# status code
+add_borrower_operation_status = [HydraStatus(code=200, desc="Borrower class updated.")]
+
+get_borrower_operation = "GetBorrower"
+get_borrower_operation_method = "GET"
+get_borrower_operation_expects = None
+get_borrower_operation_returns = borrower_class.id_
+get_borrower_operation_returns_header = []
+get_borrower_operation_expects_header = []
+# Status code
+get_borrower_operation_status = [HydraStatus(code=200, desc="Borrower class returned.")]
+
+delete_borrower_operation = "DeleteBorrower"
+delete_borrower_operation_method = "DELETE"
+delete_borrower_operation_expects = None
+delete_borrower_operation_returns = None
+delete_borrower_operation_returns_header = []
+delete_borrower_operation_expects_header = []
+# Status code
+delete_borrower_operation_status = [HydraStatus(code=200, desc="Borrower class deleted.")]
+
+borrower_post = HydraClassOp(update_borrower_operation,
+                             update_borrower_operation_method,
+                             update_borrower_operation_expects,
+                             update_borrower_operation_returns,
+                             update_borrower_operation_expects_header,
+                             update_borrower_operation_returns_header,
+                             update_borrower_operation_status)
+
+borrower_add = HydraClassOp(add_borrower_operation,
+                            add_borrower_operation_method,
+                            add_borrower_operation_expects,
+                            add_borrower_operation_returns,
+                            add_borrower_operation_expects_header,
+                            add_borrower_operation_returns_header,
+                            add_borrower_operation_status)
+
+borrower_get = HydraClassOp(get_borrower_operation,
+                            get_borrower_operation_method,
+                            get_borrower_operation_expects,
+                            get_borrower_operation_returns,
+                            get_borrower_operation_expects_header,
+                            get_borrower_operation_returns_header,
+                            get_borrower_operation_status)
+
+borrower_delete = HydraClassOp(delete_borrower_operation,
+                               delete_borrower_operation_method,
+                               delete_borrower_operation_expects,
+                               delete_borrower_operation_returns,
+                               delete_borrower_operation_expects_header,
+                               delete_borrower_operation_returns_header,
+                               delete_borrower_operation_status)
 
 # adding property & operation to Loan classes
 loan_class.add_supported_prop(Total_balance_prop)
 loan_class.add_supported_prop(Origination_prop)
-loan_class.add_supported_op(post)
-loan_class.add_supported_op(get)
-loan_class.add_supported_op(add)
+loan_class.add_supported_prop(CounterpartyId_prop)
+loan_class.add_supported_op(loan_get)
+loan_class.add_supported_op(loan_post)
+loan_class.add_supported_op(loan_add)
+loan_class.add_supported_op(loan_delete)
+
+# adding property & operation to Borrower classes
 borrower_class.add_supported_prop(LegalEntityIdentifier_prop)
 borrower_class.add_supported_prop(TotalAssets_prop)
 borrower_class.add_supported_prop(DateOfIncorporation_prop)
+borrower_class.add_supported_op(borrower_get)
+borrower_class.add_supported_op(borrower_post)
+borrower_class.add_supported_op(borrower_add)
+borrower_class.add_supported_op(borrower_delete)
 
+# adding borrower collection
+api_doc.add_supported_collection(borrower_collection)
+
+# adding classes to API_Doc
 api_doc.add_supported_class(loan_class)
 api_doc.add_supported_class(borrower_class)
 
@@ -117,19 +234,15 @@ api_doc.add_baseCollection()
 # creating Entrypoint
 api_doc.gen_EntryPoint()
 # generating API_Doc
-doc = api_doc.generate()
+doc_generated = api_doc.generate()
 
 # saving the API_Doc
 if __name__ == "__main__":
-    """Print the complete sample Doc in api_doc_output.py."""
-    import json
-    dump = json.dumps(doc, indent=4, sort_keys=True)
-    doc = '''"""Generated API Documentation sample using doc_writer_sample.py."""
-    \ndoc = {}\n'''.format(dump)
-    # Python does not recognise null, true and false in JSON format, convert
-    # them to string
-    doc = doc.replace('true', '"true"')
-    doc = doc.replace('false', '"false"')
-    doc = doc.replace('null', '"null"')
-    with open("creditrisk_api_doc.py", "w") as f:
-        f.write(doc)
+    import pickle
+
+    try:
+        API_Doc = open("APIDOC", "wb")
+        pickle.dump(doc_generated, API_Doc)
+        API_Doc.close()
+    except Exception as error:
+        print(error, "Error Occurred while generated serialized file")
