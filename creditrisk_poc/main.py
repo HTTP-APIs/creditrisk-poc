@@ -9,13 +9,13 @@ import configparser
 from hydrus.socketio_factory import create_socket
 import pickle
 
-# Fetching database_url & API_Doc path from config file
+# Fetching database_url & api_doc path from config file
 config = configparser.ConfigParser()
 config.read('config.ini')
 DB_URL = config['Database']['database_url']
-API_DOC_PATH = config['API_Doc']['API_Doc_path']
+API_DOC_PATH = config['api_doc']['API_Doc_path']
 
-# loading serialized API_Doc object
+# loading serialized api_doc object
 API_Doc_object = open(API_DOC_PATH, "rb")
 doc = pickle.load(API_Doc_object)
 

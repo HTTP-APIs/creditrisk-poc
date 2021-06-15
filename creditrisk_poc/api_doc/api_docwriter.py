@@ -14,7 +14,7 @@ api_doc = HydraDoc(API_NAME,
                    BASE_URL,
                    "vocab")
 
-# Adding NPL jsonld vocabulary to API_Doc context
+# Adding NPL jsonld vocabulary to api_doc context
 api_doc.add_to_context("NPL",
                        "https://raw.githubusercontent.com/Purvanshsingh/creditrisk-poc/main/NonPerformingLoan.jsonld#")
 
@@ -225,7 +225,7 @@ borrower_class.add_supported_op(borrower_delete)
 # adding borrower collection
 api_doc.add_supported_collection(borrower_collection)
 
-# adding classes to API_Doc
+# adding classes to api_doc
 api_doc.add_supported_class(loan_class)
 api_doc.add_supported_class(borrower_class)
 
@@ -233,10 +233,10 @@ api_doc.add_baseResource()
 api_doc.add_baseCollection()
 # creating Entrypoint
 api_doc.gen_EntryPoint()
-# generating API_Doc
+# generating api_doc
 doc_generated = api_doc.generate()
 
-# saving the API_Doc
+# saving the api_doc
 if __name__ == "__main__":
     import pickle
 
