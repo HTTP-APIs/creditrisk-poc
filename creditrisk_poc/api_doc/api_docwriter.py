@@ -242,7 +242,7 @@ if __name__ == "__main__":
         # Serialized Json object
         json_doc = json.dumps(doc, indent=4, sort_keys=True)
         # saving to json file
-        with open("ApiDoc.json","w") as doc_file:
+        with open("ApiDoc.jsonld", "w") as doc_file:
             doc_file.write(json_doc)
             print("Your API_Doc has be successfully created.")
     except Exception as error:
