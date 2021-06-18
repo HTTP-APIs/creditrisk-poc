@@ -16,17 +16,17 @@ API_Doc is generated through hydra-python-core module doc_writer.
 
 API_Doc & doc_writer file can be found here :
 ```
-API_Doc
+api_doc
 |
-|___ APIDOC
-|___ Creditrisk_api_docwriter.py
+|___ ApiDoc.jsonld
+|___ api_docwriter.py
 ```
-`APIDOC` is a pickle serialized object, It can be accessed as follows:
+`ApiDoc` is a JSON serialized object, It can be accessed as follows:
 ```python
-import pickle
+import json
 
-API_Doc_file = open("creditrisk_poc/API_Doc/APIDOC","rb")
-doc = pickle.load(API_Doc_file)
+ApiDoc_file = open("creditrisk_poc/api_doc/ApiDoc.json","r")
+doc = json.load(ApiDoc_file)
 ```
 you will get the doc in `python dict` format.
 
