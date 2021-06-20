@@ -8,7 +8,7 @@ import pytest
 import json
 import re
 import uuid
-from hydrus.tests.conftest import gen_dummy_object
+from tests.conftest import gen_dummy_object
 
 
 @pytest.mark.usefixtures('init_db_for_functionality_tests')
