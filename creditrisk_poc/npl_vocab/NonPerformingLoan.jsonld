@@ -75,9 +75,46 @@
       "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_channel_of_origination",
       "@type": "owl:DataProperty",
       "propertyOf": {
-        "@id":  "https://www.openriskmanual.org/ns/nplo.owl#Loan"
+        "@id": "https://www.openriskmanual.org/ns/nplo.owl#Loan"
       },
       "rdfs:label": "ChannelOfOrigination"
+    },
+    {
+      "@id": "https://www.openriskmanual.org/ns/nplo.owl#Collateral",
+      "@type": "rdfs:class",
+      "rdf:comment": "",
+      "rdf:label": "Collateral"
+    },
+    {
+      "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_collateral_type",
+      "@type": "owl:DataProperty",
+      "rdfs:comment": "",
+      "rdfs:label": "CollateralType",
+      "propertyOf": {
+        "@id": "https://www.openriskmanual.org/ns/nplo.owl#Collateral"
+      }
+    },
+    {
+      "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_latest_valuation_amount",
+      "@type": "owl:DataProperty",
+      "rdfs:comment": "",
+      "rdfs:label": "LatestValuationAmount",
+      "propertyOf": {
+        "@id": "https://www.openriskmanual.org/ns/nplo.owl#Collateral"
+      },
+        "propertyOn": "xsd:decimal"
+    },
+    {
+      "@id": "https://www.openriskmanual.org/ns/nplo.owl#collateral_concerns_loan",
+      "@type": "owl:ObjectProperty",
+      "rdfs:comment": "",
+      "rdfs:label": "ConcernLoan",
+      "propertyOf": {
+        "@id": "https://www.openriskmanual.org/ns/nplo.owl#Collateral"
+      },
+        "propertyOn": {
+          "@id": "https://www.openriskmanual.org/ns/nplo.owl#Loan"
+        }
     }
   ]
 }
