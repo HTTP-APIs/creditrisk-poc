@@ -280,6 +280,112 @@
             "title": "Borrower"
         },
         {
+            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
+            "@type": "hydra:Class",
+            "description": "This class contains the information regarding Collateral",
+            "supportedOperation": [
+                {
+                    "@type": "http://schema.org/FindAction",
+                    "expects": null,
+                    "expectsHeader": [],
+                    "method": "GET",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                            "@type": "Status",
+                            "description": "Collateral class returned.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
+                    "returnsHeader": [],
+                    "title": "GetCollateral"
+                },
+                {
+                    "@type": "http://schema.org/AddAction",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
+                    "expectsHeader": [],
+                    "method": "PUT",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                            "@type": "Status",
+                            "description": "Collateral class updated.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [],
+                    "title": "AddCollateral"
+                },
+                {
+                    "@type": "http://schema.org/UpdateAction",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
+                    "expectsHeader": [],
+                    "method": "POST",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                            "@type": "Status",
+                            "description": "Collateral class updated.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [],
+                    "title": "UpdateCollateral"
+                },
+                {
+                    "@type": "http://schema.org/DeleteAction",
+                    "expects": null,
+                    "expectsHeader": [],
+                    "method": "DELETE",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                            "@type": "Status",
+                            "description": "Collateral class updated.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [],
+                    "title": "DeleteCollateral"
+                }
+            ],
+            "supportedProperty": [
+                {
+                    "@type": "SupportedProperty",
+                    "property": "NPL:CollateralType",
+                    "readable": true,
+                    "required": true,
+                    "title": "CollateralType",
+                    "writeable": true
+                },
+                {
+                    "@type": "SupportedProperty",
+                    "property": "NPL:LatestValuationAmount",
+                    "readable": true,
+                    "required": true,
+                    "title": "LatestValuationAmount",
+                    "writeable": true
+                },
+                {
+                    "@type": "SupportedProperty",
+                    "property": "NPL:ConcernLoan",
+                    "readable": true,
+                    "required": true,
+                    "title": "ConcernLoan",
+                    "writeable": true
+                }
+            ],
+            "title": "Collateral"
+        },
+        {
             "@id": "http://www.w3.org/ns/hydra/core#Resource",
             "@type": "hydra:Class",
             "description": null,
@@ -598,6 +704,103 @@
                                         "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
                                         "@type": "Status",
                                         "description": "Borrower class deleted.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": []
+                            }
+                        ]
+                    },
+                    "readable": true,
+                    "required": null,
+                    "writeable": false
+                },
+                {
+                    "hydra:description": "The Collateral Class",
+                    "hydra:title": "collateral",
+                    "property": {
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/Collateral",
+                        "@type": "hydra:Link",
+                        "description": "This class contains the information regarding Collateral",
+                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
+                        "label": "Collateral",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
+                        "supportedOperation": [
+                            {
+                                "@id": "getcollateral",
+                                "@type": "http://schema.org/FindAction",
+                                "description": null,
+                                "expects": null,
+                                "expectsHeader": [],
+                                "label": "GetCollateral",
+                                "method": "GET",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                                        "@type": "Status",
+                                        "description": "Collateral class returned.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
+                                "returnsHeader": []
+                            },
+                            {
+                                "@id": "addcollateral",
+                                "@type": "http://schema.org/AddAction",
+                                "description": null,
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
+                                "expectsHeader": [],
+                                "label": "AddCollateral",
+                                "method": "PUT",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                                        "@type": "Status",
+                                        "description": "Collateral class updated.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": []
+                            },
+                            {
+                                "@id": "updatecollateral",
+                                "@type": "http://schema.org/UpdateAction",
+                                "description": null,
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
+                                "expectsHeader": [],
+                                "label": "UpdateCollateral",
+                                "method": "POST",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                                        "@type": "Status",
+                                        "description": "Collateral class updated.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": []
+                            },
+                            {
+                                "@id": "deletecollateral",
+                                "@type": "http://schema.org/DeleteAction",
+                                "description": null,
+                                "expects": null,
+                                "expectsHeader": [],
+                                "label": "DeleteCollateral",
+                                "method": "DELETE",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                                        "@type": "Status",
+                                        "description": "Collateral class updated.",
                                         "statusCode": 200,
                                         "title": ""
                                     }

@@ -5,7 +5,7 @@ from hydrus.utils import set_session, set_doc, set_hydrus_server_url, set_api_na
 from hydra_python_core import doc_maker
 from hydrus.data import doc_parse
 from hydrus.data.db_models import Base, create_database_tables
-from hydrus.socketio_factory import create_socket
+from hydrus.extensions.socketio_factory import create_socket
 import configparser
 import json
 
