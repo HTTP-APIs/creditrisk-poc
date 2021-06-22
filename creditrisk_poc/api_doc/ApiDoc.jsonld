@@ -164,7 +164,7 @@
                 },
                 {
                     "@type": "SupportedProperty",
-                    "property": "https://schema.org/identifier",
+                    "property": "http://localhost:8080/creditrisk_api/vocab?resource=Borrower",
                     "readable": true,
                     "required": true,
                     "title": "CounterpartyId",
@@ -376,7 +376,7 @@
                 },
                 {
                     "@type": "SupportedProperty",
-                    "property": "NPL:ConcernLoan",
+                    "property": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
                     "readable": true,
                     "required": true,
                     "title": "ConcernLoan",

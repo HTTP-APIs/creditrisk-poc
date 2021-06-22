@@ -18,23 +18,6 @@ api_doc = HydraDoc(API_NAME,
 api_doc.add_to_context("NPL",
                        "https://raw.githubusercontent.com/Purvanshsingh/creditrisk-poc/main/NonPerformingLoan.jsonld#")
 
-# Creating Loan class
-loan_class_title = "Loan"
-loan_class_description = "This class contains the information regarding Loan"
-loan_class = HydraClass(loan_class_title, loan_class_description, endpoint=True)
-# Adding properties to load class
-loan_property1_uri = "NPL:TotalBalance"
-loan_property1_title = "TotalBalance"
-Total_balance_prop = HydraClassProp(loan_property1_uri, loan_property1_title,
-                                    required=True, read=True, write=True)
-loan_property2_uri = "NPL:ChannelOfOrigination"
-loan_property2_title = "ChannelOfOrigination"
-Origination_prop = HydraClassProp(loan_property2_uri, loan_property2_title,
-                                  required=True, read=True, write=True)
-loan_property3_uri = "https://schema.org/identifier"
-loan_property3_title = "CounterpartyId"
-CounterpartyId_prop = HydraClassProp(loan_property3_uri, loan_property3_title,
-                                     required=True, read=True, write=True)
 # Creating borrower class
 borrower_class_title = "Borrower"
 borrower_class_description = "This class contains the information regarding Loan"
@@ -67,6 +50,23 @@ borrower_collection = HydraCollection(collection_name=borrower_collection_name,
                                       post=True,
                                       put=True,
                                       delete=True)
+# Creating Loan class
+loan_class_title = "Loan"
+loan_class_description = "This class contains the information regarding Loan"
+loan_class = HydraClass(loan_class_title, loan_class_description, endpoint=True)
+# Adding properties to load class
+loan_property1_uri = "NPL:TotalBalance"
+loan_property1_title = "TotalBalance"
+Total_balance_prop = HydraClassProp(loan_property1_uri, loan_property1_title,
+                                    required=True, read=True, write=True)
+loan_property2_uri = "NPL:ChannelOfOrigination"
+loan_property2_title = "ChannelOfOrigination"
+Origination_prop = HydraClassProp(loan_property2_uri, loan_property2_title,
+                                  required=True, read=True, write=True)
+loan_property3_uri = borrower_class.id_
+loan_property3_title = "CounterpartyId"
+CounterpartyId_prop = HydraClassProp(loan_property3_uri, loan_property3_title,
+                                     required=True, read=True, write=True)
 # Creating Collateral class
 collateral_class_title = "Collateral"
 collateral_class_description = "This class contains the information regarding Collateral"
@@ -80,7 +80,7 @@ collateral_property2_uri = "NPL:LatestValuationAmount"
 collateral_property2_title = "LatestValuationAmount"
 LatestValuationAmount_prop = HydraClassProp(collateral_property2_uri, collateral_property2_title,
                                             required=True, read=True, write=True)
-collateral_property3_uri = "NPL:ConcernLoan"
+collateral_property3_uri = loan_class.id_
 collateral_property3_title = "ConcernLoan"
 ConcernLoan_prop = HydraClassProp(collateral_property3_uri, collateral_property3_title,
                                   required=True, read=True, write=True)
