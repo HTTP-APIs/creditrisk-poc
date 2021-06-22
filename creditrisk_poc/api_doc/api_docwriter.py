@@ -2,6 +2,12 @@
 import json
 from hydra_python_core.doc_writer import (HydraDoc, HydraClass,
                                           HydraClassProp, HydraClassOp, HydraStatus, HydraCollection)
+import logging
+
+logging.basicConfig(filename="docwriter_log.log", format='%(asctime)s %(message)s', filemode='a')
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+
 
 API_NAME = "creditrisk_api"
 BASE_URL = "http://localhost:8080/"
@@ -341,5 +347,6 @@ if __name__ == "__main__":
         with open("ApiDoc.jsonld", "w") as doc_file:
             doc_file.write(json_doc)
             print("Your API_Doc has be successfully created.")
+            logger.info("Your API_Doc has be successfully created.")
     except Exception as error:
-        print(error, "Occurred while saving API_Doc")
+        logger.debug(error, "Occurred while saving API_Doc")
