@@ -2,6 +2,12 @@
 import json
 from hydra_python_core.doc_writer import (HydraDoc, HydraClass,
                                           HydraClassProp, HydraClassOp, HydraStatus, HydraCollection)
+import logging
+
+logging.basicConfig(filename="docwriter_log.log", format='%(asctime)s %(message)s', filemode='a')
+logger = logging.getLogger()
+logger.setLevel(logging.DEBUG)
+
 
 API_NAME = "creditrisk_api"
 BASE_URL = "http://localhost:8080/"
@@ -18,23 +24,6 @@ api_doc = HydraDoc(API_NAME,
 api_doc.add_to_context("NPL",
                        "https://raw.githubusercontent.com/Purvanshsingh/creditrisk-poc/main/NonPerformingLoan.jsonld#")
 
-# Creating Loan class
-loan_class_title = "Loan"
-loan_class_description = "This class contains the information regarding Loan"
-loan_class = HydraClass(loan_class_title, loan_class_description, endpoint=True)
-# Adding properties to load class
-loan_property1_uri = "NPL:TotalBalance"
-loan_property1_title = "TotalBalance"
-Total_balance_prop = HydraClassProp(loan_property1_uri, loan_property1_title,
-                                    required=True, read=True, write=True)
-loan_property2_uri = "NPL:ChannelOfOrigination"
-loan_property2_title = "ChannelOfOrigination"
-Origination_prop = HydraClassProp(loan_property2_uri, loan_property2_title,
-                                  required=True, read=True, write=True)
-loan_property3_uri = "https://schema.org/identifier"
-loan_property3_title = "CounterpartyId"
-CounterpartyId_prop = HydraClassProp(loan_property3_uri, loan_property3_title,
-                                     required=True, read=True, write=True)
 # Creating borrower class
 borrower_class_title = "Borrower"
 borrower_class_description = "This class contains the information regarding Loan"
@@ -67,6 +56,41 @@ borrower_collection = HydraCollection(collection_name=borrower_collection_name,
                                       post=True,
                                       put=True,
                                       delete=True)
+# Creating Loan class
+loan_class_title = "Loan"
+loan_class_description = "This class contains the information regarding Loan"
+loan_class = HydraClass(loan_class_title, loan_class_description, endpoint=True)
+# Adding properties to load class
+loan_property1_uri = "NPL:TotalBalance"
+loan_property1_title = "TotalBalance"
+Total_balance_prop = HydraClassProp(loan_property1_uri, loan_property1_title,
+                                    required=True, read=True, write=True)
+loan_property2_uri = "NPL:ChannelOfOrigination"
+loan_property2_title = "ChannelOfOrigination"
+Origination_prop = HydraClassProp(loan_property2_uri, loan_property2_title,
+                                  required=True, read=True, write=True)
+loan_property3_uri = borrower_class.id_
+loan_property3_title = "CounterpartyId"
+CounterpartyId_prop = HydraClassProp(loan_property3_uri, loan_property3_title,
+                                     required=True, read=True, write=True)
+# Creating Collateral class
+collateral_class_title = "Collateral"
+collateral_class_description = "This class contains the information regarding Collateral"
+collateral_class = HydraClass(collateral_class_title, collateral_class_description, endpoint=True)
+# Adding properties to Collateral class
+collateral_property1_uri = "NPL:CollateralType"
+collateral_property1_title = "CollateralType"
+CollateralType_prop = HydraClassProp(collateral_property1_uri, collateral_property1_title,
+                                     required=True, read=True, write=True)
+collateral_property2_uri = "NPL:LatestValuationAmount"
+collateral_property2_title = "LatestValuationAmount"
+LatestValuationAmount_prop = HydraClassProp(collateral_property2_uri, collateral_property2_title,
+                                            required=True, read=True, write=True)
+collateral_property3_uri = loan_class.id_
+collateral_property3_title = "ConcernLoan"
+ConcernLoan_prop = HydraClassProp(collateral_property3_uri, collateral_property3_title,
+                                  required=True, read=True, write=True)
+
 # Loan class operations
 update_loan_operation = "UpdateLoan"
 update_loan_operation_method = "POST"
@@ -203,6 +227,74 @@ borrower_delete = HydraClassOp(delete_borrower_operation,
                                delete_borrower_operation_expects_header,
                                delete_borrower_operation_returns_header,
                                delete_borrower_operation_status)
+# operations for Collateral class
+update_collateral_operation = "UpdateCollateral"
+update_collateral_operation_method = "POST"
+update_collateral_operation_expects = collateral_class.id_
+update_collateral_operation_returns = None
+update_collateral_operation_returns_header = []
+update_collateral_operation_expects_header = []
+# status code
+update_collateral_operation_status = [HydraStatus(code=200, desc="Collateral class updated.")]
+
+add_collateral_operation = "AddCollateral"
+add_collateral_operation_method = "PUT"
+add_collateral_operation_expects = collateral_class.id_
+add_collateral_operation_returns = None
+add_collateral_operation_returns_header = []
+add_collateral_operation_expects_header = []
+# status code
+add_collateral_operation_status = [HydraStatus(code=200, desc="Collateral class updated.")]
+
+get_collateral_operation = "GetCollateral"
+get_collateral_operation_method = "GET"
+get_collateral_operation_expects = None
+get_collateral_operation_returns = collateral_class.id_
+get_collateral_operation_returns_header = []
+get_collateral_operation_expects_header = []
+# Status code
+get_collateral_operation_status = [HydraStatus(code=200, desc="Collateral class returned.")]
+
+delete_collateral_operation = "DeleteCollateral"
+delete_collateral_operation_method = "DELETE"
+delete_collateral_operation_expects = None
+delete_collateral_operation_returns = None
+delete_collateral_operation_returns_header = []
+delete_collateral_operation_expects_header = []
+# Status code
+delete_collateral_operation_status = [HydraStatus(code=200, desc="Collateral class deleted.")]
+
+collateral_post = HydraClassOp(update_collateral_operation,
+                               update_collateral_operation_method,
+                               update_collateral_operation_expects,
+                               update_collateral_operation_returns,
+                               update_collateral_operation_expects_header,
+                               update_collateral_operation_returns_header,
+                               update_collateral_operation_status)
+
+collateral_add = HydraClassOp(add_collateral_operation,
+                              add_collateral_operation_method,
+                              add_collateral_operation_expects,
+                              add_collateral_operation_returns,
+                              add_collateral_operation_expects_header,
+                              add_collateral_operation_returns_header,
+                              add_collateral_operation_status)
+
+collateral_get = HydraClassOp(get_collateral_operation,
+                              get_collateral_operation_method,
+                              get_collateral_operation_expects,
+                              get_collateral_operation_returns,
+                              get_collateral_operation_expects_header,
+                              get_collateral_operation_returns_header,
+                              get_collateral_operation_status)
+
+collateral_delete = HydraClassOp(delete_collateral_operation,
+                                 delete_collateral_operation_method,
+                                 delete_collateral_operation_expects,
+                                 delete_collateral_operation_returns,
+                                 delete_collateral_operation_expects_header,
+                                 delete_collateral_operation_returns_header,
+                                 add_collateral_operation_status)
 
 # adding property & operation to Loan classes
 loan_class.add_supported_prop(Total_balance_prop)
@@ -225,9 +317,19 @@ borrower_class.add_supported_op(borrower_delete)
 # adding borrower collection
 api_doc.add_supported_collection(borrower_collection)
 
+# adding property & operation to Collateral class
+collateral_class.add_supported_prop(CollateralType_prop)
+collateral_class.add_supported_prop(LatestValuationAmount_prop)
+collateral_class.add_supported_prop(ConcernLoan_prop)
+collateral_class.add_supported_op(collateral_get)
+collateral_class.add_supported_op(collateral_add)
+collateral_class.add_supported_op(collateral_post)
+collateral_class.add_supported_op(collateral_delete)
+
 # adding classes to api_doc
 api_doc.add_supported_class(loan_class)
 api_doc.add_supported_class(borrower_class)
+api_doc.add_supported_class(collateral_class)
 
 api_doc.add_baseResource()
 api_doc.add_baseCollection()
@@ -245,5 +347,6 @@ if __name__ == "__main__":
         with open("ApiDoc.jsonld", "w") as doc_file:
             doc_file.write(json_doc)
             print("Your API_Doc has be successfully created.")
+            logger.info("Your API_Doc has be successfully created.")
     except Exception as error:
-        print(error, "Occurred while saving API_Doc")
+        logger.debug(error, "Occurred while saving API_Doc")
