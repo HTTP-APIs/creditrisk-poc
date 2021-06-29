@@ -24,10 +24,8 @@ def borrowers_with_no_loan(apidoc: HydraDoc):
     Generates 100 Borrowers with no loans & no collateral
     """
     for borrower in range(100):
-        dummy_object = gen_dummy_object("Borrower", apidoc)
-        put_request = requests.put("http://localhost:8080/creditrisk_api/Borrower/", json=dummy_object)
-        response = put_request.content.decode("UTF-8")
-        object_id = ast.literal_eval(response).get("iri")
+        dummy_object = gen_dummy_object("CounterParty", apidoc)
+        put_request = requests.put("http://localhost:8080/creditrisk_api/CounterParty/", json=dummy_object)
 
 
 def borrower_with_loan(apidoc: HydraDoc):
@@ -35,10 +33,12 @@ def borrower_with_loan(apidoc: HydraDoc):
     Generate 100 Borrowers with loan & no collateral
     """
     for borrower in range(100):
-        dummy_object = gen_dummy_object("Loan", apidoc)
-        put_request = requests.put("http://localhost:8080/creditrisk_api/Loan/", json=dummy_object)
-        response = put_request.content.decode("UTF-8")
-        object_id = ast.literal_eval(response).get("iri")
+        # Creating Counterparty Object
+        counterparty_dummy_object = gen_dummy_object("CounterParty", apidoc)
+        # Loan object using CounterpartyId
+        loan_dummy_object = gen_dummy_object("Loan", apidoc)
+        loan_dummy_object['CounterpartyId'] = counterparty_dummy_object
+        put_request = requests.put("http://localhost:8080/creditrisk_api/Loan/", json=loan_dummy_object)
 
 
 def borrower_with_loan_and_collateral(apidoc: HydraDoc):
@@ -46,10 +46,15 @@ def borrower_with_loan_and_collateral(apidoc: HydraDoc):
     Generates 100 Borrowers with loan & collateral
     """
     for borrower in range(100):
-        dummy_object = gen_dummy_object("Collateral", apidoc)
-        put_request = requests.put("http://localhost:8080/creditrisk_api/Collateral/", json=dummy_object)
-        response = put_request.content.decode("UTF-8")
-        object_id = ast.literal_eval(response).get("iri")
+        # Creating Counterparty Object
+        counterparty_dummy_object = gen_dummy_object("CounterParty", apidoc)
+        # Creating Loan object using CounterpartyId
+        loan_dummy_object = gen_dummy_object("Loan", apidoc)
+        loan_dummy_object['CounterpartyId'] = counterparty_dummy_object
+        # Creating Collateral dummy object using ConcernLoan
+        collateral_dummy_object = gen_dummy_object("Collateral",apidoc)
+        collateral_dummy_object['ConcernLoan'] = loan_dummy_object
+        put_request = requests.put("http://localhost:8080/creditrisk_api/Collateral", json=collateral_dummy_object)
 
 
 if __name__ == "__main__":

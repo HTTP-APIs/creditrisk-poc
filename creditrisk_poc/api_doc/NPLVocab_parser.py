@@ -96,13 +96,6 @@ def add_operations_to_class(hydra_classes: list, class_name: str, operations: li
     return hydra_operations
 
 
-if __name__ == '__main__':
-    #npl_vocab = get_npl_vocab()
-    #classes = get_all_classes(npl_vocab)
-    #hydra_classes = create_hydra_classes(classes)
-
-
-
 
 
 
