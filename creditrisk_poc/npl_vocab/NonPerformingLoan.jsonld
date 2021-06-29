@@ -17,14 +17,14 @@
   },
   "@id" : "",
   "@type" : "http://www.w3.org/2002/07/owl#Ontology",
-  "rdf:label": "Non performing loan vocabulary",
-   "rdf:comment" : "",
+  "rdfs:label": "Non performing loan vocabulary",
+   "rdfs:comment" : "",
   "defines" : [
     {
       "@id" : "https://www.openriskmanual.org/ns/nplo.owl#Counterparty",
-      "@type" : "rdfs:class",
-      "rdf:comment": "",
-      "rdf:label": "CounterParty"
+      "@type" : "rdfs:Class",
+      "rdfs:comment": "",
+      "rdfs:label": "CounterParty"
     },
     {
       "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_legal_entity_identifier",
@@ -32,7 +32,7 @@
       "rdfs:comment": "",
       "rdfs:label": "LegalEntityIdentifier",
       "propertyOf": {
-        "@id":  "https://www.openriskmanual.org/ns/nplo.owl#Counterparty"
+        "@id":  "https://www.openriskmanual.org/ns/nplo.owl#CounterParty"
       },
       "propertyOn": "xsd:string"
     },
@@ -42,7 +42,7 @@
       "rdfs:comment": "",
       "rdfs:label": "TotalAssets",
       "propertyOf": {
-        "@id":  "https://www.openriskmanual.org/ns/nplo.owl#Counterparty"
+        "@id":  "https://www.openriskmanual.org/ns/nplo.owl#CounterParty"
       },
       "propertyOn": "xsd:decimal"
     },
@@ -52,7 +52,7 @@
       "rdfs:comment": "",
       "rdfs:label": "DateOfIncorporation",
       "propertyOf": {
-        "@id":  "https://www.openriskmanual.org/ns/nplo.owl#Counterparty"
+        "@id":  "https://www.openriskmanual.org/ns/nplo.owl#CounterParty"
       },
       "propertyOn": "xsd:dateTime"
     },
@@ -60,7 +60,7 @@
       "@id": "https://www.openriskmanual.org/ns/nplo.owl#Loan",
       "@type": "rdfs:Class",
       "rdfs:comment": "",
-      "rdf:label": "Loan"
+      "rdfs:label": "Loan"
     },
     {
       "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_total_balance",
@@ -81,9 +81,9 @@
     },
     {
       "@id": "https://www.openriskmanual.org/ns/nplo.owl#Collateral",
-      "@type": "rdfs:class",
-      "rdf:comment": "",
-      "rdf:label": "Collateral"
+      "@type": "rdfs:Class",
+      "rdfs:comment": "",
+      "rdfs:label": "Collateral"
     },
     {
       "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_collateral_type",
