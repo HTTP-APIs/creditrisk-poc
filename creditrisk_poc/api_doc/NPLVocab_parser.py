@@ -1,10 +1,12 @@
 import json
-import os
+from os.path import abspath, dirname
 from hydra_python_core.doc_writer import HydraClass, HydraClassProp, HydraClassOp, HydraStatus
+from pathlib import Path
 
 
 def get_npl_vocab() -> dict:
-    vocab_file_path = os.path.join(os.path.dirname(os.getcwd()), "npl_vocab/NonPerformingLoan.jsonld")
+    cwd_path = Path(dirname(dirname(abspath(__file__))))
+    vocab_file_path = cwd_path / "npl_vocab" / "NonPerformingLoan.jsonld"
     npl_vocab_file = open(vocab_file_path)
     npl_vocab = json.load(npl_vocab_file)
     return npl_vocab
