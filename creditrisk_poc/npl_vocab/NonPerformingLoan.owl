@@ -1,0 +1,679 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://www.openriskmanual.org/ns/nplo.owl"
+     xml:base="https://www.openriskmanual.org/ns/nplo.owl"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="https://www.openriskmanual.org/ns/nplo.owl">
+        <owl:versionIRI rdf:resource="https://www.openriskmanual.org/ns/nplo.owl"/>
+        <dc:creator>Open Risk (https://www.openriskmanagement.com)</dc:creator>
+        <dc:description>The Non Performing Loan ontology, described using W3C RDF Schema and the Web Ontology Language OWL. 
+
+NPLO aims to conform as closely as possible to the published European Banking Authority NPL Data Templates
+
+Release Notes:
+- Version 0.1 Defines the main classes, object and data properties of the ontology</dc:description>
+        <dc:format>application/rdf+xml</dc:format>
+        <dc:rights>Copyright © 2021 Open Risk</dc:rights>
+        <dc:title>Non Performing Loan Ontology (NPLO)</dc:title>
+        <terms:license>Creative Commons Attribution 3.0 (CC BY 3.0)</terms:license>
+        <rdfs:comment>The Non Performing Loan Ontology is still in active development. Feedback, ideas, use cases are encouraged</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://www.openriskmanual.org/ns/nplo.owl"/>
+        <rdfs:seeAlso>https://www.openriskmanual.org/wiki/EBA_NPL_Template</rdfs:seeAlso>
+        <owl:versionInfo>0.1</owl:versionInfo>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/description -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/description"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/format -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/format"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/rights -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/rights"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/title"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#collateral_concerns_loan -->
+
+    <owl:ObjectProperty rdf:about="https://www.openriskmanual.org/ns/nplo.owl#collateral_concerns_loan">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Collateral"/>
+        <rdfs:range rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Loan"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#has_borrower -->
+
+    <owl:ObjectProperty rdf:about="https://www.openriskmanual.org/ns/nplo.owl#has_borrower">
+        <rdfs:domain rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Loan"/>
+        <rdfs:range rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Borrower"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#Confidentiality -->
+
+    <owl:DatatypeProperty rdf:about="https://www.openriskmanual.org/ns/nplo.owl#Confidentiality">
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#DataAttribute"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#Critical -->
+
+    <owl:DatatypeProperty rdf:about="https://www.openriskmanual.org/ns/nplo.owl#Critical">
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Importance"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#Current -->
+
+    <owl:DatatypeProperty rdf:about="https://www.openriskmanual.org/ns/nplo.owl#Current">
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Temporality"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#DataAttribute -->
+
+    <owl:DatatypeProperty rdf:about="https://www.openriskmanual.org/ns/nplo.owl#DataAttribute"/>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#Dynamic -->
+
+    <owl:DatatypeProperty rdf:about="https://www.openriskmanual.org/ns/nplo.owl#Dynamic">
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Variability"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#Future -->
+
+    <owl:DatatypeProperty rdf:about="https://www.openriskmanual.org/ns/nplo.owl#Future">
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Temporality"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#Historical -->
+
+    <owl:DatatypeProperty rdf:about="https://www.openriskmanual.org/ns/nplo.owl#Historical">
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Temporality"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#Importance -->
+
+    <owl:DatatypeProperty rdf:about="https://www.openriskmanual.org/ns/nplo.owl#Importance">
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#DataAttribute"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#Important -->
+
+    <owl:DatatypeProperty rdf:about="https://www.openriskmanual.org/ns/nplo.owl#Important">
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Importance"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#Moderate -->
+
+    <owl:DatatypeProperty rdf:about="https://www.openriskmanual.org/ns/nplo.owl#Moderate">
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Importance"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#NonConfidential -->
+
+    <owl:DatatypeProperty rdf:about="https://www.openriskmanual.org/ns/nplo.owl#NonConfidential">
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Confidentiality"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#Static -->
+
+    <owl:DatatypeProperty rdf:about="https://www.openriskmanual.org/ns/nplo.owl#Static">
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Variability"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#Temporality -->
+
+    <owl:DatatypeProperty rdf:about="https://www.openriskmanual.org/ns/nplo.owl#Temporality">
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#DataAttribute"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#Variability -->
+
+    <owl:DatatypeProperty rdf:about="https://www.openriskmanual.org/ns/nplo.owl#Variability">
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#DataAttribute"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#VariableConfidentiality -->
+
+    <owl:DatatypeProperty rdf:about="https://www.openriskmanual.org/ns/nplo.owl#VariableConfidentiality">
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Confidentiality"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#has_channel_of_origination -->
+
+    <owl:DatatypeProperty rdf:about="https://www.openriskmanual.org/ns/nplo.owl#has_channel_of_origination">
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Important"/>
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#NonConfidential"/>
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Static"/>
+        <rdfs:domain rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Loan"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>Branch</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>Broker</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>Internet</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>Other</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment>Channel through which the Loan was originated, i.e. Branch, Internet and Broker</rdfs:comment>
+        <rdfs:comment>EBA 1.1 Field Index: 7.002</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://www.openriskmanual.org/ns/nplo.owl"/>
+        <rdfs:label>has_channel_of_origination</rdfs:label>
+        <rdfs:seeAlso>https://www.openriskmanual.org/wiki/EBA_NPL.Loan.Channel_of_Origination</rdfs:seeAlso>
+        <owl:versionInfo>0.1</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#has_collateral_type -->
+
+    <owl:DatatypeProperty rdf:about="https://www.openriskmanual.org/ns/nplo.owl#has_collateral_type">
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Critical"/>
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#NonConfidential"/>
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Static"/>
+        <rdfs:domain rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Collateral"/>
+        <rdfs:range>
+            <rdfs:Datatype>
+                <owl:oneOf>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                        <rdf:first>Aeroplanes</rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                <rdf:first>Auto Mobile Vehicles</rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first>Commercial Trucks</rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first>Deposit</rdf:first>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first>Energy Related Equipment</rdf:first>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first>Floating Charge</rdf:first>
+                                                                <rdf:rest>
+                                                                    <rdf:Description>
+                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                        <rdf:first>Guarantee</rdf:first>
+                                                                        <rdf:rest>
+                                                                            <rdf:Description>
+                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                <rdf:first>Industrial Equipment</rdf:first>
+                                                                                <rdf:rest>
+                                                                                    <rdf:Description>
+                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                        <rdf:first>Industrial Vehicles</rdf:first>
+                                                                                        <rdf:rest>
+                                                                                            <rdf:Description>
+                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                <rdf:first>Life insurance</rdf:first>
+                                                                                                <rdf:rest>
+                                                                                                    <rdf:Description>
+                                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                        <rdf:first>Machine Tools</rdf:first>
+                                                                                                        <rdf:rest>
+                                                                                                            <rdf:Description>
+                                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                <rdf:first>Medical Equipment</rdf:first>
+                                                                                                                <rdf:rest>
+                                                                                                                    <rdf:Description>
+                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                        <rdf:first>Nautical Commercial Vehicles</rdf:first>
+                                                                                                                        <rdf:rest>
+                                                                                                                            <rdf:Description>
+                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                                <rdf:first>Nautical Leisure Vehicles</rdf:first>
+                                                                                                                                <rdf:rest>
+                                                                                                                                    <rdf:Description>
+                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                                        <rdf:first>Office Equipment</rdf:first>
+                                                                                                                                        <rdf:rest>
+                                                                                                                                            <rdf:Description>
+                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                                                <rdf:first>Other Equipment</rdf:first>
+                                                                                                                                                <rdf:rest>
+                                                                                                                                                    <rdf:Description>
+                                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                                                        <rdf:first>Other Vehicles</rdf:first>
+                                                                                                                                                        <rdf:rest>
+                                                                                                                                                            <rdf:Description>
+                                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                                                                <rdf:first>Other financial asset</rdf:first>
+                                                                                                                                                                <rdf:rest>
+                                                                                                                                                                    <rdf:Description>
+                                                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                                                                        <rdf:first>Other goods/inventory</rdf:first>
+                                                                                                                                                                        <rdf:rest>
+                                                                                                                                                                            <rdf:Description>
+                                                                                                                                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                                                                                <rdf:first>Rail Vehicles</rdf:first>
+                                                                                                                                                                                <rdf:rest>
+                                                                                                                                                                                    <rdf:Description>
+                                                                                                                                                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                                                                                                                                        <rdf:first>Securities</rdf:first>
+                                                                                                                                                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                                                                                                                                    </rdf:Description>
+                                                                                                                                                                                </rdf:rest>
+                                                                                                                                                                            </rdf:Description>
+                                                                                                                                                                        </rdf:rest>
+                                                                                                                                                                    </rdf:Description>
+                                                                                                                                                                </rdf:rest>
+                                                                                                                                                            </rdf:Description>
+                                                                                                                                                        </rdf:rest>
+                                                                                                                                                    </rdf:Description>
+                                                                                                                                                </rdf:rest>
+                                                                                                                                            </rdf:Description>
+                                                                                                                                        </rdf:rest>
+                                                                                                                                    </rdf:Description>
+                                                                                                                                </rdf:rest>
+                                                                                                                            </rdf:Description>
+                                                                                                                        </rdf:rest>
+                                                                                                                    </rdf:Description>
+                                                                                                                </rdf:rest>
+                                                                                                            </rdf:Description>
+                                                                                                        </rdf:rest>
+                                                                                                    </rdf:Description>
+                                                                                                </rdf:rest>
+                                                                                            </rdf:Description>
+                                                                                        </rdf:rest>
+                                                                                    </rdf:Description>
+                                                                                </rdf:rest>
+                                                                            </rdf:Description>
+                                                                        </rdf:rest>
+                                                                    </rdf:Description>
+                                                                </rdf:rest>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </owl:oneOf>
+            </rdfs:Datatype>
+        </rdfs:range>
+        <rdfs:comment>EBA 1.1 Field Index: 14.004</rdfs:comment>
+        <rdfs:comment>Physical type of the Collateral, e.g. Guarantee and Machinery</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://www.openriskmanual.org/ns/nplo.owl"/>
+        <rdfs:label>has_collateral_type</rdfs:label>
+        <rdfs:seeAlso>https://www.openriskmanual.org/wiki/EBA_NPL.NonProperty_Collateral.Collateral_Type</rdfs:seeAlso>
+        <owl:versionInfo>0.1</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#has_latest_valuation_amount -->
+
+    <owl:DatatypeProperty rdf:about="https://www.openriskmanual.org/ns/nplo.owl#has_latest_valuation_amount">
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Critical"/>
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Dynamic"/>
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#NonConfidential"/>
+        <rdfs:domain rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Collateral"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment>EBA 1.1 Field Index: 14.014</rdfs:comment>
+        <rdfs:comment>Value of the Collateral when last assessed</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://www.openriskmanual.org/ns/nplo.owl"/>
+        <rdfs:label>has_latest_valuation_amount</rdfs:label>
+        <rdfs:seeAlso>https://www.openriskmanual.org/wiki/EBA_NPL.NonProperty_Collateral.Latest_Valuation_Amount</rdfs:seeAlso>
+        <owl:versionInfo>0.1</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#has_legal_entity_identifier -->
+
+    <owl:DatatypeProperty rdf:about="https://www.openriskmanual.org/ns/nplo.owl#has_legal_entity_identifier">
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Moderate"/>
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Static"/>
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#VariableConfidentiality"/>
+        <rdfs:domain rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Counterparty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>EBA 1.1 Field Index: 3.035</rdfs:comment>
+        <rdfs:comment>Global standard 20-character corporate identifier of the Corporate Counterparty</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://www.openriskmanual.org/ns/nplo.owl"/>
+        <rdfs:label>has_legal_entity_identifier</rdfs:label>
+        <rdfs:seeAlso>https://www.openriskmanual.org/wiki/EBA_NPL.Counterparty.Legal_Entity_Identifier</rdfs:seeAlso>
+        <owl:versionInfo>0.1</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#has_total_assets -->
+
+    <owl:DatatypeProperty rdf:about="https://www.openriskmanual.org/ns/nplo.owl#has_total_assets">
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Dynamic"/>
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Important"/>
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#NonConfidential"/>
+        <rdfs:domain rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Counterparty"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment>Amount of total assets held by the Corporate Counterparty as per the latest available financial statements</rdfs:comment>
+        <rdfs:comment>EBA 1.1 Field Index: 3.052</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://www.openriskmanual.org/ns/nplo.owl"/>
+        <rdfs:label>has_total_assets</rdfs:label>
+        <rdfs:seeAlso>https://www.openriskmanual.org/wiki/EBA_NPL.Counterparty.Total_Assets</rdfs:seeAlso>
+        <owl:versionInfo>0.1</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#has_total_balance -->
+
+    <owl:DatatypeProperty rdf:about="https://www.openriskmanual.org/ns/nplo.owl#has_total_balance">
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Critical"/>
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Dynamic"/>
+        <rdfs:subPropertyOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#NonConfidential"/>
+        <rdfs:domain rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Loan"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+        <rdfs:comment>EBA 1.1 Field Index: 7.02</rdfs:comment>
+        <rdfs:comment>Total unpaid balance, i.e. Principal Balance + Accrued Interest Balance (On book) + Other Balances</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://www.openriskmanual.org/ns/nplo.owl"/>
+        <rdfs:label>has_total_balance</rdfs:label>
+        <rdfs:seeAlso>https://www.openriskmanual.org/wiki/EBA_NPL.Loan.Total_Balance</rdfs:seeAlso>
+        <owl:versionInfo>0.1</owl:versionInfo>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#Borrower -->
+
+    <owl:Class rdf:about="https://www.openriskmanual.org/ns/nplo.owl#Borrower">
+        <rdfs:subClassOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Counterparty"/>
+        <rdfs:comment>Borrower Class. A sub-class of Counterparty that applies to Lending relations</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://www.openriskmanual.org/ns/nplo.owl"/>
+        <rdfs:seeAlso>https://www.openriskmanual.org/wiki/Borrower</rdfs:seeAlso>
+        <owl:versionInfo>0.1</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#Collateral -->
+
+    <owl:Class rdf:about="https://www.openriskmanual.org/ns/nplo.owl#Collateral">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment>General Collateral Class</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://www.openriskmanual.org/ns/nplo.owl"/>
+        <rdfs:seeAlso>https://www.openriskmanual.org/wiki/Collateral</rdfs:seeAlso>
+        <owl:versionInfo>0.1</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#CollectionAgent -->
+
+    <owl:Class rdf:about="https://www.openriskmanual.org/ns/nplo.owl#CollectionAgent">
+        <rdfs:subClassOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Counterparty"/>
+        <rdfs:comment>Collection Agent class</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://www.openriskmanual.org/ns/nplo.owl"/>
+        <rdfs:seeAlso>https://www.openriskmanual.org/wiki/Debt_Collection</rdfs:seeAlso>
+        <owl:versionInfo>0.1</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#CorporateBorrower -->
+
+    <owl:Class rdf:about="https://www.openriskmanual.org/ns/nplo.owl#CorporateBorrower">
+        <rdfs:subClassOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Borrower"/>
+        <rdfs:comment>Corporate Borrower Class. A sub-class of Borrower that applies to Corporations</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://www.openriskmanual.org/ns/nplo.owl"/>
+        <rdfs:seeAlso>https://www.openriskmanual.org/wiki/Corporate_Borrower</rdfs:seeAlso>
+        <owl:versionInfo>0.1</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#CorporateLoan -->
+
+    <owl:Class rdf:about="https://www.openriskmanual.org/ns/nplo.owl#CorporateLoan">
+        <rdfs:subClassOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Loan"/>
+        <rdfs:comment>Corporate Loan class</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://www.openriskmanual.org/ns/nplo.owl"/>
+        <rdfs:seeAlso>https://www.openriskmanual.org/wiki/Corporate_Loan</rdfs:seeAlso>
+        <owl:versionInfo>0.1</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#Counterparty -->
+
+    <owl:Class rdf:about="https://www.openriskmanual.org/ns/nplo.owl#Counterparty">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment>General Counterparty Class (not necessarily to a credit contract)</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://www.openriskmanual.org/ns/nplo.owl"/>
+        <rdfs:seeAlso>https://www.openriskmanual.org/wiki/Counterparty</rdfs:seeAlso>
+        <owl:versionInfo>0.1</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#IndividualBorrower -->
+
+    <owl:Class rdf:about="https://www.openriskmanual.org/ns/nplo.owl#IndividualBorrower">
+        <rdfs:subClassOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Borrower"/>
+        <rdfs:comment>Individual Borrower Class. A sub-class of Borrower that applies to Individuals</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://www.openriskmanual.org/ns/nplo.owl"/>
+        <rdfs:seeAlso>https://www.openriskmanual.org/wiki/Corporate_Borrower</rdfs:seeAlso>
+        <owl:versionInfo>0.1</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#InsolvencyPractitioner -->
+
+    <owl:Class rdf:about="https://www.openriskmanual.org/ns/nplo.owl#InsolvencyPractitioner">
+        <rdfs:subClassOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Counterparty"/>
+        <rdfs:comment>Insolvency Practitioner Class</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://www.openriskmanual.org/ns/nplo.owl"/>
+        <rdfs:seeAlso>https://www.openriskmanual.org/wiki/Insolvency_Practitioner</rdfs:seeAlso>
+        <owl:versionInfo>0.1</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#InsuranceProvider -->
+
+    <owl:Class rdf:about="https://www.openriskmanual.org/ns/nplo.owl#InsuranceProvider">
+        <rdfs:subClassOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Counterparty"/>
+        <rdfs:comment>Insurance Provider Class</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://www.openriskmanual.org/ns/nplo.owl"/>
+        <rdfs:seeAlso>https://www.openriskmanual.org/wiki/Insurance_Company</rdfs:seeAlso>
+        <owl:versionInfo>0.1</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#Loan -->
+
+    <owl:Class rdf:about="https://www.openriskmanual.org/ns/nplo.owl#Loan">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:comment>Loan class</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://www.openriskmanual.org/ns/nplo.owl"/>
+        <rdfs:seeAlso>https://www.openriskmanual.org/wiki/Loan</rdfs:seeAlso>
+        <owl:versionInfo>0.1</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#PersonalLoan -->
+
+    <owl:Class rdf:about="https://www.openriskmanual.org/ns/nplo.owl#PersonalLoan">
+        <rdfs:subClassOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Loan"/>
+        <rdfs:comment>Personal Loan class</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://www.openriskmanual.org/ns/nplo.owl"/>
+        <rdfs:seeAlso>https://www.openriskmanual.org/wiki/Personal_Loan</rdfs:seeAlso>
+        <owl:versionInfo>0.1</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#RatingAgency -->
+
+    <owl:Class rdf:about="https://www.openriskmanual.org/ns/nplo.owl#RatingAgency">
+        <rdfs:subClassOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Counterparty"/>
+        <rdfs:comment>Credit Rating Agency Class</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://www.openriskmanual.org/ns/nplo.owl"/>
+        <rdfs:seeAlso>https://www.openriskmanual.org/wiki/Credit_Rating_Agency</rdfs:seeAlso>
+        <owl:versionInfo>0.1</owl:versionInfo>
+    </owl:Class>
+    
+
+
+    <!-- https://www.openriskmanual.org/ns/nplo.owl#Receiver -->
+
+    <owl:Class rdf:about="https://www.openriskmanual.org/ns/nplo.owl#Receiver">
+        <rdfs:subClassOf rdf:resource="https://www.openriskmanual.org/ns/nplo.owl#Counterparty"/>
+        <rdfs:comment>Receiver Class</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="https://www.openriskmanual.org/ns/nplo.owl"/>
+        <rdfs:seeAlso>https://www.openriskmanual.org/wiki/Receiver</rdfs:seeAlso>
+        <owl:versionInfo>0.1</owl:versionInfo>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
