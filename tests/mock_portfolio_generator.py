@@ -24,8 +24,8 @@ def borrowers_with_no_loan(apidoc: HydraDoc):
     Generates 100 Borrowers with no loans & no collateral
     """
     for borrower in range(100):
-        dummy_object = gen_dummy_object("CounterParty", apidoc)
-        put_request = requests.put("http://localhost:8080/creditrisk_api/CounterParty/", json=dummy_object)
+        dummy_object = gen_dummy_object("Counterparty", apidoc)
+        put_request = requests.put("http://localhost:8080/creditrisk_api/Counterparty/", json=dummy_object)
 
 
 def borrower_with_loan(apidoc: HydraDoc):
@@ -34,7 +34,7 @@ def borrower_with_loan(apidoc: HydraDoc):
     """
     for borrower in range(100):
         # Creating Counterparty Object
-        counterparty_dummy_object = gen_dummy_object("CounterParty", apidoc)
+        counterparty_dummy_object = gen_dummy_object("Counterparty", apidoc)
         # Loan object using CounterpartyId
         loan_dummy_object = gen_dummy_object("Loan", apidoc)
         loan_dummy_object['CounterpartyId'] = counterparty_dummy_object
@@ -47,18 +47,18 @@ def borrower_with_loan_and_collateral(apidoc: HydraDoc):
     """
     for borrower in range(100):
         # Creating Counterparty Object
-        counterparty_dummy_object = gen_dummy_object("CounterParty", apidoc)
+        counterparty_dummy_object = gen_dummy_object("Counterparty", apidoc)
         # Creating Loan object using CounterpartyId
         loan_dummy_object = gen_dummy_object("Loan", apidoc)
         loan_dummy_object['CounterpartyId'] = counterparty_dummy_object
         # Creating Collateral dummy object using ConcernLoan
-        collateral_dummy_object = gen_dummy_object("Collateral",apidoc)
-        collateral_dummy_object['ConcernLoan'] = loan_dummy_object
+        collateral_dummy_object = gen_dummy_object("Collateral", apidoc)
+        collateral_dummy_object['collateral_concerns_loan'] = loan_dummy_object
         put_request = requests.put("http://localhost:8080/creditrisk_api/Collateral", json=collateral_dummy_object)
 
 
 if __name__ == "__main__":
     doc = get_api_doc()
-    borrowers_with_no_loan(doc)
-    borrower_with_loan(doc)
+    #borrowers_with_no_loan(doc)
+    #borrower_with_loan(doc)
     borrower_with_loan_and_collateral(doc)

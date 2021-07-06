@@ -65,227 +65,9 @@
     "possibleStatus": [],
     "supportedClass": [
         {
-            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
-            "@type": "hydra:Class",
-            "description": "",
-            "supportedOperation": [
-                {
-                    "@type": "http://schema.org/FindAction",
-                    "expects": null,
-                    "expectsHeader": [],
-                    "method": "GET",
-                    "possibleStatus": [
-                        {
-                            "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
-                            "@type": "Status",
-                            "description": "CounterParty class returned.",
-                            "statusCode": 200,
-                            "title": ""
-                        }
-                    ],
-                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
-                    "returnsHeader": [],
-                    "title": "CounterPartyGET"
-                },
-                {
-                    "@type": "http://schema.org/AddAction",
-                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
-                    "expectsHeader": [],
-                    "method": "PUT",
-                    "possibleStatus": [
-                        {
-                            "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
-                            "@type": "Status",
-                            "description": "CounterParty class Added.",
-                            "statusCode": 200,
-                            "title": ""
-                        }
-                    ],
-                    "returns": null,
-                    "returnsHeader": [],
-                    "title": "CounterPartyPUT"
-                },
-                {
-                    "@type": "http://schema.org/UpdateAction",
-                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
-                    "expectsHeader": [],
-                    "method": "POST",
-                    "possibleStatus": [
-                        {
-                            "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
-                            "@type": "Status",
-                            "description": "CounterParty class updated.",
-                            "statusCode": 200,
-                            "title": ""
-                        }
-                    ],
-                    "returns": null,
-                    "returnsHeader": [
-                        "Content-Type",
-                        "Content-Length"
-                    ],
-                    "title": "CounterPartyPOST"
-                },
-                {
-                    "@type": "http://schema.org/DeleteAction",
-                    "expects": null,
-                    "expectsHeader": [],
-                    "method": "DELETE",
-                    "possibleStatus": [
-                        {
-                            "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
-                            "@type": "Status",
-                            "description": "CounterParty class Deleted.",
-                            "statusCode": 200,
-                            "title": ""
-                        }
-                    ],
-                    "returns": null,
-                    "returnsHeader": [],
-                    "title": "CounterPartyDELETE"
-                }
-            ],
-            "supportedProperty": [
-                {
-                    "@type": "SupportedProperty",
-                    "property": "https://www.openriskmanual.org/ns/nplo.owl#has_legal_entity_identifier",
-                    "readable": true,
-                    "required": true,
-                    "title": "LegalEntityIdentifier",
-                    "writeable": true
-                },
-                {
-                    "@type": "SupportedProperty",
-                    "property": "https://www.openriskmanual.org/ns/nplo.owl#has_total_assets",
-                    "readable": true,
-                    "required": true,
-                    "title": "TotalAssets",
-                    "writeable": true
-                },
-                {
-                    "@type": "SupportedProperty",
-                    "property": "https://www.openriskmanual.org/ns/nplo.owl#has_date_of_incorporation",
-                    "readable": true,
-                    "required": true,
-                    "title": "DateOfIncorporation",
-                    "writeable": true
-                }
-            ],
-            "title": "CounterParty"
-        },
-        {
-            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
-            "@type": "hydra:Class",
-            "description": "",
-            "supportedOperation": [
-                {
-                    "@type": "http://schema.org/FindAction",
-                    "expects": null,
-                    "expectsHeader": [],
-                    "method": "GET",
-                    "possibleStatus": [
-                        {
-                            "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
-                            "@type": "Status",
-                            "description": "Loan class returned.",
-                            "statusCode": 200,
-                            "title": ""
-                        }
-                    ],
-                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
-                    "returnsHeader": [],
-                    "title": "LoanGET"
-                },
-                {
-                    "@type": "http://schema.org/AddAction",
-                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
-                    "expectsHeader": [],
-                    "method": "PUT",
-                    "possibleStatus": [
-                        {
-                            "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
-                            "@type": "Status",
-                            "description": "Loan class Added.",
-                            "statusCode": 200,
-                            "title": ""
-                        }
-                    ],
-                    "returns": null,
-                    "returnsHeader": [],
-                    "title": "LoanPUT"
-                },
-                {
-                    "@type": "http://schema.org/UpdateAction",
-                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
-                    "expectsHeader": [],
-                    "method": "POST",
-                    "possibleStatus": [
-                        {
-                            "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
-                            "@type": "Status",
-                            "description": "Loan class updated.",
-                            "statusCode": 200,
-                            "title": ""
-                        }
-                    ],
-                    "returns": null,
-                    "returnsHeader": [
-                        "Content-Type",
-                        "Content-Length"
-                    ],
-                    "title": "LoanPOST"
-                },
-                {
-                    "@type": "http://schema.org/DeleteAction",
-                    "expects": null,
-                    "expectsHeader": [],
-                    "method": "DELETE",
-                    "possibleStatus": [
-                        {
-                            "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
-                            "@type": "Status",
-                            "description": "Loan class Deleted.",
-                            "statusCode": 200,
-                            "title": ""
-                        }
-                    ],
-                    "returns": null,
-                    "returnsHeader": [],
-                    "title": "LoanDELETE"
-                }
-            ],
-            "supportedProperty": [
-                {
-                    "@type": "SupportedProperty",
-                    "property": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
-                    "readable": true,
-                    "required": true,
-                    "title": "CounterpartyId",
-                    "writeable": true
-                },
-                {
-                    "@type": "SupportedProperty",
-                    "property": "https://www.openriskmanual.org/ns/nplo.owl#has_total_balance",
-                    "readable": true,
-                    "required": true,
-                    "title": "TotalBalance",
-                    "writeable": true
-                },
-                {
-                    "@type": "SupportedProperty",
-                    "property": "https://www.openriskmanual.org/ns/nplo.owl#has_channel_of_origination",
-                    "readable": true,
-                    "required": true,
-                    "title": "ChannelOfOrigination",
-                    "writeable": true
-                }
-            ],
-            "title": "Loan"
-        },
-        {
             "@id": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
             "@type": "hydra:Class",
-            "description": "",
+            "description": "Collateral Class",
             "supportedOperation": [
                 {
                     "@type": "http://schema.org/FindAction",
@@ -366,10 +148,10 @@
             "supportedProperty": [
                 {
                     "@type": "SupportedProperty",
-                    "property": "https://www.openriskmanual.org/ns/nplo.owl#has_collateral_type",
+                    "property": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
                     "readable": true,
                     "required": true,
-                    "title": "CollateralType",
+                    "title": "collateral_concerns_loan",
                     "writeable": true
                 },
                 {
@@ -377,19 +159,221 @@
                     "property": "https://www.openriskmanual.org/ns/nplo.owl#has_latest_valuation_amount",
                     "readable": true,
                     "required": true,
-                    "title": "LatestValuationAmount",
-                    "writeable": true
-                },
-                {
-                    "@type": "SupportedProperty",
-                    "property": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
-                    "readable": true,
-                    "required": true,
-                    "title": "ConcernLoan",
+                    "title": "has_latest_valuation_amount",
                     "writeable": true
                 }
             ],
             "title": "Collateral"
+        },
+        {
+            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
+            "@type": "hydra:Class",
+            "description": "Loan class",
+            "supportedOperation": [
+                {
+                    "@type": "http://schema.org/FindAction",
+                    "expects": null,
+                    "expectsHeader": [],
+                    "method": "GET",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                            "@type": "Status",
+                            "description": "Loan class returned.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
+                    "returnsHeader": [],
+                    "title": "LoanGET"
+                },
+                {
+                    "@type": "http://schema.org/AddAction",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
+                    "expectsHeader": [],
+                    "method": "PUT",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                            "@type": "Status",
+                            "description": "Loan class Added.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [],
+                    "title": "LoanPUT"
+                },
+                {
+                    "@type": "http://schema.org/UpdateAction",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
+                    "expectsHeader": [],
+                    "method": "POST",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                            "@type": "Status",
+                            "description": "Loan class updated.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [
+                        "Content-Type",
+                        "Content-Length"
+                    ],
+                    "title": "LoanPOST"
+                },
+                {
+                    "@type": "http://schema.org/DeleteAction",
+                    "expects": null,
+                    "expectsHeader": [],
+                    "method": "DELETE",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                            "@type": "Status",
+                            "description": "Loan class Deleted.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [],
+                    "title": "LoanDELETE"
+                }
+            ],
+            "supportedProperty": [
+                {
+                    "@type": "SupportedProperty",
+                    "property": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                    "readable": true,
+                    "required": true,
+                    "title": "CounterpartyId",
+                    "writeable": true
+                },
+                {
+                    "@type": "SupportedProperty",
+                    "property": "https://www.openriskmanual.org/ns/nplo.owl#has_total_balance",
+                    "readable": true,
+                    "required": true,
+                    "title": "has_total_balance",
+                    "writeable": true
+                },
+                {
+                    "@type": "SupportedProperty",
+                    "property": "https://www.openriskmanual.org/ns/nplo.owl#has_channel_of_origination",
+                    "readable": true,
+                    "required": true,
+                    "title": "has_channel_of_origination",
+                    "writeable": true
+                }
+            ],
+            "title": "Loan"
+        },
+        {
+            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+            "@type": "hydra:Class",
+            "description": "Counterparty Class (not necessarily to a credit contract)",
+            "supportedOperation": [
+                {
+                    "@type": "http://schema.org/FindAction",
+                    "expects": null,
+                    "expectsHeader": [],
+                    "method": "GET",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                            "@type": "Status",
+                            "description": "Counterparty class returned.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                    "returnsHeader": [],
+                    "title": "CounterpartyGET"
+                },
+                {
+                    "@type": "http://schema.org/AddAction",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                    "expectsHeader": [],
+                    "method": "PUT",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                            "@type": "Status",
+                            "description": "Counterparty class Added.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [],
+                    "title": "CounterpartyPUT"
+                },
+                {
+                    "@type": "http://schema.org/UpdateAction",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                    "expectsHeader": [],
+                    "method": "POST",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                            "@type": "Status",
+                            "description": "Counterparty class updated.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [
+                        "Content-Type",
+                        "Content-Length"
+                    ],
+                    "title": "CounterpartyPOST"
+                },
+                {
+                    "@type": "http://schema.org/DeleteAction",
+                    "expects": null,
+                    "expectsHeader": [],
+                    "method": "DELETE",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                            "@type": "Status",
+                            "description": "Counterparty class Deleted.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [],
+                    "title": "CounterpartyDELETE"
+                }
+            ],
+            "supportedProperty": [
+                {
+                    "@type": "SupportedProperty",
+                    "property": "https://www.openriskmanual.org/ns/nplo.owl#has_total_assets",
+                    "readable": true,
+                    "required": true,
+                    "title": "has_total_assets",
+                    "writeable": true
+                },
+                {
+                    "@type": "SupportedProperty",
+                    "property": "https://www.openriskmanual.org/ns/nplo.owl#has_legal_entity_identifier",
+                    "readable": true,
+                    "required": true,
+                    "title": "has_legal_entity_identifier",
+                    "writeable": true
+                }
+            ],
+            "title": "Counterparty"
         },
         {
             "@id": "http://www.w3.org/ns/hydra/core#Resource",
@@ -421,7 +405,7 @@
             "@type": "Collection",
             "description": "Collection for Borrower class",
             "manages": {
-                "object": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
+                "object": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
                 "property": "rdf:type"
             },
             "subClassOf": "http://www.w3.org/ns/hydra/core#Collection",
@@ -434,14 +418,14 @@
                     "expectsHeader": [],
                     "method": "GET",
                     "possibleStatus": [],
-                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
+                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
                     "returnsHeader": []
                 },
                 {
                     "@id": "_:CounterParty_collection_create",
                     "@type": "http://schema.org/AddAction",
                     "description": "Create new member in CounterParty_collection",
-                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
                     "expectsHeader": [],
                     "method": "PUT",
                     "possibleStatus": [
@@ -453,14 +437,14 @@
                             "title": ""
                         }
                     ],
-                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
+                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
                     "returnsHeader": []
                 },
                 {
                     "@id": "_:CounterParty_collection_update",
                     "@type": "http://schema.org/UpdateAction",
                     "description": "Update member of  CounterParty_collection ",
-                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
                     "expectsHeader": [],
                     "method": "POST",
                     "possibleStatus": [
@@ -472,14 +456,14 @@
                             "title": ""
                         }
                     ],
-                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
+                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
                     "returnsHeader": []
                 },
                 {
                     "@id": "_:CounterParty_collection_delete",
                     "@type": "http://schema.org/DeleteAction",
                     "description": "Delete member of CounterParty_collection ",
-                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
                     "expectsHeader": [],
                     "method": "DELETE",
                     "possibleStatus": [
@@ -491,7 +475,7 @@
                             "title": ""
                         }
                     ],
-                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
+                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
                     "returnsHeader": []
                 }
             ],
@@ -527,212 +511,12 @@
             ],
             "supportedProperty": [
                 {
-                    "hydra:description": "The CounterParty Class",
-                    "hydra:title": "counterparty",
-                    "property": {
-                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/CounterParty",
-                        "@type": "hydra:Link",
-                        "description": "",
-                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
-                        "label": "CounterParty",
-                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
-                        "supportedOperation": [
-                            {
-                                "@id": "counterpartyget",
-                                "@type": "http://schema.org/FindAction",
-                                "description": null,
-                                "expects": null,
-                                "expectsHeader": [],
-                                "label": "CounterPartyGET",
-                                "method": "GET",
-                                "possibleStatus": [
-                                    {
-                                        "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
-                                        "@type": "Status",
-                                        "description": "CounterParty class returned.",
-                                        "statusCode": 200,
-                                        "title": ""
-                                    }
-                                ],
-                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
-                                "returnsHeader": []
-                            },
-                            {
-                                "@id": "counterpartyput",
-                                "@type": "http://schema.org/AddAction",
-                                "description": null,
-                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
-                                "expectsHeader": [],
-                                "label": "CounterPartyPUT",
-                                "method": "PUT",
-                                "possibleStatus": [
-                                    {
-                                        "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
-                                        "@type": "Status",
-                                        "description": "CounterParty class Added.",
-                                        "statusCode": 200,
-                                        "title": ""
-                                    }
-                                ],
-                                "returns": null,
-                                "returnsHeader": []
-                            },
-                            {
-                                "@id": "counterpartypost",
-                                "@type": "http://schema.org/UpdateAction",
-                                "description": null,
-                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
-                                "expectsHeader": [],
-                                "label": "CounterPartyPOST",
-                                "method": "POST",
-                                "possibleStatus": [
-                                    {
-                                        "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
-                                        "@type": "Status",
-                                        "description": "CounterParty class updated.",
-                                        "statusCode": 200,
-                                        "title": ""
-                                    }
-                                ],
-                                "returns": null,
-                                "returnsHeader": [
-                                    "Content-Type",
-                                    "Content-Length"
-                                ]
-                            },
-                            {
-                                "@id": "counterpartydelete",
-                                "@type": "http://schema.org/DeleteAction",
-                                "description": null,
-                                "expects": null,
-                                "expectsHeader": [],
-                                "label": "CounterPartyDELETE",
-                                "method": "DELETE",
-                                "possibleStatus": [
-                                    {
-                                        "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
-                                        "@type": "Status",
-                                        "description": "CounterParty class Deleted.",
-                                        "statusCode": 200,
-                                        "title": ""
-                                    }
-                                ],
-                                "returns": null,
-                                "returnsHeader": []
-                            }
-                        ]
-                    },
-                    "readable": true,
-                    "required": null,
-                    "writeable": false
-                },
-                {
-                    "hydra:description": "The Loan Class",
-                    "hydra:title": "loan",
-                    "property": {
-                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/Loan",
-                        "@type": "hydra:Link",
-                        "description": "",
-                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
-                        "label": "Loan",
-                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
-                        "supportedOperation": [
-                            {
-                                "@id": "loanget",
-                                "@type": "http://schema.org/FindAction",
-                                "description": null,
-                                "expects": null,
-                                "expectsHeader": [],
-                                "label": "LoanGET",
-                                "method": "GET",
-                                "possibleStatus": [
-                                    {
-                                        "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
-                                        "@type": "Status",
-                                        "description": "Loan class returned.",
-                                        "statusCode": 200,
-                                        "title": ""
-                                    }
-                                ],
-                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
-                                "returnsHeader": []
-                            },
-                            {
-                                "@id": "loanput",
-                                "@type": "http://schema.org/AddAction",
-                                "description": null,
-                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
-                                "expectsHeader": [],
-                                "label": "LoanPUT",
-                                "method": "PUT",
-                                "possibleStatus": [
-                                    {
-                                        "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
-                                        "@type": "Status",
-                                        "description": "Loan class Added.",
-                                        "statusCode": 200,
-                                        "title": ""
-                                    }
-                                ],
-                                "returns": null,
-                                "returnsHeader": []
-                            },
-                            {
-                                "@id": "loanpost",
-                                "@type": "http://schema.org/UpdateAction",
-                                "description": null,
-                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
-                                "expectsHeader": [],
-                                "label": "LoanPOST",
-                                "method": "POST",
-                                "possibleStatus": [
-                                    {
-                                        "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
-                                        "@type": "Status",
-                                        "description": "Loan class updated.",
-                                        "statusCode": 200,
-                                        "title": ""
-                                    }
-                                ],
-                                "returns": null,
-                                "returnsHeader": [
-                                    "Content-Type",
-                                    "Content-Length"
-                                ]
-                            },
-                            {
-                                "@id": "loandelete",
-                                "@type": "http://schema.org/DeleteAction",
-                                "description": null,
-                                "expects": null,
-                                "expectsHeader": [],
-                                "label": "LoanDELETE",
-                                "method": "DELETE",
-                                "possibleStatus": [
-                                    {
-                                        "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
-                                        "@type": "Status",
-                                        "description": "Loan class Deleted.",
-                                        "statusCode": 200,
-                                        "title": ""
-                                    }
-                                ],
-                                "returns": null,
-                                "returnsHeader": []
-                            }
-                        ]
-                    },
-                    "readable": true,
-                    "required": null,
-                    "writeable": false
-                },
-                {
                     "hydra:description": "The Collateral Class",
                     "hydra:title": "collateral",
                     "property": {
                         "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/Collateral",
                         "@type": "hydra:Link",
-                        "description": "",
+                        "description": "Collateral Class",
                         "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
                         "label": "Collateral",
                         "range": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
@@ -827,6 +611,206 @@
                     "writeable": false
                 },
                 {
+                    "hydra:description": "The Loan Class",
+                    "hydra:title": "loan",
+                    "property": {
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/Loan",
+                        "@type": "hydra:Link",
+                        "description": "Loan class",
+                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
+                        "label": "Loan",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
+                        "supportedOperation": [
+                            {
+                                "@id": "loanget",
+                                "@type": "http://schema.org/FindAction",
+                                "description": null,
+                                "expects": null,
+                                "expectsHeader": [],
+                                "label": "LoanGET",
+                                "method": "GET",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                                        "@type": "Status",
+                                        "description": "Loan class returned.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
+                                "returnsHeader": []
+                            },
+                            {
+                                "@id": "loanput",
+                                "@type": "http://schema.org/AddAction",
+                                "description": null,
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
+                                "expectsHeader": [],
+                                "label": "LoanPUT",
+                                "method": "PUT",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                                        "@type": "Status",
+                                        "description": "Loan class Added.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": []
+                            },
+                            {
+                                "@id": "loanpost",
+                                "@type": "http://schema.org/UpdateAction",
+                                "description": null,
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
+                                "expectsHeader": [],
+                                "label": "LoanPOST",
+                                "method": "POST",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                                        "@type": "Status",
+                                        "description": "Loan class updated.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": [
+                                    "Content-Type",
+                                    "Content-Length"
+                                ]
+                            },
+                            {
+                                "@id": "loandelete",
+                                "@type": "http://schema.org/DeleteAction",
+                                "description": null,
+                                "expects": null,
+                                "expectsHeader": [],
+                                "label": "LoanDELETE",
+                                "method": "DELETE",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                                        "@type": "Status",
+                                        "description": "Loan class Deleted.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": []
+                            }
+                        ]
+                    },
+                    "readable": true,
+                    "required": null,
+                    "writeable": false
+                },
+                {
+                    "hydra:description": "The Counterparty Class",
+                    "hydra:title": "counterparty",
+                    "property": {
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/Counterparty",
+                        "@type": "hydra:Link",
+                        "description": "Counterparty Class (not necessarily to a credit contract)",
+                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
+                        "label": "Counterparty",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                        "supportedOperation": [
+                            {
+                                "@id": "counterpartyget",
+                                "@type": "http://schema.org/FindAction",
+                                "description": null,
+                                "expects": null,
+                                "expectsHeader": [],
+                                "label": "CounterpartyGET",
+                                "method": "GET",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                                        "@type": "Status",
+                                        "description": "Counterparty class returned.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                                "returnsHeader": []
+                            },
+                            {
+                                "@id": "counterpartyput",
+                                "@type": "http://schema.org/AddAction",
+                                "description": null,
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                                "expectsHeader": [],
+                                "label": "CounterpartyPUT",
+                                "method": "PUT",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                                        "@type": "Status",
+                                        "description": "Counterparty class Added.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": []
+                            },
+                            {
+                                "@id": "counterpartypost",
+                                "@type": "http://schema.org/UpdateAction",
+                                "description": null,
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                                "expectsHeader": [],
+                                "label": "CounterpartyPOST",
+                                "method": "POST",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                                        "@type": "Status",
+                                        "description": "Counterparty class updated.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": [
+                                    "Content-Type",
+                                    "Content-Length"
+                                ]
+                            },
+                            {
+                                "@id": "counterpartydelete",
+                                "@type": "http://schema.org/DeleteAction",
+                                "description": null,
+                                "expects": null,
+                                "expectsHeader": [],
+                                "label": "CounterpartyDELETE",
+                                "method": "DELETE",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://raw.githubusercontent.com/HydraCG/Specifications/master/spec/latest/core/core.jsonld",
+                                        "@type": "Status",
+                                        "description": "Counterparty class Deleted.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": []
+                            }
+                        ]
+                    },
+                    "readable": true,
+                    "required": null,
+                    "writeable": false
+                },
+                {
                     "hydra:description": "The CounterParty_collection collection",
                     "hydra:title": "counterparty_collection",
                     "property": {
@@ -836,7 +820,7 @@
                         "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
                         "label": "CounterParty_collection",
                         "manages": {
-                            "object": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
+                            "object": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
                             "property": "rdf:type"
                         },
                         "range": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty_collection",
@@ -849,14 +833,14 @@
                                 "expectsHeader": [],
                                 "method": "GET",
                                 "possibleStatus": [],
-                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
+                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
                                 "returnsHeader": []
                             },
                             {
                                 "@id": "_:counterparty_collection_create",
                                 "@type": "http://schema.org/AddAction",
                                 "description": "Create new member in CounterParty_collection",
-                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
                                 "expectsHeader": [],
                                 "method": "PUT",
                                 "possibleStatus": [
@@ -868,14 +852,14 @@
                                         "title": ""
                                     }
                                 ],
-                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
+                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
                                 "returnsHeader": []
                             },
                             {
                                 "@id": "_:counterparty_collection_update",
                                 "@type": "http://schema.org/UpdateAction",
                                 "description": "Update member of  CounterParty_collection ",
-                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
                                 "expectsHeader": [],
                                 "method": "POST",
                                 "possibleStatus": [
@@ -887,14 +871,14 @@
                                         "title": ""
                                     }
                                 ],
-                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
+                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
                                 "returnsHeader": []
                             },
                             {
                                 "@id": "_:counterparty_collection_delete",
                                 "@type": "http://schema.org/DeleteAction",
                                 "description": "Delete member of CounterParty_collection ",
-                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
                                 "expectsHeader": [],
                                 "method": "DELETE",
                                 "possibleStatus": [
@@ -906,7 +890,7 @@
                                         "title": ""
                                     }
                                 ],
-                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty",
+                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
                                 "returnsHeader": []
                             }
                         ]

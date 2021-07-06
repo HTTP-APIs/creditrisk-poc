@@ -17,9 +17,9 @@ def get_all_classes(vocab: dict) -> list:
     Get all the classes from the given Vocabulary.
     """
     classes = list()
-    defines = vocab['defines']
+    defines = vocab['@graph']
     for obj in defines:
-        if obj['@type'] == 'rdfs:Class':
+        if obj['@type'] == 'owl:Class':
             classes.append(obj)
     return classes
 
@@ -30,32 +30,40 @@ def create_hydra_classes(vocab_classes: list) -> list:
     """
     hydra_classes = list()
     for class_ in vocab_classes:
-        hydra_class = HydraClass(class_['rdfs:label'], class_['rdfs:comment'], endpoint=True)
+        class_name = (class_['rdfs:comment'].split('Class')[0]).replace(" ", "")
+        if "class" in class_name:
+            class_name = (class_['rdfs:comment'].split('class')[0]).replace(" ", "")
+        hydra_class = HydraClass(class_name, class_['rdfs:comment'], endpoint=True)
         hydra_classes.append(hydra_class)
     return hydra_classes
 
 
-def get_class_properties(class_ : str, vocab : dict) -> list:
+def get_class_properties(class_name: str, vocab: dict) -> list:
     """
     Return all the properties of the given class.
     """
     properties = list()
-    defines = vocab['defines']
+    defines = vocab['@graph']
     for obj in defines:
         if obj.get('propertyOf'):
-            propertyof = obj['propertyOf']['@id'].split('#')[1]
-            if propertyof == class_ or obj['@type'] == 'owl:DataProperty' and obj['@type'] == 'owl:ObjectProperty':
+            propertyof = obj['propertyOf'].split('#')[1]
+            if propertyof == class_name or obj['@type'] == 'owl:DataProperty' and obj['@type'] == 'owl:ObjectProperty':
                 properties.append(obj)
     return properties
 
 
 def create_hydra_properties(property_: dict, hydra_classes: dict) -> HydraClassProp:
-    if property_.get('propertyOn') and isinstance(property_['propertyOn'], dict):
-        property_on_class = property_.get("propertyOn")['@id'].split('#')[1]
-        property_uri = hydra_classes[property_on_class].id_
-    else:
+    property_uri = None
+    property_name = None
+    if property_['@type'] == 'owl:DatatypeProperty':
         property_uri = property_['@id']
-    hydra_property = HydraClassProp(property_uri, property_['rdfs:label'],
+        property_name = property_['rdfs:label']
+    elif 'owl:ObjectProperty' in property_['@type']:
+        property_on_class = property_.get("propertyOn").split('#')[1]
+        property_uri = hydra_classes[property_on_class].id_
+        property_name = property_['@id'].split('#')[1]
+
+    hydra_property = HydraClassProp(property_uri, property_name,
                                     required=True, read=True, write=True)
     return hydra_property
 
@@ -87,7 +95,8 @@ def add_operations_to_class(hydra_classes: list, class_name: str, operations: li
                 hydra_operations.append(op)
             if operation == "POST":
                 put_operation_status = [HydraStatus(code=200, desc=class_name + " class updated.")]
-                op = HydraClassOp(class_name + operation, operation, class_id, None, [], ["Content-Type", "Content-Length"],
+                op = HydraClassOp(class_name + operation, operation, class_id, None, [],
+                                  ["Content-Type", "Content-Length"],
                                   put_operation_status)
                 hydra_operations.append(op)
             if operation == "DELETE":
@@ -96,9 +105,3 @@ def add_operations_to_class(hydra_classes: list, class_name: str, operations: li
                                   put_operation_status)
                 hydra_operations.append(op)
     return hydra_operations
-
-
-
-
-
-
