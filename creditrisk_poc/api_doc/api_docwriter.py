@@ -36,7 +36,7 @@ CounterpartyId_prop = HydraClassProp(loan_foriegnkey_uri, loan_foriegnkey_title,
 classes['Loan'].add_supported_prop(CounterpartyId_prop)
 
 Loan_operations = parser.add_operations_to_class(hydra_classes, "Loan", ["GET", "PUT", "POST", "DELETE"])
-Counterparty_operations = parser.add_operations_to_class(hydra_classes, "CounterParty",
+Counterparty_operations = parser.add_operations_to_class(hydra_classes, "Counterparty",
                                                          ["GET", "PUT", "POST", "DELETE"])
 Collateral_operations = parser.add_operations_to_class(hydra_classes, "Collateral", ["GET", "PUT", "POST", "DELETE"])
 
