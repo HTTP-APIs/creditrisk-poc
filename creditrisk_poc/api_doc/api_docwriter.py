@@ -3,7 +3,7 @@ import json
 from hydra_python_core.doc_writer import (HydraDoc, HydraClass,
                                           HydraClassProp, HydraClassOp, HydraStatus, HydraCollection)
 import logging
-import NPLVocab_parser as parser
+import nplvocab_parser as parser
 
 logging.basicConfig(filename="docwriter_log.log", format='%(asctime)s %(message)s', filemode='a')
 logger = logging.getLogger()
