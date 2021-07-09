@@ -46,9 +46,13 @@ for class_ in hydra_classes:
     for property_ in class_properties:
         prop = parser.create_hydra_properties(property_, classes)
         class_.add_supported_prop(prop)
-    class_operations = eval(class_name + "_operations")
-    for operation in class_operations:
-        class_.add_supported_op(operation)
+    try:
+        class_operations = eval(class_name + "_operations")
+    except NameError:
+        class_operations = None
+    if class_operations:
+        for operation in class_operations:
+            class_.add_supported_op(operation)
     api_doc.add_supported_class(class_)
 
 
