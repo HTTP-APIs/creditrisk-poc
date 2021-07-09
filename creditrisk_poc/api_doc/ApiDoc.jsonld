@@ -66,20 +66,12 @@
     "possibleStatus": [],
     "supportedClass": [
         {
-            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=InsolvencyPractitioner",
+            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCounterparty",
             "@type": "hydra:Class",
-            "description": "Insolvency Practitioner Class",
+            "description": "General Counterparty Class (not necessarily to a credit contract)",
             "supportedOperation": [],
             "supportedProperty": [],
-            "title": "InsolvencyPractitioner"
-        },
-        {
-            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=CollectionAgent",
-            "@type": "hydra:Class",
-            "description": "Collection Agent class",
-            "supportedOperation": [],
-            "supportedProperty": [],
-            "title": "CollectionAgent"
+            "title": "GeneralCounterparty"
         },
         {
             "@id": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCollateral",
@@ -181,25 +173,8 @@
                 },
                 {
                     "@type": "SupportedProperty",
-                    "property": "http://localhost:8080/creditrisk_api/vocab?resource=Borrower",
-                    "readable": true,
-                    "required": true,
-                    "title": "has_borrower",
-                    "writeable": true
-                },
-                {
-                    "@type": "SupportedProperty",
-                    "property": "https://www.openriskmanual.org/ns/nplo.owl#has_channel_of_origination",
-                    "range": "xsd:_:N64800880ab3041bf88cebabee42ba5aa",
-                    "readable": true,
-                    "required": true,
-                    "title": "has_channel_of_origination",
-                    "writeable": true
-                },
-                {
-                    "@type": "SupportedProperty",
                     "property": "https://www.openriskmanual.org/ns/nplo.owl#has_total_balance",
-                    "range": "xsd:decimal",
+                    "range": "xsd:float",
                     "readable": true,
                     "required": true,
                     "title": "has_total_balance",
@@ -207,86 +182,6 @@
                 }
             ],
             "title": "Loan"
-        },
-        {
-            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=CorporateLoan",
-            "@type": "hydra:Class",
-            "description": "Corporate Loan class",
-            "supportedOperation": [],
-            "supportedProperty": [],
-            "title": "CorporateLoan"
-        },
-        {
-            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=CreditRatingAgency",
-            "@type": "hydra:Class",
-            "description": "Credit Rating Agency Class",
-            "supportedOperation": [],
-            "supportedProperty": [],
-            "title": "CreditRatingAgency"
-        },
-        {
-            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCounterparty",
-            "@type": "hydra:Class",
-            "description": "General Counterparty Class (not necessarily to a credit contract)",
-            "supportedOperation": [],
-            "supportedProperty": [],
-            "title": "GeneralCounterparty"
-        },
-        {
-            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=Borrower",
-            "@type": "hydra:Class",
-            "description": "Borrower Class. A sub-class of Counterparty that applies to Lending relations",
-            "supportedOperation": [],
-            "supportedProperty": [],
-            "title": "Borrower"
-        },
-        {
-            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=Receiver",
-            "@type": "hydra:Class",
-            "description": "Receiver Class",
-            "supportedOperation": [],
-            "supportedProperty": [],
-            "title": "Receiver"
-        },
-        {
-            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=CorporateBorrower",
-            "@type": "hydra:Class",
-            "description": "Corporate Borrower Class. A sub-class of Borrower that applies to Corporations",
-            "supportedOperation": [],
-            "supportedProperty": [],
-            "title": "CorporateBorrower"
-        },
-        {
-            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=PersonalLoan",
-            "@type": "hydra:Class",
-            "description": "Personal Loan class",
-            "supportedOperation": [],
-            "supportedProperty": [],
-            "title": "PersonalLoan"
-        },
-        {
-            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=IndividualBorrower",
-            "@type": "hydra:Class",
-            "description": "Individual Borrower Class. A sub-class of Borrower that applies to Individuals",
-            "supportedOperation": [],
-            "supportedProperty": [],
-            "title": "IndividualBorrower"
-        },
-        {
-            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=InsuranceProvider",
-            "@type": "hydra:Class",
-            "description": "Insurance Provider Class",
-            "supportedOperation": [],
-            "supportedProperty": [],
-            "title": "InsuranceProvider"
-        },
-        {
-            "@id": "http://www.w3.org/ns/hydra/core#Resource",
-            "@type": "hydra:Class",
-            "description": null,
-            "supportedOperation": [],
-            "supportedProperty": [],
-            "title": "Resource"
         },
         {
             "@id": "http://www.w3.org/ns/hydra/core#Collection",
@@ -416,15 +311,15 @@
             ],
             "supportedProperty": [
                 {
-                    "hydra:description": "The InsolvencyPractitioner Class",
-                    "hydra:title": "insolvencypractitioner",
+                    "hydra:description": "The Receiver Class",
+                    "hydra:title": "receiver",
                     "property": {
-                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/InsolvencyPractitioner",
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/Receiver",
                         "@type": "hydra:Link",
-                        "description": "Insolvency Practitioner Class",
+                        "description": "Receiver Class",
                         "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
-                        "label": "InsolvencyPractitioner",
-                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=InsolvencyPractitioner",
+                        "label": "Receiver",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=Receiver",
                         "supportedOperation": []
                     },
                     "readable": true,
@@ -432,15 +327,63 @@
                     "writeable": false
                 },
                 {
-                    "hydra:description": "The CollectionAgent Class",
-                    "hydra:title": "collectionagent",
+                    "hydra:description": "The GeneralCounterparty Class",
+                    "hydra:title": "generalcounterparty",
                     "property": {
-                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/CollectionAgent",
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/GeneralCounterparty",
                         "@type": "hydra:Link",
-                        "description": "Collection Agent class",
+                        "description": "General Counterparty Class (not necessarily to a credit contract)",
                         "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
-                        "label": "CollectionAgent",
-                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=CollectionAgent",
+                        "label": "GeneralCounterparty",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCounterparty",
+                        "supportedOperation": []
+                    },
+                    "readable": true,
+                    "required": null,
+                    "writeable": false
+                },
+                {
+                    "hydra:description": "The CorporateBorrower Class",
+                    "hydra:title": "corporateborrower",
+                    "property": {
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/CorporateBorrower",
+                        "@type": "hydra:Link",
+                        "description": "Corporate Borrower Class. A sub-class of Borrower that applies to Corporations",
+                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
+                        "label": "CorporateBorrower",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=CorporateBorrower",
+                        "supportedOperation": []
+                    },
+                    "readable": true,
+                    "required": null,
+                    "writeable": false
+                },
+                {
+                    "hydra:description": "The PersonalLoan Class",
+                    "hydra:title": "personalloan",
+                    "property": {
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/PersonalLoan",
+                        "@type": "hydra:Link",
+                        "description": "Personal Loan class",
+                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
+                        "label": "PersonalLoan",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=PersonalLoan",
+                        "supportedOperation": []
+                    },
+                    "readable": true,
+                    "required": null,
+                    "writeable": false
+                },
+                {
+                    "hydra:description": "The CorporateLoan Class",
+                    "hydra:title": "corporateloan",
+                    "property": {
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/CorporateLoan",
+                        "@type": "hydra:Link",
+                        "description": "Corporate Loan class",
+                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
+                        "label": "CorporateLoan",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=CorporateLoan",
                         "supportedOperation": []
                     },
                     "readable": true,
@@ -457,6 +400,70 @@
                         "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
                         "label": "GeneralCollateral",
                         "range": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCollateral",
+                        "supportedOperation": []
+                    },
+                    "readable": true,
+                    "required": null,
+                    "writeable": false
+                },
+                {
+                    "hydra:description": "The CreditRatingAgency Class",
+                    "hydra:title": "creditratingagency",
+                    "property": {
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/CreditRatingAgency",
+                        "@type": "hydra:Link",
+                        "description": "Credit Rating Agency Class",
+                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
+                        "label": "CreditRatingAgency",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=CreditRatingAgency",
+                        "supportedOperation": []
+                    },
+                    "readable": true,
+                    "required": null,
+                    "writeable": false
+                },
+                {
+                    "hydra:description": "The Borrower Class",
+                    "hydra:title": "borrower",
+                    "property": {
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/Borrower",
+                        "@type": "hydra:Link",
+                        "description": "Borrower Class. A sub-class of Counterparty that applies to Lending relations",
+                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
+                        "label": "Borrower",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=Borrower",
+                        "supportedOperation": []
+                    },
+                    "readable": true,
+                    "required": null,
+                    "writeable": false
+                },
+                {
+                    "hydra:description": "The InsolvencyPractitioner Class",
+                    "hydra:title": "insolvencypractitioner",
+                    "property": {
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/InsolvencyPractitioner",
+                        "@type": "hydra:Link",
+                        "description": "Insolvency Practitioner Class",
+                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
+                        "label": "InsolvencyPractitioner",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=InsolvencyPractitioner",
+                        "supportedOperation": []
+                    },
+                    "readable": true,
+                    "required": null,
+                    "writeable": false
+                },
+                {
+                    "hydra:description": "The IndividualBorrower Class",
+                    "hydra:title": "individualborrower",
+                    "property": {
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/IndividualBorrower",
+                        "@type": "hydra:Link",
+                        "description": "Individual Borrower Class. A sub-class of Borrower that applies to Individuals",
+                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
+                        "label": "IndividualBorrower",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=IndividualBorrower",
                         "supportedOperation": []
                     },
                     "readable": true,
@@ -558,134 +565,6 @@
                                 "returnsHeader": []
                             }
                         ]
-                    },
-                    "readable": true,
-                    "required": null,
-                    "writeable": false
-                },
-                {
-                    "hydra:description": "The CorporateLoan Class",
-                    "hydra:title": "corporateloan",
-                    "property": {
-                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/CorporateLoan",
-                        "@type": "hydra:Link",
-                        "description": "Corporate Loan class",
-                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
-                        "label": "CorporateLoan",
-                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=CorporateLoan",
-                        "supportedOperation": []
-                    },
-                    "readable": true,
-                    "required": null,
-                    "writeable": false
-                },
-                {
-                    "hydra:description": "The CreditRatingAgency Class",
-                    "hydra:title": "creditratingagency",
-                    "property": {
-                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/CreditRatingAgency",
-                        "@type": "hydra:Link",
-                        "description": "Credit Rating Agency Class",
-                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
-                        "label": "CreditRatingAgency",
-                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=CreditRatingAgency",
-                        "supportedOperation": []
-                    },
-                    "readable": true,
-                    "required": null,
-                    "writeable": false
-                },
-                {
-                    "hydra:description": "The GeneralCounterparty Class",
-                    "hydra:title": "generalcounterparty",
-                    "property": {
-                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/GeneralCounterparty",
-                        "@type": "hydra:Link",
-                        "description": "General Counterparty Class (not necessarily to a credit contract)",
-                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
-                        "label": "GeneralCounterparty",
-                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCounterparty",
-                        "supportedOperation": []
-                    },
-                    "readable": true,
-                    "required": null,
-                    "writeable": false
-                },
-                {
-                    "hydra:description": "The Borrower Class",
-                    "hydra:title": "borrower",
-                    "property": {
-                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/Borrower",
-                        "@type": "hydra:Link",
-                        "description": "Borrower Class. A sub-class of Counterparty that applies to Lending relations",
-                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
-                        "label": "Borrower",
-                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=Borrower",
-                        "supportedOperation": []
-                    },
-                    "readable": true,
-                    "required": null,
-                    "writeable": false
-                },
-                {
-                    "hydra:description": "The Receiver Class",
-                    "hydra:title": "receiver",
-                    "property": {
-                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/Receiver",
-                        "@type": "hydra:Link",
-                        "description": "Receiver Class",
-                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
-                        "label": "Receiver",
-                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=Receiver",
-                        "supportedOperation": []
-                    },
-                    "readable": true,
-                    "required": null,
-                    "writeable": false
-                },
-                {
-                    "hydra:description": "The CorporateBorrower Class",
-                    "hydra:title": "corporateborrower",
-                    "property": {
-                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/CorporateBorrower",
-                        "@type": "hydra:Link",
-                        "description": "Corporate Borrower Class. A sub-class of Borrower that applies to Corporations",
-                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
-                        "label": "CorporateBorrower",
-                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=CorporateBorrower",
-                        "supportedOperation": []
-                    },
-                    "readable": true,
-                    "required": null,
-                    "writeable": false
-                },
-                {
-                    "hydra:description": "The PersonalLoan Class",
-                    "hydra:title": "personalloan",
-                    "property": {
-                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/PersonalLoan",
-                        "@type": "hydra:Link",
-                        "description": "Personal Loan class",
-                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
-                        "label": "PersonalLoan",
-                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=PersonalLoan",
-                        "supportedOperation": []
-                    },
-                    "readable": true,
-                    "required": null,
-                    "writeable": false
-                },
-                {
-                    "hydra:description": "The IndividualBorrower Class",
-                    "hydra:title": "individualborrower",
-                    "property": {
-                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/IndividualBorrower",
-                        "@type": "hydra:Link",
-                        "description": "Individual Borrower Class. A sub-class of Borrower that applies to Individuals",
-                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
-                        "label": "IndividualBorrower",
-                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=IndividualBorrower",
-                        "supportedOperation": []
                     },
                     "readable": true,
                     "required": null,

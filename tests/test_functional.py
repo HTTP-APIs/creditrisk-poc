@@ -175,26 +175,6 @@ class TestApp:
                     f'{endpoint["@id"]}/{id_}')
                 assert delete_response.status_code == 200
 
-    def test_object_PUT_at_id(self, test_app_client, constants, doc):
-        """Create object in collection using PUT at specific ID."""
-        API_NAME = constants['API_NAME']
-        index = test_app_client.get(f'/{API_NAME}')
-        assert index.status_code == 200
-        endpoints = json.loads(index.data.decode('utf-8'))
-        for endpoint in endpoints['collections']:
-            collection_name = '/'.join(
-                endpoint["@id"].split(f'/{API_NAME}/')[1:])
-            collection = doc.collections[collection_name]['collection']
-            collection_methods = [
-                x.method for x in collection.supportedOperation]
-            dummy_object = gen_dummy_object(collection.name, doc)
-            if 'PUT' in collection_methods:
-                dummy_object = gen_dummy_object(collection.name, doc)
-                put_response = test_app_client.put(f'{endpoint["@id"]}/{uuid.uuid4()}',
-                                                   data=json.dumps(dummy_object))
-                assert put_response.status_code == 201
-                assert put_response.json["iri"] == put_response.location
-
     def test_object_PUT_at_ids(self, test_app_client, constants, doc):
         API_NAME = constants['API_NAME']
         index = test_app_client.get(f'/{API_NAME}')
@@ -208,13 +188,14 @@ class TestApp:
                     class_methods = [x.method for x in class_.supportedOperation]
                     data_ = {'data': list()}
                     objects = list()
-                    ids = ''
+                    ids_list = list()
                     for index in range(3):
                         objects.append(gen_dummy_object(class_.title, doc))
-                        ids = f'{uuid.uuid4()},'
+                        ids_list.append(f'{uuid.uuid4()}')
                     data_['data'] = objects
                     if 'PUT' in class_methods:
-                        put_response = test_app_client.put(f'{endpoints[endpoint]}/add/{ids}',
+                        ids = ','.join(ids_list)
+                        put_response = test_app_client.put(f'{endpoints[endpoint]}?instances={ids}',
                                                            data=json.dumps(data_))
                         assert put_response.status_code == 201
                         assert isinstance(put_response.json['iri'], list)
@@ -331,7 +312,7 @@ class TestApp:
                 if 'GET' in collection_methods:
                     for member in dummy_object['members']:
                         member_id = member['@id'].split('/')[-1]
-                        get_response = test_app_client.get(f'{collection_endpoint}/{member_id}')
+                        get_response = test_app_client.get(f'{collection_endpoint}?instances={member_id}')
                         assert get_response.status_code == 200
 
     def test_Collections_member_DELETE(self, test_app_client, constants, doc):
@@ -353,7 +334,7 @@ class TestApp:
                 if 'DELETE' in collection_methods:
                     for member in dummy_object['members']:
                         member_id = member['@id'].split('/')[-1]
-                        full_endpoint = f'{collection_endpoint}/{member_id}'
+                        full_endpoint = f'{collection_endpoint}?instances={member_id}'
                         delete_response = test_app_client.delete(full_endpoint)
                         assert delete_response.status_code == 200
 
