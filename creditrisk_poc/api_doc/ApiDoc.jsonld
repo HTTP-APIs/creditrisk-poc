@@ -66,105 +66,28 @@
     "possibleStatus": [],
     "supportedClass": [
         {
-            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
+            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=InsolvencyPractitioner",
             "@type": "hydra:Class",
-            "description": "Collateral Class",
-            "supportedOperation": [
-                {
-                    "@type": "http://schema.org/FindAction",
-                    "expects": null,
-                    "expectsHeader": [],
-                    "method": "GET",
-                    "possibleStatus": [
-                        {
-                            "@context": "https://www.w3.org/ns/hydra/core",
-                            "@type": "Status",
-                            "description": "Collateral class returned.",
-                            "statusCode": 200,
-                            "title": ""
-                        }
-                    ],
-                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
-                    "returnsHeader": [],
-                    "title": "CollateralGET"
-                },
-                {
-                    "@type": "http://schema.org/AddAction",
-                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
-                    "expectsHeader": [],
-                    "method": "PUT",
-                    "possibleStatus": [
-                        {
-                            "@context": "https://www.w3.org/ns/hydra/core",
-                            "@type": "Status",
-                            "description": "Collateral class Added.",
-                            "statusCode": 200,
-                            "title": ""
-                        }
-                    ],
-                    "returns": null,
-                    "returnsHeader": [],
-                    "title": "CollateralPUT"
-                },
-                {
-                    "@type": "http://schema.org/UpdateAction",
-                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
-                    "expectsHeader": [],
-                    "method": "POST",
-                    "possibleStatus": [
-                        {
-                            "@context": "https://www.w3.org/ns/hydra/core",
-                            "@type": "Status",
-                            "description": "Collateral class updated.",
-                            "statusCode": 200,
-                            "title": ""
-                        }
-                    ],
-                    "returns": null,
-                    "returnsHeader": [
-                        "Content-Type",
-                        "Content-Length"
-                    ],
-                    "title": "CollateralPOST"
-                },
-                {
-                    "@type": "http://schema.org/DeleteAction",
-                    "expects": null,
-                    "expectsHeader": [],
-                    "method": "DELETE",
-                    "possibleStatus": [
-                        {
-                            "@context": "https://www.w3.org/ns/hydra/core",
-                            "@type": "Status",
-                            "description": "Collateral class Deleted.",
-                            "statusCode": 200,
-                            "title": ""
-                        }
-                    ],
-                    "returns": null,
-                    "returnsHeader": [],
-                    "title": "CollateralDELETE"
-                }
-            ],
-            "supportedProperty": [
-                {
-                    "@type": "SupportedProperty",
-                    "property": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
-                    "readable": true,
-                    "required": true,
-                    "title": "collateral_concerns_loan",
-                    "writeable": true
-                },
-                {
-                    "@type": "SupportedProperty",
-                    "property": "https://www.openriskmanual.org/ns/nplo.owl#has_latest_valuation_amount",
-                    "readable": true,
-                    "required": true,
-                    "title": "has_latest_valuation_amount",
-                    "writeable": true
-                }
-            ],
-            "title": "Collateral"
+            "description": "Insolvency Practitioner Class",
+            "supportedOperation": [],
+            "supportedProperty": [],
+            "title": "InsolvencyPractitioner"
+        },
+        {
+            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=CollectionAgent",
+            "@type": "hydra:Class",
+            "description": "Collection Agent class",
+            "supportedOperation": [],
+            "supportedProperty": [],
+            "title": "CollectionAgent"
+        },
+        {
+            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCollateral",
+            "@type": "hydra:Class",
+            "description": "General Collateral Class",
+            "supportedOperation": [],
+            "supportedProperty": [],
+            "title": "GeneralCollateral"
         },
         {
             "@id": "http://localhost:8080/creditrisk_api/vocab?resource=Loan",
@@ -250,7 +173,7 @@
             "supportedProperty": [
                 {
                     "@type": "SupportedProperty",
-                    "property": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                    "property": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCounterparty",
                     "readable": true,
                     "required": true,
                     "title": "CounterpartyId",
@@ -258,123 +181,104 @@
                 },
                 {
                     "@type": "SupportedProperty",
-                    "property": "https://www.openriskmanual.org/ns/nplo.owl#has_total_balance",
+                    "property": "http://localhost:8080/creditrisk_api/vocab?resource=Borrower",
                     "readable": true,
                     "required": true,
-                    "title": "has_total_balance",
+                    "title": "has_borrower",
                     "writeable": true
                 },
                 {
                     "@type": "SupportedProperty",
                     "property": "https://www.openriskmanual.org/ns/nplo.owl#has_channel_of_origination",
+                    "range": "xsd:_:N64800880ab3041bf88cebabee42ba5aa",
                     "readable": true,
                     "required": true,
                     "title": "has_channel_of_origination",
+                    "writeable": true
+                },
+                {
+                    "@type": "SupportedProperty",
+                    "property": "https://www.openriskmanual.org/ns/nplo.owl#has_total_balance",
+                    "range": "xsd:decimal",
+                    "readable": true,
+                    "required": true,
+                    "title": "has_total_balance",
                     "writeable": true
                 }
             ],
             "title": "Loan"
         },
         {
-            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=CorporateLoan",
             "@type": "hydra:Class",
-            "description": "Counterparty Class (not necessarily to a credit contract)",
-            "supportedOperation": [
-                {
-                    "@type": "http://schema.org/FindAction",
-                    "expects": null,
-                    "expectsHeader": [],
-                    "method": "GET",
-                    "possibleStatus": [
-                        {
-                            "@context": "https://www.w3.org/ns/hydra/core",
-                            "@type": "Status",
-                            "description": "Counterparty class returned.",
-                            "statusCode": 200,
-                            "title": ""
-                        }
-                    ],
-                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
-                    "returnsHeader": [],
-                    "title": "CounterpartyGET"
-                },
-                {
-                    "@type": "http://schema.org/AddAction",
-                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
-                    "expectsHeader": [],
-                    "method": "PUT",
-                    "possibleStatus": [
-                        {
-                            "@context": "https://www.w3.org/ns/hydra/core",
-                            "@type": "Status",
-                            "description": "Counterparty class Added.",
-                            "statusCode": 200,
-                            "title": ""
-                        }
-                    ],
-                    "returns": null,
-                    "returnsHeader": [],
-                    "title": "CounterpartyPUT"
-                },
-                {
-                    "@type": "http://schema.org/UpdateAction",
-                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
-                    "expectsHeader": [],
-                    "method": "POST",
-                    "possibleStatus": [
-                        {
-                            "@context": "https://www.w3.org/ns/hydra/core",
-                            "@type": "Status",
-                            "description": "Counterparty class updated.",
-                            "statusCode": 200,
-                            "title": ""
-                        }
-                    ],
-                    "returns": null,
-                    "returnsHeader": [
-                        "Content-Type",
-                        "Content-Length"
-                    ],
-                    "title": "CounterpartyPOST"
-                },
-                {
-                    "@type": "http://schema.org/DeleteAction",
-                    "expects": null,
-                    "expectsHeader": [],
-                    "method": "DELETE",
-                    "possibleStatus": [
-                        {
-                            "@context": "https://www.w3.org/ns/hydra/core",
-                            "@type": "Status",
-                            "description": "Counterparty class Deleted.",
-                            "statusCode": 200,
-                            "title": ""
-                        }
-                    ],
-                    "returns": null,
-                    "returnsHeader": [],
-                    "title": "CounterpartyDELETE"
-                }
-            ],
-            "supportedProperty": [
-                {
-                    "@type": "SupportedProperty",
-                    "property": "https://www.openriskmanual.org/ns/nplo.owl#has_total_assets",
-                    "readable": true,
-                    "required": true,
-                    "title": "has_total_assets",
-                    "writeable": true
-                },
-                {
-                    "@type": "SupportedProperty",
-                    "property": "https://www.openriskmanual.org/ns/nplo.owl#has_legal_entity_identifier",
-                    "readable": true,
-                    "required": true,
-                    "title": "has_legal_entity_identifier",
-                    "writeable": true
-                }
-            ],
-            "title": "Counterparty"
+            "description": "Corporate Loan class",
+            "supportedOperation": [],
+            "supportedProperty": [],
+            "title": "CorporateLoan"
+        },
+        {
+            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=CreditRatingAgency",
+            "@type": "hydra:Class",
+            "description": "Credit Rating Agency Class",
+            "supportedOperation": [],
+            "supportedProperty": [],
+            "title": "CreditRatingAgency"
+        },
+        {
+            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCounterparty",
+            "@type": "hydra:Class",
+            "description": "General Counterparty Class (not necessarily to a credit contract)",
+            "supportedOperation": [],
+            "supportedProperty": [],
+            "title": "GeneralCounterparty"
+        },
+        {
+            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=Borrower",
+            "@type": "hydra:Class",
+            "description": "Borrower Class. A sub-class of Counterparty that applies to Lending relations",
+            "supportedOperation": [],
+            "supportedProperty": [],
+            "title": "Borrower"
+        },
+        {
+            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=Receiver",
+            "@type": "hydra:Class",
+            "description": "Receiver Class",
+            "supportedOperation": [],
+            "supportedProperty": [],
+            "title": "Receiver"
+        },
+        {
+            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=CorporateBorrower",
+            "@type": "hydra:Class",
+            "description": "Corporate Borrower Class. A sub-class of Borrower that applies to Corporations",
+            "supportedOperation": [],
+            "supportedProperty": [],
+            "title": "CorporateBorrower"
+        },
+        {
+            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=PersonalLoan",
+            "@type": "hydra:Class",
+            "description": "Personal Loan class",
+            "supportedOperation": [],
+            "supportedProperty": [],
+            "title": "PersonalLoan"
+        },
+        {
+            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=IndividualBorrower",
+            "@type": "hydra:Class",
+            "description": "Individual Borrower Class. A sub-class of Borrower that applies to Individuals",
+            "supportedOperation": [],
+            "supportedProperty": [],
+            "title": "IndividualBorrower"
+        },
+        {
+            "@id": "http://localhost:8080/creditrisk_api/vocab?resource=InsuranceProvider",
+            "@type": "hydra:Class",
+            "description": "Insurance Provider Class",
+            "supportedOperation": [],
+            "supportedProperty": [],
+            "title": "InsuranceProvider"
         },
         {
             "@id": "http://www.w3.org/ns/hydra/core#Resource",
@@ -406,7 +310,7 @@
             "@type": "Collection",
             "description": "Collection for Borrower class",
             "manages": {
-                "object": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                "object": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCounterparty",
                 "property": "rdf:type"
             },
             "subClassOf": "http://www.w3.org/ns/hydra/core#Collection",
@@ -419,14 +323,14 @@
                     "expectsHeader": [],
                     "method": "GET",
                     "possibleStatus": [],
-                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCounterparty",
                     "returnsHeader": []
                 },
                 {
                     "@id": "_:CounterParty_collection_create",
                     "@type": "http://schema.org/AddAction",
                     "description": "Create new member in CounterParty_collection",
-                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCounterparty",
                     "expectsHeader": [],
                     "method": "PUT",
                     "possibleStatus": [
@@ -438,14 +342,14 @@
                             "title": ""
                         }
                     ],
-                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCounterparty",
                     "returnsHeader": []
                 },
                 {
                     "@id": "_:CounterParty_collection_update",
                     "@type": "http://schema.org/UpdateAction",
                     "description": "Update member of  CounterParty_collection ",
-                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCounterparty",
                     "expectsHeader": [],
                     "method": "POST",
                     "possibleStatus": [
@@ -457,14 +361,14 @@
                             "title": ""
                         }
                     ],
-                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCounterparty",
                     "returnsHeader": []
                 },
                 {
                     "@id": "_:CounterParty_collection_delete",
                     "@type": "http://schema.org/DeleteAction",
                     "description": "Delete member of CounterParty_collection ",
-                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCounterparty",
                     "expectsHeader": [],
                     "method": "DELETE",
                     "possibleStatus": [
@@ -476,7 +380,7 @@
                             "title": ""
                         }
                     ],
-                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCounterparty",
                     "returnsHeader": []
                 }
             ],
@@ -512,100 +416,48 @@
             ],
             "supportedProperty": [
                 {
-                    "hydra:description": "The Collateral Class",
-                    "hydra:title": "collateral",
+                    "hydra:description": "The InsolvencyPractitioner Class",
+                    "hydra:title": "insolvencypractitioner",
                     "property": {
-                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/Collateral",
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/InsolvencyPractitioner",
                         "@type": "hydra:Link",
-                        "description": "Collateral Class",
+                        "description": "Insolvency Practitioner Class",
                         "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
-                        "label": "Collateral",
-                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
-                        "supportedOperation": [
-                            {
-                                "@id": "collateralget",
-                                "@type": "http://schema.org/FindAction",
-                                "description": null,
-                                "expects": null,
-                                "expectsHeader": [],
-                                "label": "CollateralGET",
-                                "method": "GET",
-                                "possibleStatus": [
-                                    {
-                                        "@context": "https://www.w3.org/ns/hydra/core",
-                                        "@type": "Status",
-                                        "description": "Collateral class returned.",
-                                        "statusCode": 200,
-                                        "title": ""
-                                    }
-                                ],
-                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
-                                "returnsHeader": []
-                            },
-                            {
-                                "@id": "collateralput",
-                                "@type": "http://schema.org/AddAction",
-                                "description": null,
-                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
-                                "expectsHeader": [],
-                                "label": "CollateralPUT",
-                                "method": "PUT",
-                                "possibleStatus": [
-                                    {
-                                        "@context": "https://www.w3.org/ns/hydra/core",
-                                        "@type": "Status",
-                                        "description": "Collateral class Added.",
-                                        "statusCode": 200,
-                                        "title": ""
-                                    }
-                                ],
-                                "returns": null,
-                                "returnsHeader": []
-                            },
-                            {
-                                "@id": "collateralpost",
-                                "@type": "http://schema.org/UpdateAction",
-                                "description": null,
-                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
-                                "expectsHeader": [],
-                                "label": "CollateralPOST",
-                                "method": "POST",
-                                "possibleStatus": [
-                                    {
-                                        "@context": "https://www.w3.org/ns/hydra/core",
-                                        "@type": "Status",
-                                        "description": "Collateral class updated.",
-                                        "statusCode": 200,
-                                        "title": ""
-                                    }
-                                ],
-                                "returns": null,
-                                "returnsHeader": [
-                                    "Content-Type",
-                                    "Content-Length"
-                                ]
-                            },
-                            {
-                                "@id": "collateraldelete",
-                                "@type": "http://schema.org/DeleteAction",
-                                "description": null,
-                                "expects": null,
-                                "expectsHeader": [],
-                                "label": "CollateralDELETE",
-                                "method": "DELETE",
-                                "possibleStatus": [
-                                    {
-                                        "@context": "https://www.w3.org/ns/hydra/core",
-                                        "@type": "Status",
-                                        "description": "Collateral class Deleted.",
-                                        "statusCode": 200,
-                                        "title": ""
-                                    }
-                                ],
-                                "returns": null,
-                                "returnsHeader": []
-                            }
-                        ]
+                        "label": "InsolvencyPractitioner",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=InsolvencyPractitioner",
+                        "supportedOperation": []
+                    },
+                    "readable": true,
+                    "required": null,
+                    "writeable": false
+                },
+                {
+                    "hydra:description": "The CollectionAgent Class",
+                    "hydra:title": "collectionagent",
+                    "property": {
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/CollectionAgent",
+                        "@type": "hydra:Link",
+                        "description": "Collection Agent class",
+                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
+                        "label": "CollectionAgent",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=CollectionAgent",
+                        "supportedOperation": []
+                    },
+                    "readable": true,
+                    "required": null,
+                    "writeable": false
+                },
+                {
+                    "hydra:description": "The GeneralCollateral Class",
+                    "hydra:title": "generalcollateral",
+                    "property": {
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/GeneralCollateral",
+                        "@type": "hydra:Link",
+                        "description": "General Collateral Class",
+                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
+                        "label": "GeneralCollateral",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCollateral",
+                        "supportedOperation": []
                     },
                     "readable": true,
                     "required": null,
@@ -712,100 +564,144 @@
                     "writeable": false
                 },
                 {
-                    "hydra:description": "The Counterparty Class",
-                    "hydra:title": "counterparty",
+                    "hydra:description": "The CorporateLoan Class",
+                    "hydra:title": "corporateloan",
                     "property": {
-                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/Counterparty",
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/CorporateLoan",
                         "@type": "hydra:Link",
-                        "description": "Counterparty Class (not necessarily to a credit contract)",
+                        "description": "Corporate Loan class",
                         "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
-                        "label": "Counterparty",
-                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
-                        "supportedOperation": [
-                            {
-                                "@id": "counterpartyget",
-                                "@type": "http://schema.org/FindAction",
-                                "description": null,
-                                "expects": null,
-                                "expectsHeader": [],
-                                "label": "CounterpartyGET",
-                                "method": "GET",
-                                "possibleStatus": [
-                                    {
-                                        "@context": "https://www.w3.org/ns/hydra/core",
-                                        "@type": "Status",
-                                        "description": "Counterparty class returned.",
-                                        "statusCode": 200,
-                                        "title": ""
-                                    }
-                                ],
-                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
-                                "returnsHeader": []
-                            },
-                            {
-                                "@id": "counterpartyput",
-                                "@type": "http://schema.org/AddAction",
-                                "description": null,
-                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
-                                "expectsHeader": [],
-                                "label": "CounterpartyPUT",
-                                "method": "PUT",
-                                "possibleStatus": [
-                                    {
-                                        "@context": "https://www.w3.org/ns/hydra/core",
-                                        "@type": "Status",
-                                        "description": "Counterparty class Added.",
-                                        "statusCode": 200,
-                                        "title": ""
-                                    }
-                                ],
-                                "returns": null,
-                                "returnsHeader": []
-                            },
-                            {
-                                "@id": "counterpartypost",
-                                "@type": "http://schema.org/UpdateAction",
-                                "description": null,
-                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
-                                "expectsHeader": [],
-                                "label": "CounterpartyPOST",
-                                "method": "POST",
-                                "possibleStatus": [
-                                    {
-                                        "@context": "https://www.w3.org/ns/hydra/core",
-                                        "@type": "Status",
-                                        "description": "Counterparty class updated.",
-                                        "statusCode": 200,
-                                        "title": ""
-                                    }
-                                ],
-                                "returns": null,
-                                "returnsHeader": [
-                                    "Content-Type",
-                                    "Content-Length"
-                                ]
-                            },
-                            {
-                                "@id": "counterpartydelete",
-                                "@type": "http://schema.org/DeleteAction",
-                                "description": null,
-                                "expects": null,
-                                "expectsHeader": [],
-                                "label": "CounterpartyDELETE",
-                                "method": "DELETE",
-                                "possibleStatus": [
-                                    {
-                                        "@context": "https://www.w3.org/ns/hydra/core",
-                                        "@type": "Status",
-                                        "description": "Counterparty class Deleted.",
-                                        "statusCode": 200,
-                                        "title": ""
-                                    }
-                                ],
-                                "returns": null,
-                                "returnsHeader": []
-                            }
-                        ]
+                        "label": "CorporateLoan",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=CorporateLoan",
+                        "supportedOperation": []
+                    },
+                    "readable": true,
+                    "required": null,
+                    "writeable": false
+                },
+                {
+                    "hydra:description": "The CreditRatingAgency Class",
+                    "hydra:title": "creditratingagency",
+                    "property": {
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/CreditRatingAgency",
+                        "@type": "hydra:Link",
+                        "description": "Credit Rating Agency Class",
+                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
+                        "label": "CreditRatingAgency",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=CreditRatingAgency",
+                        "supportedOperation": []
+                    },
+                    "readable": true,
+                    "required": null,
+                    "writeable": false
+                },
+                {
+                    "hydra:description": "The GeneralCounterparty Class",
+                    "hydra:title": "generalcounterparty",
+                    "property": {
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/GeneralCounterparty",
+                        "@type": "hydra:Link",
+                        "description": "General Counterparty Class (not necessarily to a credit contract)",
+                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
+                        "label": "GeneralCounterparty",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCounterparty",
+                        "supportedOperation": []
+                    },
+                    "readable": true,
+                    "required": null,
+                    "writeable": false
+                },
+                {
+                    "hydra:description": "The Borrower Class",
+                    "hydra:title": "borrower",
+                    "property": {
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/Borrower",
+                        "@type": "hydra:Link",
+                        "description": "Borrower Class. A sub-class of Counterparty that applies to Lending relations",
+                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
+                        "label": "Borrower",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=Borrower",
+                        "supportedOperation": []
+                    },
+                    "readable": true,
+                    "required": null,
+                    "writeable": false
+                },
+                {
+                    "hydra:description": "The Receiver Class",
+                    "hydra:title": "receiver",
+                    "property": {
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/Receiver",
+                        "@type": "hydra:Link",
+                        "description": "Receiver Class",
+                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
+                        "label": "Receiver",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=Receiver",
+                        "supportedOperation": []
+                    },
+                    "readable": true,
+                    "required": null,
+                    "writeable": false
+                },
+                {
+                    "hydra:description": "The CorporateBorrower Class",
+                    "hydra:title": "corporateborrower",
+                    "property": {
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/CorporateBorrower",
+                        "@type": "hydra:Link",
+                        "description": "Corporate Borrower Class. A sub-class of Borrower that applies to Corporations",
+                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
+                        "label": "CorporateBorrower",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=CorporateBorrower",
+                        "supportedOperation": []
+                    },
+                    "readable": true,
+                    "required": null,
+                    "writeable": false
+                },
+                {
+                    "hydra:description": "The PersonalLoan Class",
+                    "hydra:title": "personalloan",
+                    "property": {
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/PersonalLoan",
+                        "@type": "hydra:Link",
+                        "description": "Personal Loan class",
+                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
+                        "label": "PersonalLoan",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=PersonalLoan",
+                        "supportedOperation": []
+                    },
+                    "readable": true,
+                    "required": null,
+                    "writeable": false
+                },
+                {
+                    "hydra:description": "The IndividualBorrower Class",
+                    "hydra:title": "individualborrower",
+                    "property": {
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/IndividualBorrower",
+                        "@type": "hydra:Link",
+                        "description": "Individual Borrower Class. A sub-class of Borrower that applies to Individuals",
+                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
+                        "label": "IndividualBorrower",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=IndividualBorrower",
+                        "supportedOperation": []
+                    },
+                    "readable": true,
+                    "required": null,
+                    "writeable": false
+                },
+                {
+                    "hydra:description": "The InsuranceProvider Class",
+                    "hydra:title": "insuranceprovider",
+                    "property": {
+                        "@id": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint/InsuranceProvider",
+                        "@type": "hydra:Link",
+                        "description": "Insurance Provider Class",
+                        "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
+                        "label": "InsuranceProvider",
+                        "range": "http://localhost:8080/creditrisk_api/vocab?resource=InsuranceProvider",
+                        "supportedOperation": []
                     },
                     "readable": true,
                     "required": null,
@@ -821,7 +717,7 @@
                         "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
                         "label": "CounterParty_collection",
                         "manages": {
-                            "object": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                            "object": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCounterparty",
                             "property": "rdf:type"
                         },
                         "range": "http://localhost:8080/creditrisk_api/vocab?resource=CounterParty_collection",
@@ -834,14 +730,14 @@
                                 "expectsHeader": [],
                                 "method": "GET",
                                 "possibleStatus": [],
-                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCounterparty",
                                 "returnsHeader": []
                             },
                             {
                                 "@id": "_:counterparty_collection_create",
                                 "@type": "http://schema.org/AddAction",
                                 "description": "Create new member in CounterParty_collection",
-                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCounterparty",
                                 "expectsHeader": [],
                                 "method": "PUT",
                                 "possibleStatus": [
@@ -853,14 +749,14 @@
                                         "title": ""
                                     }
                                 ],
-                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCounterparty",
                                 "returnsHeader": []
                             },
                             {
                                 "@id": "_:counterparty_collection_update",
                                 "@type": "http://schema.org/UpdateAction",
                                 "description": "Update member of  CounterParty_collection ",
-                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCounterparty",
                                 "expectsHeader": [],
                                 "method": "POST",
                                 "possibleStatus": [
@@ -872,14 +768,14 @@
                                         "title": ""
                                     }
                                 ],
-                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCounterparty",
                                 "returnsHeader": []
                             },
                             {
                                 "@id": "_:counterparty_collection_delete",
                                 "@type": "http://schema.org/DeleteAction",
                                 "description": "Delete member of CounterParty_collection ",
-                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCounterparty",
                                 "expectsHeader": [],
                                 "method": "DELETE",
                                 "possibleStatus": [
@@ -891,7 +787,7 @@
                                         "title": ""
                                     }
                                 ],
-                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Counterparty",
+                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=GeneralCounterparty",
                                 "returnsHeader": []
                             }
                         ]

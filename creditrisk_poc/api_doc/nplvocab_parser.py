@@ -53,18 +53,20 @@ def get_class_properties(class_name: str, vocab: dict) -> list:
 
 
 def create_hydra_properties(property_: dict, hydra_classes: dict) -> HydraClassProp:
-    property_uri = None
-    property_name = None
     if property_['@type'] == 'owl:DatatypeProperty':
-        property_uri = property_['@id']
-        property_name = property_['rdfs:label']
+        try:
+            prop_range = "xsd:" + property_['propertyOn'].split('#')[1]
+        except Exception:
+            prop_range = "xsd:" + property_['propertyOn']
+        hydra_property = HydraClassProp(property_['@id'], property_['rdfs:label'], range=prop_range,
+                                        required=True, read=True, write=True)
     elif 'owl:ObjectProperty' in property_['@type']:
         property_on_class = property_.get("propertyOn").split('#')[1]
         property_uri = hydra_classes[property_on_class].id_
         property_name = property_['@id'].split('#')[1]
+        hydra_property = HydraClassProp(property_uri, property_name,
+                                        required=True, read=True, write=True)
 
-    hydra_property = HydraClassProp(property_uri, property_name,
-                                    required=True, read=True, write=True)
     return hydra_property
 
 
