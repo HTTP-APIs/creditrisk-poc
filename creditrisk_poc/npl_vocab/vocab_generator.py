@@ -47,4 +47,6 @@ def generate_jsonld(file_path: str, export_file_name: str):
 
 
 if __name__ == '__main__':
-    generate_jsonld("NonPerformingLoan.owl", "NonPerformingLoan.jsonld")
+    ontology_file = "NonPerformingLoan.owl"
+    export_file = "NonPerformingLoan.jsonld"
+    generate_jsonld("npl_vocab/" + ontology_file, "npl_vocab/" + export_file)
