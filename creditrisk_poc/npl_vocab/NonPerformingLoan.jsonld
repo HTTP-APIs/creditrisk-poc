@@ -17,52 +17,27 @@
     },
     "@graph": [
         {
-            "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_total_assets",
-            "@type": "owl:DatatypeProperty",
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#Receiver",
+            "@type": "owl:Class",
             "owl:versionInfo": "0.1",
-            "propertyOf": "https://www.openriskmanual.org/ns/nplo.owl#Counterparty",
-            "propertyOn": "http://www.w3.org/2001/XMLSchema#decimal",
-            "rdfs:comment": [
-                "EBA 1.1 Field Index: 3.052",
-                "Amount of total assets held by the Corporate Counterparty as per the latest available financial statements"
-            ],
+            "rdfs:comment": "Receiver Class",
             "rdfs:isDefinedBy": {
                 "@id": "https://www.openriskmanual.org/ns/nplo.owl"
             },
-            "rdfs:label": "has_total_assets",
-            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/EBA_NPL.Counterparty.Total_Assets",
-            "rdfs:subPropertyOf": [
-                {
-                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#Important"
-                },
-                {
-                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#Dynamic"
-                },
-                {
-                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#NonConfidential"
-                }
-            ]
-        },
-        {
-            "@id": "https://www.openriskmanual.org/ns/nplo.owl#Importance",
-            "@type": "owl:DatatypeProperty",
-            "rdfs:subPropertyOf": {
-                "@id": "https://www.openriskmanual.org/ns/nplo.owl#DataAttribute"
+            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/Receiver",
+            "rdfs:subClassOf": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl#Counterparty"
             }
         },
         {
-            "@id": "http://purl.org/dc/terms/license",
-            "@type": "owl:AnnotationProperty"
-        },
-        {
-            "@id": "https://www.openriskmanual.org/ns/nplo.owl#Collateral",
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#Counterparty",
             "@type": "owl:Class",
             "owl:versionInfo": "0.1",
-            "rdfs:comment": "Collateral Class",
+            "rdfs:comment": "General Counterparty Class (not necessarily to a credit contract)",
             "rdfs:isDefinedBy": {
                 "@id": "https://www.openriskmanual.org/ns/nplo.owl"
             },
-            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/Collateral",
+            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/Counterparty",
             "rdfs:subClassOf": {
                 "@id": "owl:Thing"
             }
@@ -74,8 +49,8 @@
             "propertyOf": "https://www.openriskmanual.org/ns/nplo.owl#Loan",
             "propertyOn": "http://www.w3.org/2001/XMLSchema#decimal",
             "rdfs:comment": [
-                "EBA 1.1 Field Index: 7.02",
-                "Total unpaid balance, i.e. Principal Balance + Accrued Interest Balance (On book) + Other Balances"
+                "Total unpaid balance, i.e. Principal Balance + Accrued Interest Balance (On book) + Other Balances",
+                "EBA 1.1 Field Index: 7.02"
             ],
             "rdfs:isDefinedBy": {
                 "@id": "https://www.openriskmanual.org/ns/nplo.owl"
@@ -95,56 +70,299 @@
             ]
         },
         {
-            "@id": "https://www.openriskmanual.org/ns/nplo.owl#Loan",
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#CorporateBorrower",
             "@type": "owl:Class",
             "owl:versionInfo": "0.1",
-            "rdfs:comment": "Loan class",
+            "rdfs:comment": "Corporate Borrower Class. A sub-class of Borrower that applies to Corporations",
             "rdfs:isDefinedBy": {
                 "@id": "https://www.openriskmanual.org/ns/nplo.owl"
             },
-            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/Loan",
+            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/Corporate_Borrower",
+            "rdfs:subClassOf": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl#Borrower"
+            }
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#Importance",
+            "@type": "owl:DatatypeProperty",
+            "rdfs:subPropertyOf": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl#DataAttribute"
+            }
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#Confidentiality",
+            "@type": "owl:DatatypeProperty",
+            "rdfs:subPropertyOf": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl#DataAttribute"
+            }
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#Static",
+            "@type": "owl:DatatypeProperty",
+            "rdfs:subPropertyOf": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl#Variability"
+            }
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#Critical",
+            "@type": "owl:DatatypeProperty",
+            "rdfs:subPropertyOf": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl#Importance"
+            }
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#PersonalLoan",
+            "@type": "owl:Class",
+            "owl:versionInfo": "0.1",
+            "rdfs:comment": "Personal Loan class",
+            "rdfs:isDefinedBy": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl"
+            },
+            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/Personal_Loan",
+            "rdfs:subClassOf": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl#Loan"
+            }
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#VariableConfidentiality",
+            "@type": "owl:DatatypeProperty",
+            "rdfs:subPropertyOf": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl#Confidentiality"
+            }
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#Future",
+            "@type": "owl:DatatypeProperty",
+            "rdfs:subPropertyOf": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl#Temporality"
+            }
+        },
+        {
+            "@id": "http://purl.org/dc/elements/1.1/title",
+            "@type": "owl:AnnotationProperty"
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#CorporateLoan",
+            "@type": "owl:Class",
+            "owl:versionInfo": "0.1",
+            "rdfs:comment": "Corporate Loan class",
+            "rdfs:isDefinedBy": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl"
+            },
+            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/Corporate_Loan",
+            "rdfs:subClassOf": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl#Loan"
+            }
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#Current",
+            "@type": "owl:DatatypeProperty",
+            "rdfs:subPropertyOf": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl#Temporality"
+            }
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#Variability",
+            "@type": "owl:DatatypeProperty",
+            "rdfs:subPropertyOf": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl#DataAttribute"
+            }
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_legal_entity_identifier",
+            "@type": "owl:DatatypeProperty",
+            "owl:versionInfo": "0.1",
+            "propertyOf": "https://www.openriskmanual.org/ns/nplo.owl#Counterparty",
+            "propertyOn": "http://www.w3.org/2001/XMLSchema#string",
+            "rdfs:comment": [
+                "Global standard 20-character corporate identifier of the Corporate Counterparty",
+                "EBA 1.1 Field Index: 3.035"
+            ],
+            "rdfs:isDefinedBy": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl"
+            },
+            "rdfs:label": "has_legal_entity_identifier",
+            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/EBA_NPL.Counterparty.Legal_Entity_Identifier",
+            "rdfs:subPropertyOf": [
+                {
+                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#Static"
+                },
+                {
+                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#VariableConfidentiality"
+                },
+                {
+                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#Moderate"
+                }
+            ]
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#DataAttribute",
+            "@type": "owl:DatatypeProperty"
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_latest_valuation_amount",
+            "@type": "owl:DatatypeProperty",
+            "owl:versionInfo": "0.1",
+            "propertyOf": "https://www.openriskmanual.org/ns/nplo.owl#Collateral",
+            "propertyOn": "http://www.w3.org/2001/XMLSchema#decimal",
+            "rdfs:comment": [
+                "Value of the Collateral when last assessed",
+                "EBA 1.1 Field Index: 14.014"
+            ],
+            "rdfs:isDefinedBy": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl"
+            },
+            "rdfs:label": "has_latest_valuation_amount",
+            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/EBA_NPL.NonProperty_Collateral.Latest_Valuation_Amount",
+            "rdfs:subPropertyOf": [
+                {
+                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#Critical"
+                },
+                {
+                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#NonConfidential"
+                },
+                {
+                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#Dynamic"
+                }
+            ]
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#Collateral",
+            "@type": "owl:Class",
+            "owl:versionInfo": "0.1",
+            "rdfs:comment": "General Collateral Class",
+            "rdfs:isDefinedBy": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl"
+            },
+            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/Collateral",
             "rdfs:subClassOf": {
                 "@id": "owl:Thing"
             }
         },
         {
-            "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_channel_of_origination",
-            "@type": "owl:DatatypeProperty",
-            "owl:versionInfo": "0.1",
-            "propertyOf": "https://www.openriskmanual.org/ns/nplo.owl#Loan",
-            "propertyOn": "_:N3e26d9a6cc6c4029b44cae2a7856c1d7",
-            "rdfs:comment": [
-                "EBA 1.1 Field Index: 7.002",
-                "Channel through which the Loan was originated, i.e. Branch, Internet and Broker"
-            ],
-            "rdfs:isDefinedBy": {
-                "@id": "https://www.openriskmanual.org/ns/nplo.owl"
-            },
-            "rdfs:label": "has_channel_of_origination",
-            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/EBA_NPL.Loan.Channel_of_Origination",
-            "rdfs:subPropertyOf": [
-                {
-                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#NonConfidential"
-                },
-                {
-                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#Static"
-                },
-                {
-                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#Important"
-                }
-            ]
-        },
-        {
-            "@id": "https://www.openriskmanual.org/ns/nplo.owl#Counterparty",
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#RatingAgency",
             "@type": "owl:Class",
             "owl:versionInfo": "0.1",
-            "rdfs:comment": "Counterparty Class (not necessarily to a credit contract)",
+            "rdfs:comment": "Credit Rating Agency Class",
             "rdfs:isDefinedBy": {
                 "@id": "https://www.openriskmanual.org/ns/nplo.owl"
             },
-            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/Counterparty",
+            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/Credit_Rating_Agency",
             "rdfs:subClassOf": {
-                "@id": "owl:Thing"
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl#Counterparty"
+            }
+        },
+        {
+            "@id": "http://purl.org/dc/elements/1.1/rights",
+            "@type": "owl:AnnotationProperty"
+        },
+        {
+            "@id": "http://purl.org/dc/terms/title",
+            "@type": "owl:AnnotationProperty"
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#Borrower",
+            "@type": "owl:Class",
+            "owl:versionInfo": "0.1",
+            "rdfs:comment": "Borrower Class. A sub-class of Counterparty that applies to Lending relations",
+            "rdfs:isDefinedBy": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl"
+            },
+            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/Borrower",
+            "rdfs:subClassOf": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl#Counterparty"
+            }
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#NonConfidential",
+            "@type": "owl:DatatypeProperty",
+            "rdfs:subPropertyOf": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl#Confidentiality"
+            }
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#Historical",
+            "@type": "owl:DatatypeProperty",
+            "rdfs:subPropertyOf": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl#Temporality"
+            }
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#InsolvencyPractitioner",
+            "@type": "owl:Class",
+            "owl:versionInfo": "0.1",
+            "rdfs:comment": "Insolvency Practitioner Class",
+            "rdfs:isDefinedBy": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl"
+            },
+            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/Insolvency_Practitioner",
+            "rdfs:subClassOf": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl#Counterparty"
+            }
+        },
+        {
+            "@id": "http://purl.org/dc/elements/1.1/description",
+            "@type": "owl:AnnotationProperty"
+        },
+        {
+            "@id": "http://purl.org/dc/elements/1.1/format",
+            "@type": "owl:AnnotationProperty"
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_borrower",
+            "@type": "owl:ObjectProperty",
+            "propertyOf": "https://www.openriskmanual.org/ns/nplo.owl#Loan",
+            "propertyOn": "https://www.openriskmanual.org/ns/nplo.owl#Borrower"
+        },
+        {
+            "@id": "http://purl.org/dc/elements/1.1/creator",
+            "@type": "owl:AnnotationProperty"
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#Moderate",
+            "@type": "owl:DatatypeProperty",
+            "rdfs:subPropertyOf": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl#Importance"
+            }
+        },
+        {
+            "@id": "http://purl.org/dc/terms/license",
+            "@type": "owl:AnnotationProperty"
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#IndividualBorrower",
+            "@type": "owl:Class",
+            "owl:versionInfo": "0.1",
+            "rdfs:comment": "Individual Borrower Class. A sub-class of Borrower that applies to Individuals",
+            "rdfs:isDefinedBy": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl"
+            },
+            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/Corporate_Borrower",
+            "rdfs:subClassOf": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl#Borrower"
+            }
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#collateral_concerns_loan",
+            "@type": [
+                "owl:FunctionalProperty",
+                "owl:ObjectProperty"
+            ],
+            "propertyOf": "https://www.openriskmanual.org/ns/nplo.owl#Collateral",
+            "propertyOn": "https://www.openriskmanual.org/ns/nplo.owl#Loan"
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#Temporality",
+            "@type": "owl:DatatypeProperty",
+            "rdfs:subPropertyOf": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl#DataAttribute"
+            }
+        },
+        {
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#Important",
+            "@type": "owl:DatatypeProperty",
+            "rdfs:subPropertyOf": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl#Importance"
             }
         },
         {
@@ -167,62 +385,66 @@
             "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/EBA_NPL_Template"
         },
         {
-            "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_legal_entity_identifier",
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_collateral_type",
             "@type": "owl:DatatypeProperty",
             "owl:versionInfo": "0.1",
-            "propertyOf": "https://www.openriskmanual.org/ns/nplo.owl#Counterparty",
-            "propertyOn": "http://www.w3.org/2001/XMLSchema#string",
+            "propertyOf": "https://www.openriskmanual.org/ns/nplo.owl#Collateral",
+            "propertyOn": "_:N9cbe4ed0ba2a4ecdb32d5bf6123edccd",
             "rdfs:comment": [
-                "Global standard 20-character corporate identifier of the Corporate Counterparty",
-                "EBA 1.1 Field Index: 3.035"
+                "EBA 1.1 Field Index: 14.004",
+                "Physical type of the Collateral, e.g. Guarantee and Machinery"
             ],
             "rdfs:isDefinedBy": {
                 "@id": "https://www.openriskmanual.org/ns/nplo.owl"
             },
-            "rdfs:label": "has_legal_entity_identifier",
-            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/EBA_NPL.Counterparty.Legal_Entity_Identifier",
+            "rdfs:label": "has_collateral_type",
+            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/EBA_NPL.NonProperty_Collateral.Collateral_Type",
             "rdfs:subPropertyOf": [
                 {
-                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#VariableConfidentiality"
-                },
-                {
-                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#Moderate"
+                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#NonConfidential"
                 },
                 {
                     "@id": "https://www.openriskmanual.org/ns/nplo.owl#Static"
+                },
+                {
+                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#Critical"
                 }
             ]
         },
         {
-            "@id": "https://www.openriskmanual.org/ns/nplo.owl#collateral_concerns_loan",
-            "@type": [
-                "owl:ObjectProperty",
-                "owl:FunctionalProperty"
-            ],
-            "propertyOf": "https://www.openriskmanual.org/ns/nplo.owl#Collateral",
-            "propertyOn": "https://www.openriskmanual.org/ns/nplo.owl#Loan"
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#Loan",
+            "@type": "owl:Class",
+            "owl:versionInfo": "0.1",
+            "rdfs:comment": "Loan class",
+            "rdfs:isDefinedBy": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl"
+            },
+            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/Loan",
+            "rdfs:subClassOf": {
+                "@id": "owl:Thing"
+            }
         },
         {
-            "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_latest_valuation_amount",
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#has_total_assets",
             "@type": "owl:DatatypeProperty",
             "owl:versionInfo": "0.1",
-            "propertyOf": "https://www.openriskmanual.org/ns/nplo.owl#Collateral",
+            "propertyOf": "https://www.openriskmanual.org/ns/nplo.owl#Counterparty",
             "propertyOn": "http://www.w3.org/2001/XMLSchema#decimal",
             "rdfs:comment": [
-                "Value of the Collateral when last assessed",
-                "EBA 1.1 Field Index: 14.014"
+                "EBA 1.1 Field Index: 3.052",
+                "Amount of total assets held by the Corporate Counterparty as per the latest available financial statements"
             ],
             "rdfs:isDefinedBy": {
                 "@id": "https://www.openriskmanual.org/ns/nplo.owl"
             },
-            "rdfs:label": "has_latest_valuation_amount",
-            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/EBA_NPL.NonProperty_Collateral.Latest_Valuation_Amount",
+            "rdfs:label": "has_total_assets",
+            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/EBA_NPL.Counterparty.Total_Assets",
             "rdfs:subPropertyOf": [
                 {
-                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#Critical"
+                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#Dynamic"
                 },
                 {
-                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#Dynamic"
+                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#Important"
                 },
                 {
                     "@id": "https://www.openriskmanual.org/ns/nplo.owl#NonConfidential"
@@ -230,16 +452,24 @@
             ]
         },
         {
-            "@id": "http://purl.org/dc/terms/title",
-            "@type": "owl:AnnotationProperty"
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#Dynamic",
+            "@type": "owl:DatatypeProperty",
+            "rdfs:subPropertyOf": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl#Variability"
+            }
         },
         {
-            "@id": "http://purl.org/dc/elements/1.1/format",
-            "@type": "owl:AnnotationProperty"
-        },
-        {
-            "@id": "http://purl.org/dc/elements/1.1/title",
-            "@type": "owl:AnnotationProperty"
+            "@id": "https://www.openriskmanual.org/ns/nplo.owl#InsuranceProvider",
+            "@type": "owl:Class",
+            "owl:versionInfo": "0.1",
+            "rdfs:comment": "Insurance Provider Class",
+            "rdfs:isDefinedBy": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl"
+            },
+            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/Insurance_Company",
+            "rdfs:subClassOf": {
+                "@id": "https://www.openriskmanual.org/ns/nplo.owl#Counterparty"
+            }
         }
     ]
 }

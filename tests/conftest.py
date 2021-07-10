@@ -27,6 +27,19 @@ def get_doc_classes_and_properties(doc):
     return test_classes, test_properties
 
 
+def get_doc_classes_and_properties(doc):
+    """
+    Extract classes and properties from a given HydraDoc object
+    :param doc: HydraDoc object whose classes and properties have to extracted
+    :type doc: HydraDoc
+    :return: classes and properties in the HydraDoc object in a tuple
+    :rtype: tuple(list, set)
+    """
+    test_classes = doc_parse.get_classes(doc)
+    test_properties = doc_parse.get_all_properties(test_classes)
+    return (test_classes, test_properties)
+
+
 def gen_dummy_object(class_title, doc):
     """
     Create a dummy object based on the definitions in the API Doc.
@@ -80,9 +93,14 @@ def gen_dummy_object(class_title, doc):
                     prop_class = prop.prop.split(expanded_base_url)[1]
                     object_[prop.title] = gen_dummy_object(prop_class, doc)
                 else:
-                    object_[prop.title] = ''.join(random.choice(
-                        string.ascii_uppercase + string.digits) for _ in range(6))
+                    type_ = prop.kwargs.get('range')
+                    if type_ is not None:
+                        object_[prop.title] = random.randint(50,100)
+                    else:
+                        object_[prop.title] = ''.join(random.choice(
+                            string.ascii_uppercase + string.digits) for _ in range(6))
             return object_
+
 
 @pytest.fixture(scope='module')
 def constants():

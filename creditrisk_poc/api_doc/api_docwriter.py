@@ -29,7 +29,7 @@ classes = parser.get_all_classes(npl_vocab)
 hydra_classes = parser.create_hydra_classes(classes)
 classes = {class_.title: class_ for class_ in hydra_classes}
 
-loan_foriegnkey_uri = classes['Counterparty'].id_
+loan_foriegnkey_uri = classes['GeneralCounterparty'].id_
 loan_foriegnkey_title = "CounterpartyId"
 CounterpartyId_prop = HydraClassProp(loan_foriegnkey_uri, loan_foriegnkey_title,
                                      required=True, read=True, write=True)
@@ -46,9 +46,13 @@ for class_ in hydra_classes:
     for property_ in class_properties:
         prop = parser.create_hydra_properties(property_, classes)
         class_.add_supported_prop(prop)
-    class_operations = eval(class_name + "_operations")
-    for operation in class_operations:
-        class_.add_supported_op(operation)
+    try:
+        class_operations = eval(class_name + "_operations")
+    except NameError:
+        class_operations = None
+    if class_operations:
+        for operation in class_operations:
+            class_.add_supported_op(operation)
     api_doc.add_supported_class(class_)
 
 
@@ -60,7 +64,7 @@ counterparty_collection_title = "CounterParty class collection"
 counterparty_collection_description = "Collection for Borrower class"
 counterparty_collection_managed_by = {
     "property": "rdf:type",
-    "object": parser.get_class_id("Counterparty", hydra_classes),
+    "object": parser.get_class_id("GeneralCounterparty", hydra_classes),
 }
 counterparty_collection = HydraCollection(collection_name=counterparty_collection_name,
                                           collection_description=counterparty_collection_description,
