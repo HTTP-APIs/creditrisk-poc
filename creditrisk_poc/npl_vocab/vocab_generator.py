@@ -3,6 +3,8 @@ This script will generate the NonPerformingLoan.jsonld from the owl ontology.
 """
 import json
 import rdflib
+from os.path import abspath, dirname
+from pathlib import Path
 
 
 def context() -> dict:
@@ -49,4 +51,7 @@ def generate_jsonld(file_path: str, export_file_name: str):
 if __name__ == '__main__':
     ontology_file = "NonPerformingLoan.owl"
     export_file = "NonPerformingLoan.jsonld"
-    generate_jsonld("npl_vocab/" + ontology_file, "npl_vocab/" + export_file)
+    cwd_path = Path(dirname(dirname(abspath(__file__))))
+    ontology_file_path = cwd_path / "npl_vocab" / ontology_file
+    export_file_path = cwd_path / "npl_vocab" / export_file
+    generate_jsonld(str(ontology_file_path), str(export_file_path))
