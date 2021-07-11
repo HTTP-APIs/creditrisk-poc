@@ -12,6 +12,8 @@ creditrisk-poc consist following features:
 * Borrower class collection can perform all the CRUD operations.
 
 ## Classes are linked in the following manner:
+![Creditrisk_class_linking](https://user-images.githubusercontent.com/49719371/125194774-4d897280-e270-11eb-95af-4242bb1bffc2.jpg)
+
 
 ## NonPerformingLoan.jsonld
 The `NonPerformingLoan.jsonld` is a subset vocabulary for NonPerformingLoan portfolios,
