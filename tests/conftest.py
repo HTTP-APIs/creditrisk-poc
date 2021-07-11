@@ -4,6 +4,8 @@ import string
 import json
 import uuid
 import os
+from os.path import abspath, dirname
+from pathlib import Path
 from hydra_python_core import doc_maker
 from hydra_python_core.doc_writer import DocUrl, HydraLink
 from sqlalchemy import create_engine
@@ -121,8 +123,8 @@ def test_doc(constants):
     """
     HYDRUS_SERVER_URL = constants['HYDRUS_SERVER_URL']
     API_NAME = constants['API_NAME']
-    API_DOC_PATH = os.path.relpath("tests/ApiDoc.jsonld")
-    print(API_DOC_PATH)
+    cwd_path = Path(dirname(dirname(abspath(__file__))))
+    API_DOC_PATH = cwd_path / "tests" / "ApiDoc.jsonld"
     doc_file = open(API_DOC_PATH, "r")
     doc = json.load(doc_file)
 

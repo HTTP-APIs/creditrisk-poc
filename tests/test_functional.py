@@ -8,6 +8,7 @@ import pytest
 import json
 import re
 import uuid
+from hydra_python_core.doc_writer import DocUrl
 from tests.conftest import gen_dummy_object
 
 
@@ -338,3 +339,30 @@ class TestApp:
                         delete_response = test_app_client.delete(full_endpoint)
                         assert delete_response.status_code == 200
 
+    def test_IriTemplate(self, test_app_client, constants, doc):
+        """Test structure of IriTemplates attached to parsed classes"""
+        API_NAME = constants['API_NAME']
+        index = test_app_client.get(f'/{API_NAME}')
+        assert index.status_code == 200
+        endpoints = json.loads(index.data.decode('utf-8'))
+        expanded_base_url = DocUrl.doc_url
+        for endpoint in endpoints['collections']:
+            collection_name = '/'.join(endpoint["@id"].split(f'/{API_NAME}/')[1:])
+            collection = doc.collections[collection_name]['collection']
+            class_name = collection.manages["object"].split(expanded_base_url)[1]
+            response_get = test_app_client.get(endpoint["@id"])
+            assert response_get.status_code == 200
+            response_get_data = json.loads(response_get.data.decode('utf-8'))
+            assert 'search' in response_get_data
+            assert 'hydra:mapping' in response_get_data['search']
+            class_ = doc.parsed_classes[class_name]['class']
+            class_props = [x.prop for x in class_.supportedProperty]
+            for mapping in response_get_data['search']['hydra:mapping']:
+                prop = mapping['hydra:property']
+                prop_name = mapping['hydra:variable']
+                is_valid_class_prop = prop not in ['limit', 'offset', 'pageIndex']
+                # check if IRI property is for searching through a nested_class
+                # and not this class_
+                is_nested_class_prop = "[" in prop_name and "]" in prop_name
+                if is_valid_class_prop and not is_nested_class_prop:
+                    assert prop in class_props
