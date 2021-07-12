@@ -9,7 +9,7 @@ import requests
 import ast
 
 
-def get_api_doc(apidoc_file_path: str = "ApiDoc.jsonld") -> HydraDoc:
+def get_api_doc(apidoc_file_path: str = "test_01_ApiDoc.jsonld") -> HydraDoc:
     """
     Returns HydraDoc object from API Documentation
     """

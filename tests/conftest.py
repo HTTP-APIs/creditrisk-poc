@@ -124,7 +124,7 @@ def test_doc(constants):
     HYDRUS_SERVER_URL = constants['HYDRUS_SERVER_URL']
     API_NAME = constants['API_NAME']
     cwd_path = Path(dirname(dirname(abspath(__file__))))
-    API_DOC_PATH = cwd_path / "tests" / "ApiDoc.jsonld"
+    API_DOC_PATH = cwd_path / "tests" / "test_01_ApiDoc.jsonld"
     doc_file = open(API_DOC_PATH, "r")
     doc = json.load(doc_file)
 
