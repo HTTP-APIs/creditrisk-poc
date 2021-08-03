@@ -596,7 +596,83 @@
             "@id": "http://localhost:8080/creditrisk_api/vocab?resource=ResidentialMortgage",
             "@type": "hydra:Class",
             "description": "Residential Mortgage",
-            "supportedOperation": [],
+            "supportedOperation": [
+                {
+                    "@type": "http://schema.org/FindAction",
+                    "expects": null,
+                    "expectsHeader": [],
+                    "method": "GET",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "ResidentialMortgage class returned.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=ResidentialMortgage",
+                    "returnsHeader": [],
+                    "title": "ResidentialMortgageGET"
+                },
+                {
+                    "@type": "http://schema.org/AddAction",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=ResidentialMortgage",
+                    "expectsHeader": [],
+                    "method": "PUT",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "ResidentialMortgage class Added.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [],
+                    "title": "ResidentialMortgagePUT"
+                },
+                {
+                    "@type": "http://schema.org/UpdateAction",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=ResidentialMortgage",
+                    "expectsHeader": [],
+                    "method": "POST",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "ResidentialMortgage class updated.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [
+                        "Content-Type",
+                        "Content-Length"
+                    ],
+                    "title": "ResidentialMortgagePOST"
+                },
+                {
+                    "@type": "http://schema.org/DeleteAction",
+                    "expects": null,
+                    "expectsHeader": [],
+                    "method": "DELETE",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "ResidentialMortgage class Deleted.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [],
+                    "title": "ResidentialMortgageDELETE"
+                }
+            ],
             "supportedProperty": [
                 {
                     "@type": "SupportedProperty",
@@ -3392,7 +3468,91 @@
                         "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
                         "label": "ResidentialMortgage",
                         "range": "http://localhost:8080/creditrisk_api/vocab?resource=ResidentialMortgage",
-                        "supportedOperation": []
+                        "supportedOperation": [
+                            {
+                                "@id": "residentialmortgageget",
+                                "@type": "http://schema.org/FindAction",
+                                "description": null,
+                                "expects": null,
+                                "expectsHeader": [],
+                                "label": "ResidentialMortgageGET",
+                                "method": "GET",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "ResidentialMortgage class returned.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=ResidentialMortgage",
+                                "returnsHeader": []
+                            },
+                            {
+                                "@id": "residentialmortgageput",
+                                "@type": "http://schema.org/AddAction",
+                                "description": null,
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=ResidentialMortgage",
+                                "expectsHeader": [],
+                                "label": "ResidentialMortgagePUT",
+                                "method": "PUT",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "ResidentialMortgage class Added.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": []
+                            },
+                            {
+                                "@id": "residentialmortgagepost",
+                                "@type": "http://schema.org/UpdateAction",
+                                "description": null,
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=ResidentialMortgage",
+                                "expectsHeader": [],
+                                "label": "ResidentialMortgagePOST",
+                                "method": "POST",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "ResidentialMortgage class updated.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": [
+                                    "Content-Type",
+                                    "Content-Length"
+                                ]
+                            },
+                            {
+                                "@id": "residentialmortgagedelete",
+                                "@type": "http://schema.org/DeleteAction",
+                                "description": null,
+                                "expects": null,
+                                "expectsHeader": [],
+                                "label": "ResidentialMortgageDELETE",
+                                "method": "DELETE",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "ResidentialMortgage class Deleted.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": []
+                            }
+                        ]
                     },
                     "readable": true,
                     "required": null,
