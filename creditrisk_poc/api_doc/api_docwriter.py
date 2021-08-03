@@ -29,16 +29,12 @@ classes = parser.get_all_classes(npl_vocab)
 hydra_classes = parser.create_hydra_classes(classes)
 classes = {class_.title: class_ for class_ in hydra_classes}
 
-loan_foriegnkey_uri = classes['GeneralCounterparty'].id_
-loan_foriegnkey_title = "CounterpartyId"
-CounterpartyId_prop = HydraClassProp(loan_foriegnkey_uri, loan_foriegnkey_title,
-                                     required=True, read=True, write=True)
-classes['Loan'].add_supported_prop(CounterpartyId_prop)
-
 Loan_operations = parser.add_operations_to_class(hydra_classes, "Loan", ["GET", "PUT", "POST", "DELETE"])
-Counterparty_operations = parser.add_operations_to_class(hydra_classes, "Counterparty",
+Borrower_operations = parser.add_operations_to_class(hydra_classes, "Borrower",
                                                          ["GET", "PUT", "POST", "DELETE"])
 Collateral_operations = parser.add_operations_to_class(hydra_classes, "Collateral", ["GET", "PUT", "POST", "DELETE"])
+ResidentialMortage_operations = parser.add_operations_to_class(hydra_classes, "ResidentialMortage", ["GET", "PUT",
+                                                                                                     "POST", "DELETE"])
 
 for class_ in hydra_classes:
     class_name = class_.title
@@ -59,12 +55,12 @@ for class_ in hydra_classes:
 
 
 # Creating Borrower Collection
-counterparty_collection_name = "CounterParty_collection"
-counterparty_collection_title = "CounterParty class collection"
+counterparty_collection_name = "Borrower_collection"
+counterparty_collection_title = "Borrower class collection"
 counterparty_collection_description = "Collection for Borrower class"
 counterparty_collection_managed_by = {
     "property": "rdf:type",
-    "object": parser.get_class_id("GeneralCounterparty", hydra_classes),
+    "object": parser.get_class_id("Borrower", hydra_classes),
 }
 counterparty_collection = HydraCollection(collection_name=counterparty_collection_name,
                                           collection_description=counterparty_collection_description,
