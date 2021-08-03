@@ -9,7 +9,7 @@ import requests
 import ast
 
 
-def get_api_doc(apidoc_file_path: str = "test_01_ApiDoc.jsonld") -> HydraDoc:
+def get_api_doc(apidoc_file_path: str = "ApiDoc.jsonld") -> HydraDoc:
     """
     Returns HydraDoc object from API Documentation
     """
@@ -24,12 +24,13 @@ def borrowers_with_no_loan(apidoc: HydraDoc):
     Generates 100 Borrowers with no loans & no collateral
     """
     for borrower in range(100):
-        dummy_object = gen_dummy_object("Counterparty", apidoc)
-        put_request = requests.put("http://localhost:8080/creditrisk_api/GeneralCounterparty/", json=dummy_object)
+        dummy_object = gen_dummy_object("Borrower", apidoc)
+        put_request = requests.put("http://localhost:8080/creditrisk_api/Borrower/", json=dummy_object)
+        print(put_request.text)
 
 
 def borrower_with_loan(apidoc: HydraDoc):
-    """
+    """requests.put("http://localhost:8080/creditrisk_api/Borrower/", json=dummy_object)
     Generate 100 Borrowers with loan & no collateral
     """
     for borrower in range(100):
@@ -59,6 +60,6 @@ def borrower_with_loan_and_collateral(apidoc: HydraDoc):
 
 if __name__ == "__main__":
     doc = get_api_doc()
-    #borrowers_with_no_loan(doc)
-    borrower_with_loan(doc)
+    borrowers_with_no_loan(doc)
+    #borrower_with_loan(doc)
     #borrower_with_loan_and_collateral(doc)
