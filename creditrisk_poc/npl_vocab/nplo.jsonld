@@ -7684,7 +7684,7 @@
                 "Global standard 20-character corporate identifier of the external collection agent"
             ],
             "rdfs:domain": {
-                "@id": "nplo:Borrower"
+                "@id": "nplo:ExternalCollection"
             },
             "rdfs:isDefinedBy": {
                 "@id": "https://www.openriskmanual.org/ns/nplo"
@@ -8183,64 +8183,36 @@
             }
         },
         {
-            "@id": "nplo:has_legal_entity_identifier",
+            "@id": "nplo:has_party_liable_for_vat",
             "@type": "owl:DatatypeProperty",
-            "owl:versionInfo": "0.1",
-            "rdfs:domain": {
-                "@id": "nplo:Counterparty"
-            },
-            "rdfs:range": {
-                "@id": "xsd:string"
-            },
+            "owl:versionInfo": "0.2",
             "rdfs:comment": [
-                "Global standard 20-character corporate identifier of the Corporate Counterparty",
-                "EBA 1.1 Field Index: 3.035"
+                "EBA 1.1 Field Index: 11.049",
+                "Party who is liable to pay the VAT on the disposal of the Unit i.e. the Institution or the buyer(s)"
             ],
-            "rdfs:isDefinedBy": {
-                "@id": "https://www.openriskmanual.org/ns/nplo.owl"
+            "rdfs:domain": {
+                "@id": "nplo:PropertyCollateral"
             },
-            "rdfs:label": "has_legal_entity_identifier",
-            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/EBA_NPL.Counterparty.Legal_Entity_Identifier",
+            "rdfs:isDefinedBy": {
+                "@id": "https://www.openriskmanual.org/ns/nplo"
+            },
+            "rdfs:label": "has_party_liable_for_vat",
+            "rdfs:range": {
+                "@id": "_:N2dd5272dcc004d6096e39714fc935d66"
+            },
+            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/EBA_NPL.Property_Collateral.Party_Liable_for_VAT",
             "rdfs:subPropertyOf": [
                 {
-                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#Static"
+                    "@id": "nplo:Static"
                 },
                 {
-                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#VariableConfidentiality"
+                    "@id": "nplo:NonConfidential"
                 },
                 {
-                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#Moderate"
-                }
-            ]
-        },
-        {
-            "@id": "nplo:has_total_assets",
-            "@type": "owl:DatatypeProperty",
-            "owl:versionInfo": "0.1",
-            "rdfs:domain": {
-                "@id": "nplo:Borrower"
-            },
-            "rdfs:range": {
-                "@id": "xsd:decimal"
-            },
-            "rdfs:comment": [
-                "EBA 1.1 Field Index: 3.052",
-                "Amount of total assets held by the Corporate Counterparty as per the latest available financial statements"
-            ],
-            "rdfs:isDefinedBy": {
-                "@id": "https://www.openriskmanual.org/ns/nplo.owl"
-            },
-            "rdfs:label": "has_total_assets",
-            "rdfs:seeAlso": "https://www.openriskmanual.org/wiki/EBA_NPL.Counterparty.Total_Assets",
-            "rdfs:subPropertyOf": [
-                {
-                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#Dynamic"
+                    "@id": "nplo:Categorical"
                 },
                 {
-                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#Important"
-                },
-                {
-                    "@id": "https://www.openriskmanual.org/ns/nplo.owl#NonConfidential"
+                    "@id": "nplo:Important"
                 }
             ]
         },
@@ -11358,7 +11330,7 @@
                 "Total unpaid balance, i.e. Principal Balance + Accrued Interest Balance (On book) + Other Balances"
             ],
             "rdfs:domain": {
-                "@id": "nplo:Loan"
+                "@id": "nplo:ResidentialMortgage"
             },
             "rdfs:isDefinedBy": {
                 "@id": "https://www.openriskmanual.org/ns/nplo"

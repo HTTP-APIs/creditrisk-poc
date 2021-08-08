@@ -32,6 +32,8 @@ classes = {class_.title: class_ for class_ in hydra_classes}
 Loan_operations = parser.add_operations_to_class(hydra_classes, "Loan", ["GET", "PUT", "POST", "DELETE"])
 Borrower_operations = parser.add_operations_to_class(hydra_classes, "Borrower",
                                                          ["GET", "PUT", "POST", "DELETE"])
+PrivateBorrower_operations = parser.add_operations_to_class(hydra_classes, "PrivateBorrower",
+                                                         ["GET", "PUT", "POST", "DELETE"])
 Collateral_operations = parser.add_operations_to_class(hydra_classes, "Collateral", ["GET", "PUT", "POST", "DELETE"])
 ResidentialMortgage_operations = parser.add_operations_to_class(hydra_classes, "ResidentialMortgage", ["GET", "PUT",
                                                                                                      "POST", "DELETE"])

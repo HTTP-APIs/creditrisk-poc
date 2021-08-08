@@ -1558,6 +1558,15 @@
                 },
                 {
                     "@type": "SupportedProperty",
+                    "property": "nplo:has_total_balance",
+                    "range": "xsd:decimal",
+                    "readable": true,
+                    "required": true,
+                    "title": "has_total_balance",
+                    "writeable": true
+                },
+                {
+                    "@type": "SupportedProperty",
                     "property": "nplo:has_nonperforming_reason",
                     "range": "xsd:N6accd1d479774f4a9d056d9c0dfdb8eb",
                     "readable": true,
@@ -1582,17 +1591,7 @@
             "@type": "hydra:Class",
             "description": "The general Counterparty Class for all legal entities that are explicitly represented",
             "supportedOperation": [],
-            "supportedProperty": [
-                {
-                    "@type": "SupportedProperty",
-                    "property": "nplo:has_legal_entity_identifier",
-                    "range": "xsd:string",
-                    "readable": true,
-                    "required": true,
-                    "title": "has_legal_entity_identifier",
-                    "writeable": true
-                }
-            ],
+            "supportedProperty": [],
             "title": "Counterparty"
         },
         {
@@ -1692,15 +1691,6 @@
                     "required": true,
                     "title": "has_borrower",
                     "writeable": true
-                },
-                {
-                    "@type": "SupportedProperty",
-                    "property": "nplo:has_total_balance",
-                    "range": "xsd:decimal",
-                    "readable": true,
-                    "required": true,
-                    "title": "has_total_balance",
-                    "writeable": true
                 }
             ],
             "title": "Loan"
@@ -1709,7 +1699,83 @@
             "@id": "http://localhost:8080/creditrisk_api/vocab?resource=PrivateBorrower",
             "@type": "hydra:Class",
             "description": "Individual Borrower Class. A sub-class of Borrower that applies to Individuals (Persons)",
-            "supportedOperation": [],
+            "supportedOperation": [
+                {
+                    "@type": "http://schema.org/FindAction",
+                    "expects": null,
+                    "expectsHeader": [],
+                    "method": "GET",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "PrivateBorrower class returned.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=PrivateBorrower",
+                    "returnsHeader": [],
+                    "title": "PrivateBorrowerGET"
+                },
+                {
+                    "@type": "http://schema.org/AddAction",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=PrivateBorrower",
+                    "expectsHeader": [],
+                    "method": "PUT",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "PrivateBorrower class Added.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [],
+                    "title": "PrivateBorrowerPUT"
+                },
+                {
+                    "@type": "http://schema.org/UpdateAction",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=PrivateBorrower",
+                    "expectsHeader": [],
+                    "method": "POST",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "PrivateBorrower class updated.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [
+                        "Content-Type",
+                        "Content-Length"
+                    ],
+                    "title": "PrivateBorrowerPOST"
+                },
+                {
+                    "@type": "http://schema.org/DeleteAction",
+                    "expects": null,
+                    "expectsHeader": [],
+                    "method": "DELETE",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "PrivateBorrower class Deleted.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [],
+                    "title": "PrivateBorrowerDELETE"
+                }
+            ],
             "supportedProperty": [
                 {
                     "@type": "SupportedProperty",
@@ -2338,24 +2404,6 @@
             "supportedProperty": [
                 {
                     "@type": "SupportedProperty",
-                    "property": "nplo:has_legal_entity_identifier",
-                    "range": "xsd:string",
-                    "readable": true,
-                    "required": true,
-                    "title": "has_legal_entity_identifier",
-                    "writeable": true
-                },
-                {
-                    "@type": "SupportedProperty",
-                    "property": "nplo:has_total_assets",
-                    "range": "xsd:decimal",
-                    "readable": true,
-                    "required": true,
-                    "title": "has_total_assets",
-                    "writeable": true
-                },
-                {
-                    "@type": "SupportedProperty",
                     "property": "http://localhost:8080/creditrisk_api/vocab?resource=Portfolio",
                     "readable": true,
                     "required": true,
@@ -2457,6 +2505,15 @@
                     "readable": true,
                     "required": true,
                     "title": "has_date_sent_to_agent",
+                    "writeable": true
+                },
+                {
+                    "@type": "SupportedProperty",
+                    "property": "nplo:has_legal_entity_identifier",
+                    "range": "xsd:string",
+                    "readable": true,
+                    "required": true,
+                    "title": "has_legal_entity_identifier",
                     "writeable": true
                 },
                 {
@@ -3020,6 +3077,15 @@
                     "readable": true,
                     "required": true,
                     "title": "has_estimated_rental_void",
+                    "writeable": true
+                },
+                {
+                    "@type": "SupportedProperty",
+                    "property": "nplo:has_party_liable_for_vat",
+                    "range": "xsd:N2dd5272dcc004d6096e39714fc935d66",
+                    "readable": true,
+                    "required": true,
+                    "title": "has_party_liable_for_vat",
                     "writeable": true
                 },
                 {
@@ -3700,7 +3766,91 @@
                         "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
                         "label": "PrivateBorrower",
                         "range": "http://localhost:8080/creditrisk_api/vocab?resource=PrivateBorrower",
-                        "supportedOperation": []
+                        "supportedOperation": [
+                            {
+                                "@id": "privateborrowerget",
+                                "@type": "http://schema.org/FindAction",
+                                "description": null,
+                                "expects": null,
+                                "expectsHeader": [],
+                                "label": "PrivateBorrowerGET",
+                                "method": "GET",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "PrivateBorrower class returned.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=PrivateBorrower",
+                                "returnsHeader": []
+                            },
+                            {
+                                "@id": "privateborrowerput",
+                                "@type": "http://schema.org/AddAction",
+                                "description": null,
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=PrivateBorrower",
+                                "expectsHeader": [],
+                                "label": "PrivateBorrowerPUT",
+                                "method": "PUT",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "PrivateBorrower class Added.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": []
+                            },
+                            {
+                                "@id": "privateborrowerpost",
+                                "@type": "http://schema.org/UpdateAction",
+                                "description": null,
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=PrivateBorrower",
+                                "expectsHeader": [],
+                                "label": "PrivateBorrowerPOST",
+                                "method": "POST",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "PrivateBorrower class updated.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": [
+                                    "Content-Type",
+                                    "Content-Length"
+                                ]
+                            },
+                            {
+                                "@id": "privateborrowerdelete",
+                                "@type": "http://schema.org/DeleteAction",
+                                "description": null,
+                                "expects": null,
+                                "expectsHeader": [],
+                                "label": "PrivateBorrowerDELETE",
+                                "method": "DELETE",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "PrivateBorrower class Deleted.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": []
+                            }
+                        ]
                     },
                     "readable": true,
                     "required": null,
