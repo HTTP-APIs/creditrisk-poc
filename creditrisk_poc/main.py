@@ -35,10 +35,14 @@ DB_URL = (
 HYDRUS_SERVER_URL = f"http://localhost:{PORT}/"
 
 cwd_path = Path(dirname(dirname(abspath(__file__))))
-API_DOC_PATH = cwd_path / "creditrisk_poc" / "api_doc" / "ApiDoc.jsonld"
+try:
+    apidoc_env = os.environ["APIDOC_REL_PATH"]
+    apidoc_path = cwd_path / Path(apidoc_env)
+except KeyError:
+    apidoc_path = cwd_path / "creditrisk_poc" / "api_doc" / "ApiDoc.jsonld"
 
 # loading serialized api_doc object
-doc_file = open(API_DOC_PATH, "r")
+doc_file = open(apidoc_path, "r")
 doc = json.load(doc_file)
 
 apidoc = doc_maker.create_doc(doc, HYDRUS_SERVER_URL, API_NAME)
