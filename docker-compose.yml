@@ -1,0 +1,41 @@
+version: "3"
+
+services:
+  creditrisk_server:
+    restart: always
+    build: ./
+    ports:
+      - "8080:8080"
+    environment:
+      - DEBUG=1
+      - API_NAME=creditrisk_api
+      - APIDOC_REL_PATH=creditrisk_poc/api_doc/ApiDoc.jsonld
+      - DB_URL=postgresql://creditrisk:creditriskpass@pg_main:5432/testdb
+      - PORT=8080
+    depends_on:
+      - pg_main
+    networks:
+      main:
+        aliases:
+          - creditrisk_server
+  
+  pg_main:
+    image: postgres:13.3-alpine
+    restart: always
+    ports:
+      - "5432"
+    environment:
+      POSTGRES_USER: creditrisk
+      POSTGRES_PASSWORD: creditriskpass
+      POSTGRES_DB: testdb
+    volumes:
+       - pgdata:/var/lib/postgresql/data/
+    networks:
+      main:
+        aliases:
+          - creditrisk_server     
+
+volumes:
+    pgdata:
+networks:
+  main:
