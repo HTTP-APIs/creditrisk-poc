@@ -59,10 +59,7 @@ TOKEN = False
 # Create a Hydrus app
 app = app_factory(API_NAME)
 socketio = create_socket(app, session)
-#
-# Nested context managers
-#
-# Use authentication for all requests
+
 # Set the API Documentation
 # Set HYDRUS_SERVER_URL
 # Set the Database session
