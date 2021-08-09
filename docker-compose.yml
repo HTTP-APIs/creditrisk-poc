@@ -9,7 +9,7 @@ services:
     environment:
       - DEBUG=1
       - API_NAME=creditrisk_api
-      - APIDOC_REL_PATH=creditrisk_poc/api_doc/ApiDoc.jsonld
+      # - APIDOC_REL_PATH=creditrisk_poc/api_doc/ApiDoc.jsonld
       - DB_URL=postgresql://creditrisk:creditriskpass@pg_main:5432/testdb
       - PORT=8080
     depends_on:
