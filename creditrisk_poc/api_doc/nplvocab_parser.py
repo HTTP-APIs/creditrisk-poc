@@ -6,7 +6,7 @@ from pathlib import Path
 
 def get_npl_vocab() -> dict:
     cwd_path = Path(dirname(dirname(abspath(__file__))))
-    vocab_file_path = cwd_path / "npl_vocab" / "NonPerformingLoan.jsonld"
+    vocab_file_path = cwd_path / "npl_vocab" / "nplo.jsonld"
     npl_vocab_file = open(vocab_file_path)
     npl_vocab = json.load(npl_vocab_file)
     return npl_vocab
@@ -30,11 +30,12 @@ def create_hydra_classes(vocab_classes: list) -> list:
     """
     hydra_classes = list()
     for class_ in vocab_classes:
-        class_name = (class_['rdfs:comment'].split('Class')[0]).replace(" ", "")
-        if "class" in class_name:
-            class_name = (class_['rdfs:comment'].split('class')[0]).replace(" ", "")
-        hydra_class = HydraClass(class_name, class_['rdfs:comment'], endpoint=True)
-        hydra_classes.append(hydra_class)
+        if 'nplo:' in class_.get('@id'):
+            class_name = (class_['@id'].split(':')[1]).replace(" ", "")
+            if "class" in class_name:
+                class_name = (class_name.split('class')[0]).replace(" ", "")
+            hydra_class = HydraClass(class_name, class_['rdfs:comment'], endpoint=True)
+            hydra_classes.append(hydra_class)
     return hydra_classes
 
 
@@ -45,9 +46,9 @@ def get_class_properties(class_name: str, vocab: dict) -> list:
     properties = list()
     defines = vocab['@graph']
     for obj in defines:
-        if obj.get('propertyOf'):
-            propertyof = obj['propertyOf'].split('#')[1]
-            if propertyof == class_name or obj['@type'] == 'owl:DataProperty' and obj['@type'] == 'owl:ObjectProperty':
+        if obj.get('rdfs:domain'):
+            propertyof = obj.get('rdfs:domain').get('@id').split(':')[1]
+            if propertyof == class_name or obj['@type'] == 'owl:DatatypeProperty' and obj['@type'] == 'owl:ObjectProperty':
                 properties.append(obj)
     return properties
 
@@ -55,15 +56,20 @@ def get_class_properties(class_name: str, vocab: dict) -> list:
 def create_hydra_properties(property_: dict, hydra_classes: dict) -> HydraClassProp:
     if property_['@type'] == 'owl:DatatypeProperty':
         try:
-            prop_range = "xsd:" + property_['propertyOn'].split('#')[1]
+            prop_range = property_.get('rdfs:range').get('@id')
         except Exception:
-            prop_range = "xsd:" + property_['propertyOn']
+            prop_range = "xsd:" + property_.get('rdfs:range').get('@id').split(':')[1]
+        if 'xsd:' not in prop_range:
+            prop_range = 'xsd:' + prop_range.split(':')[1]
         hydra_property = HydraClassProp(property_['@id'], property_['rdfs:label'], range=prop_range,
                                         required=True, read=True, write=True)
     elif 'owl:ObjectProperty' in property_['@type']:
-        property_on_class = property_.get("propertyOn").split('#')[1]
+        try:
+            property_on_class = property_.get("rdfs:range").get('@id').split(':')[1]
+        except Exception:
+            property_on_class = property_.get("rdfs:range")[0].get('@id').split(':')[1]
         property_uri = hydra_classes[property_on_class].id_
-        property_name = property_['@id'].split('#')[1]
+        property_name = property_['@id'].split(':')[1]
         hydra_property = HydraClassProp(property_uri, property_name,
                                         required=True, read=True, write=True)
 
