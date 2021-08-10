@@ -77,7 +77,83 @@
             "@id": "http://localhost:8080/creditrisk_api/vocab?resource=Enforcement",
             "@type": "hydra:Class",
             "description": "Enforcement Class",
-            "supportedOperation": [],
+            "supportedOperation": [
+                {
+                    "@type": "http://schema.org/FindAction",
+                    "expects": null,
+                    "expectsHeader": [],
+                    "method": "GET",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "Enforcement class returned.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Enforcement",
+                    "returnsHeader": [],
+                    "title": "EnforcementGET"
+                },
+                {
+                    "@type": "http://schema.org/AddAction",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Enforcement",
+                    "expectsHeader": [],
+                    "method": "PUT",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "Enforcement class Added.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [],
+                    "title": "EnforcementPUT"
+                },
+                {
+                    "@type": "http://schema.org/UpdateAction",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Enforcement",
+                    "expectsHeader": [],
+                    "method": "POST",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "Enforcement class updated.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [
+                        "Content-Type",
+                        "Content-Length"
+                    ],
+                    "title": "EnforcementPOST"
+                },
+                {
+                    "@type": "http://schema.org/DeleteAction",
+                    "expects": null,
+                    "expectsHeader": [],
+                    "method": "DELETE",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "Enforcement class Deleted.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [],
+                    "title": "EnforcementDELETE"
+                }
+            ],
             "supportedProperty": [
                 {
                     "@type": "SupportedProperty",
@@ -479,83 +555,7 @@
             "@id": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
             "@type": "hydra:Class",
             "description": "Collateral Class",
-            "supportedOperation": [
-                {
-                    "@type": "http://schema.org/FindAction",
-                    "expects": null,
-                    "expectsHeader": [],
-                    "method": "GET",
-                    "possibleStatus": [
-                        {
-                            "@context": "https://www.w3.org/ns/hydra/core",
-                            "@type": "Status",
-                            "description": "Collateral class returned.",
-                            "statusCode": 200,
-                            "title": ""
-                        }
-                    ],
-                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
-                    "returnsHeader": [],
-                    "title": "CollateralGET"
-                },
-                {
-                    "@type": "http://schema.org/AddAction",
-                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
-                    "expectsHeader": [],
-                    "method": "PUT",
-                    "possibleStatus": [
-                        {
-                            "@context": "https://www.w3.org/ns/hydra/core",
-                            "@type": "Status",
-                            "description": "Collateral class Added.",
-                            "statusCode": 200,
-                            "title": ""
-                        }
-                    ],
-                    "returns": null,
-                    "returnsHeader": [],
-                    "title": "CollateralPUT"
-                },
-                {
-                    "@type": "http://schema.org/UpdateAction",
-                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
-                    "expectsHeader": [],
-                    "method": "POST",
-                    "possibleStatus": [
-                        {
-                            "@context": "https://www.w3.org/ns/hydra/core",
-                            "@type": "Status",
-                            "description": "Collateral class updated.",
-                            "statusCode": 200,
-                            "title": ""
-                        }
-                    ],
-                    "returns": null,
-                    "returnsHeader": [
-                        "Content-Type",
-                        "Content-Length"
-                    ],
-                    "title": "CollateralPOST"
-                },
-                {
-                    "@type": "http://schema.org/DeleteAction",
-                    "expects": null,
-                    "expectsHeader": [],
-                    "method": "DELETE",
-                    "possibleStatus": [
-                        {
-                            "@context": "https://www.w3.org/ns/hydra/core",
-                            "@type": "Status",
-                            "description": "Collateral class Deleted.",
-                            "statusCode": 200,
-                            "title": ""
-                        }
-                    ],
-                    "returns": null,
-                    "returnsHeader": [],
-                    "title": "CollateralDELETE"
-                }
-            ],
+            "supportedOperation": [],
             "supportedProperty": [
                 {
                     "@type": "SupportedProperty",
@@ -2417,7 +2417,83 @@
             "@id": "http://localhost:8080/creditrisk_api/vocab?resource=ExternalCollection",
             "@type": "hydra:Class",
             "description": "External Collection Class",
-            "supportedOperation": [],
+            "supportedOperation": [
+                {
+                    "@type": "http://schema.org/FindAction",
+                    "expects": null,
+                    "expectsHeader": [],
+                    "method": "GET",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "ExternalCollection class returned.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=ExternalCollection",
+                    "returnsHeader": [],
+                    "title": "ExternalCollectionGET"
+                },
+                {
+                    "@type": "http://schema.org/AddAction",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=ExternalCollection",
+                    "expectsHeader": [],
+                    "method": "PUT",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "ExternalCollection class Added.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [],
+                    "title": "ExternalCollectionPUT"
+                },
+                {
+                    "@type": "http://schema.org/UpdateAction",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=ExternalCollection",
+                    "expectsHeader": [],
+                    "method": "POST",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "ExternalCollection class updated.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [
+                        "Content-Type",
+                        "Content-Length"
+                    ],
+                    "title": "ExternalCollectionPOST"
+                },
+                {
+                    "@type": "http://schema.org/DeleteAction",
+                    "expects": null,
+                    "expectsHeader": [],
+                    "method": "DELETE",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "ExternalCollection class Deleted.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [],
+                    "title": "ExternalCollectionDELETE"
+                }
+            ],
             "supportedProperty": [
                 {
                     "@type": "SupportedProperty",
@@ -2549,7 +2625,83 @@
             "@id": "http://localhost:8080/creditrisk_api/vocab?resource=Forbearance",
             "@type": "hydra:Class",
             "description": "Forbearance Class",
-            "supportedOperation": [],
+            "supportedOperation": [
+                {
+                    "@type": "http://schema.org/FindAction",
+                    "expects": null,
+                    "expectsHeader": [],
+                    "method": "GET",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "Forbearance class returned.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Forbearance",
+                    "returnsHeader": [],
+                    "title": "ForbearanceGET"
+                },
+                {
+                    "@type": "http://schema.org/AddAction",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Forbearance",
+                    "expectsHeader": [],
+                    "method": "PUT",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "Forbearance class Added.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [],
+                    "title": "ForbearancePUT"
+                },
+                {
+                    "@type": "http://schema.org/UpdateAction",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Forbearance",
+                    "expectsHeader": [],
+                    "method": "POST",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "Forbearance class updated.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [
+                        "Content-Type",
+                        "Content-Length"
+                    ],
+                    "title": "ForbearancePOST"
+                },
+                {
+                    "@type": "http://schema.org/DeleteAction",
+                    "expects": null,
+                    "expectsHeader": [],
+                    "method": "DELETE",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "Forbearance class Deleted.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [],
+                    "title": "ForbearanceDELETE"
+                }
+            ],
             "supportedProperty": [
                 {
                     "@type": "SupportedProperty",
@@ -2708,7 +2860,83 @@
             "@id": "http://localhost:8080/creditrisk_api/vocab?resource=PropertyCollateral",
             "@type": "hydra:Class",
             "description": "Property Collateral Class",
-            "supportedOperation": [],
+            "supportedOperation": [
+                {
+                    "@type": "http://schema.org/FindAction",
+                    "expects": null,
+                    "expectsHeader": [],
+                    "method": "GET",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "PropertyCollateral class returned.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": "http://localhost:8080/creditrisk_api/vocab?resource=PropertyCollateral",
+                    "returnsHeader": [],
+                    "title": "PropertyCollateralGET"
+                },
+                {
+                    "@type": "http://schema.org/AddAction",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=PropertyCollateral",
+                    "expectsHeader": [],
+                    "method": "PUT",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "PropertyCollateral class Added.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [],
+                    "title": "PropertyCollateralPUT"
+                },
+                {
+                    "@type": "http://schema.org/UpdateAction",
+                    "expects": "http://localhost:8080/creditrisk_api/vocab?resource=PropertyCollateral",
+                    "expectsHeader": [],
+                    "method": "POST",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "PropertyCollateral class updated.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [
+                        "Content-Type",
+                        "Content-Length"
+                    ],
+                    "title": "PropertyCollateralPOST"
+                },
+                {
+                    "@type": "http://schema.org/DeleteAction",
+                    "expects": null,
+                    "expectsHeader": [],
+                    "method": "DELETE",
+                    "possibleStatus": [
+                        {
+                            "@context": "https://www.w3.org/ns/hydra/core",
+                            "@type": "Status",
+                            "description": "PropertyCollateral class Deleted.",
+                            "statusCode": 200,
+                            "title": ""
+                        }
+                    ],
+                    "returns": null,
+                    "returnsHeader": [],
+                    "title": "PropertyCollateralDELETE"
+                }
+            ],
             "supportedProperty": [
                 {
                     "@type": "SupportedProperty",
@@ -3402,7 +3630,91 @@
                         "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
                         "label": "Enforcement",
                         "range": "http://localhost:8080/creditrisk_api/vocab?resource=Enforcement",
-                        "supportedOperation": []
+                        "supportedOperation": [
+                            {
+                                "@id": "enforcementget",
+                                "@type": "http://schema.org/FindAction",
+                                "description": null,
+                                "expects": null,
+                                "expectsHeader": [],
+                                "label": "EnforcementGET",
+                                "method": "GET",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "Enforcement class returned.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Enforcement",
+                                "returnsHeader": []
+                            },
+                            {
+                                "@id": "enforcementput",
+                                "@type": "http://schema.org/AddAction",
+                                "description": null,
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Enforcement",
+                                "expectsHeader": [],
+                                "label": "EnforcementPUT",
+                                "method": "PUT",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "Enforcement class Added.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": []
+                            },
+                            {
+                                "@id": "enforcementpost",
+                                "@type": "http://schema.org/UpdateAction",
+                                "description": null,
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Enforcement",
+                                "expectsHeader": [],
+                                "label": "EnforcementPOST",
+                                "method": "POST",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "Enforcement class updated.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": [
+                                    "Content-Type",
+                                    "Content-Length"
+                                ]
+                            },
+                            {
+                                "@id": "enforcementdelete",
+                                "@type": "http://schema.org/DeleteAction",
+                                "description": null,
+                                "expects": null,
+                                "expectsHeader": [],
+                                "label": "EnforcementDELETE",
+                                "method": "DELETE",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "Enforcement class Deleted.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": []
+                            }
+                        ]
                     },
                     "readable": true,
                     "required": null,
@@ -3418,91 +3730,7 @@
                         "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
                         "label": "Collateral",
                         "range": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
-                        "supportedOperation": [
-                            {
-                                "@id": "collateralget",
-                                "@type": "http://schema.org/FindAction",
-                                "description": null,
-                                "expects": null,
-                                "expectsHeader": [],
-                                "label": "CollateralGET",
-                                "method": "GET",
-                                "possibleStatus": [
-                                    {
-                                        "@context": "https://www.w3.org/ns/hydra/core",
-                                        "@type": "Status",
-                                        "description": "Collateral class returned.",
-                                        "statusCode": 200,
-                                        "title": ""
-                                    }
-                                ],
-                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
-                                "returnsHeader": []
-                            },
-                            {
-                                "@id": "collateralput",
-                                "@type": "http://schema.org/AddAction",
-                                "description": null,
-                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
-                                "expectsHeader": [],
-                                "label": "CollateralPUT",
-                                "method": "PUT",
-                                "possibleStatus": [
-                                    {
-                                        "@context": "https://www.w3.org/ns/hydra/core",
-                                        "@type": "Status",
-                                        "description": "Collateral class Added.",
-                                        "statusCode": 200,
-                                        "title": ""
-                                    }
-                                ],
-                                "returns": null,
-                                "returnsHeader": []
-                            },
-                            {
-                                "@id": "collateralpost",
-                                "@type": "http://schema.org/UpdateAction",
-                                "description": null,
-                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Collateral",
-                                "expectsHeader": [],
-                                "label": "CollateralPOST",
-                                "method": "POST",
-                                "possibleStatus": [
-                                    {
-                                        "@context": "https://www.w3.org/ns/hydra/core",
-                                        "@type": "Status",
-                                        "description": "Collateral class updated.",
-                                        "statusCode": 200,
-                                        "title": ""
-                                    }
-                                ],
-                                "returns": null,
-                                "returnsHeader": [
-                                    "Content-Type",
-                                    "Content-Length"
-                                ]
-                            },
-                            {
-                                "@id": "collateraldelete",
-                                "@type": "http://schema.org/DeleteAction",
-                                "description": null,
-                                "expects": null,
-                                "expectsHeader": [],
-                                "label": "CollateralDELETE",
-                                "method": "DELETE",
-                                "possibleStatus": [
-                                    {
-                                        "@context": "https://www.w3.org/ns/hydra/core",
-                                        "@type": "Status",
-                                        "description": "Collateral class Deleted.",
-                                        "statusCode": 200,
-                                        "title": ""
-                                    }
-                                ],
-                                "returns": null,
-                                "returnsHeader": []
-                            }
-                        ]
+                        "supportedOperation": []
                     },
                     "readable": true,
                     "required": null,
@@ -3966,7 +4194,91 @@
                         "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
                         "label": "ExternalCollection",
                         "range": "http://localhost:8080/creditrisk_api/vocab?resource=ExternalCollection",
-                        "supportedOperation": []
+                        "supportedOperation": [
+                            {
+                                "@id": "externalcollectionget",
+                                "@type": "http://schema.org/FindAction",
+                                "description": null,
+                                "expects": null,
+                                "expectsHeader": [],
+                                "label": "ExternalCollectionGET",
+                                "method": "GET",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "ExternalCollection class returned.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=ExternalCollection",
+                                "returnsHeader": []
+                            },
+                            {
+                                "@id": "externalcollectionput",
+                                "@type": "http://schema.org/AddAction",
+                                "description": null,
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=ExternalCollection",
+                                "expectsHeader": [],
+                                "label": "ExternalCollectionPUT",
+                                "method": "PUT",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "ExternalCollection class Added.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": []
+                            },
+                            {
+                                "@id": "externalcollectionpost",
+                                "@type": "http://schema.org/UpdateAction",
+                                "description": null,
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=ExternalCollection",
+                                "expectsHeader": [],
+                                "label": "ExternalCollectionPOST",
+                                "method": "POST",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "ExternalCollection class updated.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": [
+                                    "Content-Type",
+                                    "Content-Length"
+                                ]
+                            },
+                            {
+                                "@id": "externalcollectiondelete",
+                                "@type": "http://schema.org/DeleteAction",
+                                "description": null,
+                                "expects": null,
+                                "expectsHeader": [],
+                                "label": "ExternalCollectionDELETE",
+                                "method": "DELETE",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "ExternalCollection class Deleted.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": []
+                            }
+                        ]
                     },
                     "readable": true,
                     "required": null,
@@ -3982,7 +4294,91 @@
                         "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
                         "label": "Forbearance",
                         "range": "http://localhost:8080/creditrisk_api/vocab?resource=Forbearance",
-                        "supportedOperation": []
+                        "supportedOperation": [
+                            {
+                                "@id": "forbearanceget",
+                                "@type": "http://schema.org/FindAction",
+                                "description": null,
+                                "expects": null,
+                                "expectsHeader": [],
+                                "label": "ForbearanceGET",
+                                "method": "GET",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "Forbearance class returned.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=Forbearance",
+                                "returnsHeader": []
+                            },
+                            {
+                                "@id": "forbearanceput",
+                                "@type": "http://schema.org/AddAction",
+                                "description": null,
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Forbearance",
+                                "expectsHeader": [],
+                                "label": "ForbearancePUT",
+                                "method": "PUT",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "Forbearance class Added.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": []
+                            },
+                            {
+                                "@id": "forbearancepost",
+                                "@type": "http://schema.org/UpdateAction",
+                                "description": null,
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=Forbearance",
+                                "expectsHeader": [],
+                                "label": "ForbearancePOST",
+                                "method": "POST",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "Forbearance class updated.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": [
+                                    "Content-Type",
+                                    "Content-Length"
+                                ]
+                            },
+                            {
+                                "@id": "forbearancedelete",
+                                "@type": "http://schema.org/DeleteAction",
+                                "description": null,
+                                "expects": null,
+                                "expectsHeader": [],
+                                "label": "ForbearanceDELETE",
+                                "method": "DELETE",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "Forbearance class Deleted.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": []
+                            }
+                        ]
                     },
                     "readable": true,
                     "required": null,
@@ -3998,7 +4394,91 @@
                         "domain": "http://localhost:8080/creditrisk_api/vocab?resource=EntryPoint",
                         "label": "PropertyCollateral",
                         "range": "http://localhost:8080/creditrisk_api/vocab?resource=PropertyCollateral",
-                        "supportedOperation": []
+                        "supportedOperation": [
+                            {
+                                "@id": "propertycollateralget",
+                                "@type": "http://schema.org/FindAction",
+                                "description": null,
+                                "expects": null,
+                                "expectsHeader": [],
+                                "label": "PropertyCollateralGET",
+                                "method": "GET",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "PropertyCollateral class returned.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": "http://localhost:8080/creditrisk_api/vocab?resource=PropertyCollateral",
+                                "returnsHeader": []
+                            },
+                            {
+                                "@id": "propertycollateralput",
+                                "@type": "http://schema.org/AddAction",
+                                "description": null,
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=PropertyCollateral",
+                                "expectsHeader": [],
+                                "label": "PropertyCollateralPUT",
+                                "method": "PUT",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "PropertyCollateral class Added.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": []
+                            },
+                            {
+                                "@id": "propertycollateralpost",
+                                "@type": "http://schema.org/UpdateAction",
+                                "description": null,
+                                "expects": "http://localhost:8080/creditrisk_api/vocab?resource=PropertyCollateral",
+                                "expectsHeader": [],
+                                "label": "PropertyCollateralPOST",
+                                "method": "POST",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "PropertyCollateral class updated.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": [
+                                    "Content-Type",
+                                    "Content-Length"
+                                ]
+                            },
+                            {
+                                "@id": "propertycollateraldelete",
+                                "@type": "http://schema.org/DeleteAction",
+                                "description": null,
+                                "expects": null,
+                                "expectsHeader": [],
+                                "label": "PropertyCollateralDELETE",
+                                "method": "DELETE",
+                                "possibleStatus": [
+                                    {
+                                        "@context": "https://www.w3.org/ns/hydra/core",
+                                        "@type": "Status",
+                                        "description": "PropertyCollateral class Deleted.",
+                                        "statusCode": 200,
+                                        "title": ""
+                                    }
+                                ],
+                                "returns": null,
+                                "returnsHeader": []
+                            }
+                        ]
                     },
                     "readable": true,
                     "required": null,

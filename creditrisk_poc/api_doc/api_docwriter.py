@@ -34,9 +34,17 @@ Borrower_operations = parser.add_operations_to_class(hydra_classes, "Borrower",
                                                          ["GET", "PUT", "POST", "DELETE"])
 PrivateBorrower_operations = parser.add_operations_to_class(hydra_classes, "PrivateBorrower",
                                                          ["GET", "PUT", "POST", "DELETE"])
-Collateral_operations = parser.add_operations_to_class(hydra_classes, "Collateral", ["GET", "PUT", "POST", "DELETE"])
-ResidentialMortgage_operations = parser.add_operations_to_class(hydra_classes, "ResidentialMortgage", ["GET", "PUT",
-                                                                                                     "POST", "DELETE"])
+PropertyCollateral_operations = parser.add_operations_to_class(hydra_classes, "PropertyCollateral",
+                                                               ["GET", "PUT", "POST", "DELETE"])
+ResidentialMortgage_operations = parser.add_operations_to_class(hydra_classes, "ResidentialMortgage",
+                                                                ["GET", "PUT", "POST", "DELETE"])
+Forbearance_operations = parser.add_operations_to_class(hydra_classes, "Forbearance",
+                                                                ["GET", "PUT", "POST", "DELETE"])
+ExternalCollection_operations = parser.add_operations_to_class(hydra_classes, "ExternalCollection",
+                                                                ["GET", "PUT", "POST", "DELETE"])
+Enforcement_operations = parser.add_operations_to_class(hydra_classes, "Enforcement",
+                                                                ["GET", "PUT", "POST", "DELETE"])
+
 
 for class_ in hydra_classes:
     class_name = class_.title

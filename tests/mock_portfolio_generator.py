@@ -22,15 +22,6 @@ def get_api_doc(apidoc_file_path: str = "ApiDoc.jsonld") -> HydraDoc:
     return apidoc, API_NAME
 
 
-def generate_borrowers(apidoc: HydraDoc, API_NAME: str):
-    """
-    Generates 100 Borrowers with no loans & no collateral
-    """
-    for borrower in range(1000):
-        dummy_object = gen_dummy_object("Borrower", apidoc)
-        put_request = requests.put("http://localhost:8080/{api_name}/Borrower/".format(api_name=API_NAME), json=dummy_object)
-
-
 def generate_private_borrowers(apidoc: HydraDoc, API_NAME: str):
     """
     Generates 100 Borrowers with no loans & no collateral
@@ -51,21 +42,57 @@ def generate_residential_mortgage(apidoc: HydraDoc, API_NAME: str):
         put_request = requests.put("http://localhost:8080/{api_name}/ResidentialMortgage/".format(api_name=API_NAME),
                                    json=mortgage_dummy_object)
 
-def generate_collateral(apidoc: HydraDoc, API_NAME: str):
+
+def generate_propertycollateral(apidoc: HydraDoc, API_NAME: str):
     """
     Generate 1000 collateral objects
     """
     for collateral in range(100):
         # Creating ResidentialMortgage Object
-        mortgage_dummy_object = gen_dummy_object("Collateral", apidoc)
-        put_request = requests.put("http://localhost:8080/{api_name}/Collateral/".format(api_name=API_NAME),
-                                   json=mortgage_dummy_object)
+        collateral_dummy_object = gen_dummy_object("PropertyCollateral", apidoc)
+        put_request = requests.put("http://localhost:8080/{api_name}/PropertyCollateral/".format(api_name=API_NAME),
+                                   json=collateral_dummy_object)
 
+
+def generate_forbearance(apidoc: HydraDoc, API_NAME: str):
+    """
+    Generate 1000 collateral objects
+    """
+    for forbearance in range(100):
+        # Creating ResidentialMortgage Object
+        forbearance_dummy_object = gen_dummy_object("Forbearance", apidoc)
+        put_request = requests.put("http://localhost:8080/{api_name}/Forbearance/".format(api_name=API_NAME),
+                                   json=forbearance_dummy_object)
+
+
+def generate_externalcollection(apidoc: HydraDoc, API_NAME: str):
+    """
+    Generate 1000 collateral objects
+    """
+    for externalcollection in range(100):
+        # Creating ResidentialMortgage Object
+        externalcollection_dummy_object = gen_dummy_object("ExternalCollection", apidoc)
+        put_request = requests.put("http://localhost:8080/{api_name}/ExternalCollection/".format(api_name=API_NAME),
+                                   json=externalcollection_dummy_object)
+
+
+def generate_enforcement(apidoc: HydraDoc, API_NAME: str):
+    """
+    Generate 1000 collateral objects
+    """
+    for enforcement in range(100):
+        # Creating ResidentialMortgage Object
+        enforcement_dummy_object = gen_dummy_object("Enforcement", apidoc)
+        put_request = requests.put("http://localhost:8080/{api_name}/Enforcement/".format(api_name=API_NAME),
+                                   json=enforcement_dummy_object)
+        print(put_request.text)
 
 
 if __name__ == "__main__":
     doc, api_name = get_api_doc()
-    generate_borrowers(doc, api_name)
     generate_private_borrowers(doc, api_name)
     generate_residential_mortgage(doc, api_name)
-    generate_collateral(doc, api_name)
+    generate_propertycollateral(doc, api_name)
+    generate_forbearance(doc, api_name)
+    generate_externalcollection(doc, api_name)
+    generate_enforcement(doc, api_name)
