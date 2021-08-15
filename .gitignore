@@ -112,3 +112,4 @@ ENV/
 
 # Pipenv generated
 Pipfile*
+.venv
