@@ -36,7 +36,7 @@ HYDRUS_SERVER_URL = f"http://localhost:{PORT}/"
 
 cwd_path = Path(dirname(dirname(abspath(__file__))))
 try:
-    apidoc_env = os.environ["APIDOCL_PATH"]
+    apidoc_env = os.environ["APIDOC_PATH"]
     apidoc_path = cwd_path / Path(apidoc_env)
 except KeyError:
     apidoc_path = cwd_path / "creditrisk_poc" / "api_doc" / "ApiDoc.jsonld"
