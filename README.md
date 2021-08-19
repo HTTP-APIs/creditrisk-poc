@@ -18,7 +18,7 @@ creditrisk-poc consist following features:
 * Portfolio class collection.
 * classes are linked with each other using `foreign keys`.
 * All the classes can perform all the CRUD operations ( GET, PUT, POST, DELETE).
-* Borrower class collection can perform all the CRUD operations.
+* Portfolio class collection can perform all the CRUD operations.
 
 ## Classes are linked in the following manner:
 [Here's](https://drive.google.com/file/d/1HWd72JVtf13P7DdTF3Er2870FVx7c9BM/view) the Database schema for the classes.
