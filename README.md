@@ -2,18 +2,26 @@
 
 Creditrisk-poc is a Hydra powered API which serves loan portfolio data using EBA NPL Template.
 
+<div  align="center">
+  
+  ![Creditrisk-poc](https://user-images.githubusercontent.com/49719371/130111451-5c06ce06-012e-44df-986c-b736bb21b191.png)
+  </div>
+
+## Working Project
+API is live @ **http://34.145.188.116:8080/**
+
+
+
 ## Features
 creditrisk-poc consist following features:
-* Loan ,Borrower & Collateral classes.
-* Borrower class collection.
-* Loan, Borrower & Collateral classes are linked using `foreign keys`.
-* Loan class can perform all the CRUD operations ( GET, PUT, POST, DELETE).
-* Borrower can perform all the CRUD operations.
-* Borrower class collection can perform all the CRUD operations.
+* ResidentialMortgage, PrivateBorrower, Collateral, Portfolio & manymore classes.
+* Portfolio class collection.
+* classes are linked with each other using `foreign keys`.
+* All the classes can perform all the CRUD operations ( GET, PUT, POST, DELETE).
+* Portfolio class collection can perform all the CRUD operations.
 
 ## Classes are linked in the following manner:
-![Creditrisk_class_linking](https://user-images.githubusercontent.com/49719371/125194774-4d897280-e270-11eb-95af-4242bb1bffc2.jpg)
-
+[Here's](https://drive.google.com/file/d/1HWd72JVtf13P7DdTF3Er2870FVx7c9BM/view) the Database schema for the classes.
 
 ## NonPerformingLoan.jsonld
 The `NonPerformingLoan.jsonld` is a subset vocabulary for NonPerformingLoan portfolios,
@@ -48,9 +56,29 @@ doc = json.load(ApiDoc_file)
 you will get the doc in `python dict` format.
 
 ### ApiDoc is generated with this flow:
+![Automation_structure](https://user-images.githubusercontent.com/49719371/130113828-f4241ac7-08fb-4a14-aa64-a2c85b549d37.png)
+
+## Repository Structure
+```python
+creditrisk_poc
+|
+|____api_doc
+|    |
+|    |_____api_docwriter.py
+|    |_____ApiDoc.jsonld
+|    |_____nplvocab_generator.py
+|
+|____npl_vocab
+|    |
+|    |____NonPerformingLoan.jsonld
+|    |____NonPerformingLoan.owl
+|    |____nplo.jsonld
+|    |____vocab_generator.py
+|
+|____"__main.py__"
 ```
-NonPerformingLoan.owl --> ( vocab_generator.py ) NonPerformingLoan.jsonld --> ( nplvocab_parser.py) ApiDoc.jsonld 
-```
+
+
 ## Demo
 To run hydra powered creditrisk-poc API, just do the following:
 1) Clone creditrisk-poc
@@ -75,6 +103,13 @@ pip install -r requirements.txt
 3) Run hydrus server 
 ```bash
 cd creditrisk_poc
-python main.py
+python __main__.py
 ```
 The hydrus should be up & running on `http://localhost:8080/creditrisk_api/`
+
+### API can be tested using Mock_portfolio_generator
+```bash
+cd tests
+python mock_portfolio_generator.py
+```
+> Mock_portfolio_generator is a mock client which can populate the database with the more realistic data, It automatically creates the object of the classes on the basis of ApiDocumentation. 
