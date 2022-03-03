@@ -7,7 +7,7 @@ Fixes #
 ### Checklist
 
 - [ ] My branch is up-to-date with upstream/develop branch.
-- [ ] Everything works and tested for Python 3.8 and above.
+- [ ] Everything works and tested for Python 3.9 and above.
 
 ### Current behaviour
 

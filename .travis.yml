@@ -1,0 +1,16 @@
+language: python
+python:
+  - "3.9"
+  - "3.9-dev" # 3.9 development branch
+install:
+  - pip install -r requirements.txt --no-cache
+script: pytest
+env:
+  - DEBUG=1
+  - API_NAME=creditrisk_api
+  - APIDOC_PATH=creditrisk_poc/api_doc/ApiDoc.jsonld
+  - DB_URL=postgresql=//creditrisk:creditriskpass@pg_main:5432/testdb
+  - PORT=8080
+  - POSTGRES_USER=creditrisk
+  - POSTGRES_PASSWORD=creditriskpass
+  - POSTGRES_DB=testdb
