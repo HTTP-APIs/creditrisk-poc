@@ -156,7 +156,7 @@ def test_doc(constants):
     HYDRUS_SERVER_URL = constants["HYDRUS_SERVER_URL"]
     API_NAME = constants["API_NAME"]
     cwd_path = Path(dirname(dirname(abspath(__file__))))
-    API_DOC_PATH = cwd_path / "tests" / "test_01_ApiDoc.jsonld"
+    API_DOC_PATH = cwd_path / "tests" / "test_examples" / "test_ApiDoc.jsonld"
     doc_file = open(API_DOC_PATH, "r")
     doc = json.load(doc_file)
 
@@ -167,7 +167,7 @@ def test_doc(constants):
 @pytest.fixture(scope="module")
 def fetch_doc(constants):
     cwd_path = Path(dirname(dirname(abspath(__file__))))
-    API_DOC_PATH = cwd_path / "tests" / "test_01_ApiDoc.jsonld"
+    API_DOC_PATH = cwd_path / "tests" / "test_examples" / "test_ApiDoc.jsonld"
     doc_file = open(API_DOC_PATH, "r")
     doc = json.load(doc_file)
     return doc
@@ -371,25 +371,25 @@ def simplified_collection(constants):
                 {
                     "@type": "hydra:IriTemplateMapping",
                     "hydra:property": "nplo:has_cutoff_date",
-                    "hydra:required": "false",
+                    "hydra:required": False,
                     "hydra:variable": "borrower_is_part_of_portfolio[has_cutoff_date]",
                 },
                 {
                     "@type": "hydra:IriTemplateMapping",
                     "hydra:property": "pageIndex",
-                    "hydra:required": "false",
+                    "hydra:required": False,
                     "hydra:variable": "pageIndex",
                 },
                 {
                     "@type": "hydra:IriTemplateMapping",
                     "hydra:property": "limit",
-                    "hydra:required": "false",
+                    "hydra:required": False,
                     "hydra:variable": "limit",
                 },
                 {
                     "@type": "hydra:IriTemplateMapping",
                     "hydra:property": "offset",
-                    "hydra:required": "false",
+                    "hydra:required": False,
                     "hydra:variable": "offset",
                 },
             ],

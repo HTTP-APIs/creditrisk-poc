@@ -28,6 +28,24 @@ class TestAgent:
         response = self.agent.get(self.entrypoint_url + "/Borrower/1")
         assert response == portfolio_object
 
+    def test_get_class_properties(self, get_session_mock, portfolio_object):
+        """Tests get method from the Agent by class name and properties"""
+
+        get_session_mock.return_value.status_code = 200
+        get_session_mock.return_value.json.return_value = portfolio_object
+        response_url = self.agent.get(self.entrypoint_url + "/Portfolio/1")
+
+        response_cached = self.agent.get(
+            resource_type="Portfolio",
+            filters={"has_cutoff_date": "2020-03-20T14:28:23.382748"},
+            cached_limit=1,
+        )
+
+        response_cached = response_cached[0]
+        assert response_url == response_cached
+
+        response_not_cached = self.agent.get(self.entrypoint_url + "/Portfolio/1")
+        assert response_not_cached == response_cached
 
     def test_get_collection(
         self, get_session_mock, put_session_mock, borrower_object, simplified_collection
@@ -188,6 +206,35 @@ class TestAgent:
         )
         url_should_be = urlparse(
             "http://localhost:8080/creditrisk_api/Borrower_collection?borrower_is_part_of_portfolio%5Bhas_cutoff_date%5D=2020-03-20T14%3A28%3A23.382748&pageIndex=1&limit=10&offset=1"
+        )
+
+        assert sorted(url.query) == sorted(url_should_be.query)
+
+    def test_explicit_iri_templates(self, simplified_collection):
+        """Tests the URI constructed on the basis of Basic Representation"""
+
+        simplified_collection["search"][
+            "hydra:variableRepresentation"
+        ] = "hydra:ExplicitRepresentation"
+        sample_mapping_object = {
+            "url_demo": {"@id": "http://www.hydra-cg.com/"},
+            "prop_with_language": {"@language": "en", "@value": "A simple string"},
+            "prop_with_type": {
+                "@value": "5.5",
+                "@type": "http://www.w3.org/2001/XMLSchema#decimal",
+            },
+            "str_prop": "A simple string",
+        }
+
+        url = urlparse(
+            expand_template(
+                "http://localhost:8080/creditrisk_api/Borrower_collection",
+                simplified_collection,
+                sample_mapping_object,
+            )
+        )
+        url_should_be = urlparse(
+            "http://localhost:8080/credirisk_api/Borrower_collection?url_demo=http%3A%2F%2Fwww.hydra-cg.com%2F&prop_with_language=%22A%20simple%20string%22%40en&prop_with_type=%225.5%22%5E%5Ehttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23decimal&str_prop=%22A%20simple%20string%22"
         )
 
         assert sorted(url.query) == sorted(url_should_be.query)
